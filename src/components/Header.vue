@@ -1,31 +1,38 @@
 <template>
   <header class="site-header">
-    <nav aria-label="Main navigation" class="nav">
-      <button
-        class="menu-toggle"
-        :aria-expanded="menuOpen.toString()"
-        aria-controls="main-menu"
-        @click="toggleMenu"
-        @keyup.enter.space="toggleMenu"
-      >
-        <span class="sr-only">Toggle menu</span>
-        ☰
-      </button>
-      <ul
-        :class="['menu', { open: menuOpen }]"
-        id="main-menu"
-        role="menubar"
-      >
-        <li role="none"><a role="menuitem" href="/">Home</a></li>
-        <li role="none"><a role="menuitem" href="/articles">Articles</a></li>
-        <li role="none"><a role="menuitem" href="/why-a11y">Why a11y</a></li>
-      </ul>
-      <button class="theme-toggle" @click="toggleTheme" :aria-pressed="isDark.toString()">
-        <span class="sr-only">Toggle dark mode</span>
-        <span v-if="isDark">🌙</span>
-        <span v-else>☀️</span>
-      </button>
-    </nav>
+    <div class="container">
+      <nav aria-label="Main navigation" class="nav">
+        <a href="/" class="logo-link" aria-label="Home">
+          <span class="logo-bg">
+            <img src="/images/design/logo.png" alt="WhyA11y Logo" class="logo-img" />
+          </span>
+        </a>
+        <button
+          class="menu-toggle"
+          :aria-expanded="menuOpen.toString()"
+          aria-controls="main-menu"
+          @click="toggleMenu"
+          @keyup.enter.space="toggleMenu"
+        >
+          <span class="sr-only">Toggle menu</span>
+          ☰
+        </button>
+        <ul
+          :class="['menu', { open: menuOpen }]"
+          id="main-menu"
+          role="menubar"
+        >
+          <li role="none"><a role="menuitem" href="/">Home</a></li>
+          <li role="none"><a role="menuitem" href="/articles">Articles</a></li>
+          <li role="none"><a role="menuitem" href="/why-a11y">Why a11y</a></li>
+        </ul>
+        <button class="theme-toggle" @click="toggleTheme" :aria-pressed="isDark.toString()">
+          <span class="sr-only">Toggle dark mode</span>
+          <span v-if="isDark">🌙</span>
+          <span v-else>☀️</span>
+        </button>
+      </nav>
+    </div>
   </header>
 </template>
 
@@ -73,6 +80,32 @@ onMounted(() => {
   justify-content: space-between;
   max-width: 900px;
   margin: 0 auto;
+}
+.logo-link {
+  display: flex;
+  align-items: center;
+  margin-right: 1.5rem;
+  text-decoration: none;
+}
+.logo-bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #222;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
+}
+[data-theme="dark"] .logo-bg {
+  background: #fff;
+}
+.logo-img {
+  height: 2.2rem;
+  width: auto;
+  display: block;
+  filter: none;
+}
+[data-theme="dark"] .logo-img {
+  filter: invert(1) brightness(0.9) contrast(1.2);
 }
 .menu {
   display: flex;

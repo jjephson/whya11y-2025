@@ -24,6 +24,36 @@ import Footer from '../components/Footer.astro';
         padding: 0;
         font-family: system-ui, sans-serif;
         min-height: 100vh;
+        height: 100%;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      main {
+        flex: 1 0 auto;
+      }
+      .container {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        box-sizing: border-box;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      .breadcrumbs {
+        font-size: 0.95rem;
+        margin: 1rem 0 2rem 0;
+        color: var(--fg);
+      }
+      .breadcrumbs a {
+        color: var(--fg);
+        text-decoration: underline;
+      }
+      .breadcrumbs span {
+        margin: 0 0.5em;
       }
       *, *:focus {
         outline-color: var(--fg);
@@ -31,9 +61,34 @@ import Footer from '../components/Footer.astro';
     </style>
   </head>
   <body>
-    <Header />
-    <main id="main-content" tabindex="-1">
-      <slot />
+    <Header client:load />
+    <main id="main-content">
+      <div class="container">
+        {Astro.url.pathname !== '/' && (
+          <nav class="breadcrumbs" aria-label="Breadcrumb" role="navigation">
+            <ol style="list-style: none; display: flex; flex-wrap: wrap; padding: 0; margin: 1rem 0 2rem 0;">
+              <li>
+                <a href="/">Home</a>
+              </li>
+              {Astro.url.pathname.split('/').filter(Boolean).map((segment, i, arr) => {
+                const path = '/' + arr.slice(0, i + 1).join('/');
+                const isLast = i === arr.length - 1;
+                return (
+                  <li style="display: flex; align-items: center;">
+                    <span aria-hidden="true" style="margin: 0 0.5em;">/</span>
+                    {isLast ? (
+                      <span aria-current="page">{decodeURIComponent(segment)}</span>
+                    ) : (
+                      <a href={path}>{decodeURIComponent(segment)}</a>
+                    )}
+                  </li>
+                );
+              })}
+            </ol>
+          </nav>
+        )}
+        <slot />
+      </div>
     </main>
     <Footer />
   </body>
