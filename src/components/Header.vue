@@ -1,38 +1,37 @@
 <template>
   <header class="site-header">
-    <div class="container">
-      <nav aria-label="Main navigation" class="nav">
-        <a href="/" class="logo-link" aria-label="Home">
-          <span class="logo-bg">
-            <img src="/images/design/logo.png" alt="WhyA11y Logo" class="logo-img" />
-          </span>
-        </a>
-        <button
-          class="menu-toggle"
-          :aria-expanded="menuOpen.toString()"
-          aria-controls="main-menu"
-          @click="toggleMenu"
-          @keyup.enter.space="toggleMenu"
-        >
-          <span class="sr-only">Toggle menu</span>
-          ☰
-        </button>
-        <ul
-          :class="['menu', { open: menuOpen }]"
-          id="main-menu"
-          role="menubar"
-        >
-          <li role="none"><a role="menuitem" href="/">Home</a></li>
-          <li role="none"><a role="menuitem" href="/articles">Articles</a></li>
-          <li role="none"><a role="menuitem" href="/why-a11y">Why a11y</a></li>
-        </ul>
-        <button class="theme-toggle" @click="toggleTheme" :aria-pressed="isDark.toString()">
-          <span class="sr-only">Toggle dark mode</span>
-          <span v-if="isDark">🌙</span>
-          <span v-else>☀️</span>
-        </button>
-      </nav>
-    </div>
+    <nav aria-label="Main navigation" class="nav">
+      <a href="/" class="logo-link" aria-label="Home">
+        <span class="logo-bg">
+          <img src="/images/design/logo.png" alt="WhyA11y Logo" class="logo-img" />
+        </span>
+      </a>
+      <button
+        class="menu-toggle"
+        :aria-expanded="menuOpen.toString()"
+        aria-controls="main-menu"
+        @click="toggleMenu"
+      >
+        <span class="sr-only">Toggle menu</span>
+        ☰
+      </button>
+      <ul
+        :class="['menu', { open: menuOpen } ]"
+        id="main-menu"
+        :tabindex="menuOpen ? 0 : -1"
+        :aria-hidden="(!menuOpen).toString()"
+        @keydown.esc="menuOpen = false"
+      >
+        <li><a href="/">Home</a></li>
+        <li><a href="/articles">Articles</a></li>
+        <li><a href="/why-a11y">Why a11y</a></li>
+      </ul>
+      <button class="theme-toggle" @click="toggleTheme" :aria-pressed="isDark.toString()">
+        <span class="sr-only">Toggle dark mode</span>
+        <span v-if="isDark">🌙</span>
+        <span v-else>☀️</span>
+      </button>
+    </nav>
   </header>
 </template>
 
@@ -80,12 +79,18 @@ onMounted(() => {
   justify-content: space-between;
   max-width: 900px;
   margin: 0 auto;
+  position: relative;
 }
 .logo-link {
   display: flex;
   align-items: center;
   margin-right: 1.5rem;
   text-decoration: none;
+  flex-shrink: 0;
+  position: static;
+  left: auto;
+  transform: none;
+  z-index: auto;
 }
 .logo-bg {
   display: flex;
@@ -113,6 +118,15 @@ onMounted(() => {
   list-style: none;
   margin: 0;
   padding: 0;
+  align-items: center;
+  position: static;
+  top: auto;
+  right: auto;
+  left: auto;
+  background: none;
+  border-bottom: none;
+  min-width: 0;
+  box-shadow: none;
 }
 .menu li a {
   color: var(--fg);
@@ -134,6 +148,8 @@ onMounted(() => {
   font-size: 2rem;
   color: var(--fg);
   cursor: pointer;
+  position: static;
+  z-index: auto;
 }
 .theme-toggle {
   background: none;
@@ -148,6 +164,7 @@ onMounted(() => {
   justify-content: center;
   margin-left: 1rem;
   cursor: pointer;
+  z-index: auto;
 }
 .sr-only {
   position: absolute;
@@ -159,23 +176,52 @@ onMounted(() => {
   clip: rect(0,0,0,0);
   border: 0;
 }
+@media (max-width: 900px) {
+  .nav {
+    max-width: 100%;
+  }
+}
 @media (max-width: 600px) {
+  .nav {
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+  }
+  .logo-link {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    z-index: 12;
+  }
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 13;
+  }
   .menu {
     display: none;
     flex-direction: column;
     position: absolute;
     top: 3.5rem;
-    left: 0;
     right: 0;
+    left: auto;
     background: var(--bg);
     border-bottom: 1px solid var(--fg);
-    z-index: 10;
+    z-index: 11;
+    min-width: 160px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    align-items: flex-start;
   }
   .menu.open {
     display: flex;
   }
-  .menu-toggle {
-    display: block;
+  .theme-toggle {
+    margin-left: 0.5rem;
+    z-index: 13;
   }
 }
 </style> 
