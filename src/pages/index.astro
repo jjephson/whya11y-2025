@@ -7,15 +7,15 @@ const articles = await getCollection('articles');
 
 <BlogLayout title="Home | WhyA11y Blog">
 		<h1>Astro</h1>
-  <p>Welcome to the WhyA11y Blog! This site is focused on accessibility and built with Astro and Vue.</p>
-  <h2>Articles</h2>
-  <ul>
-    {articles.map((article: any) => (
-      <li>
-        <a href={`/articles/${article.slug}`}>{article.data.title}</a> — <em>{article.data.date}</em>
-        <br />
-        <small>{article.data.description}</small>
-      </li>
-    ))}
-  </ul>
+	<p>Welcome to the WhyA11y Blog! This site is focused on accessibility and built with Astro and Vue.</p>
+	<h2>Articles</h2>
+	<ul>
+		{articles.map((article: any) => (
+			<li>
+				<a href={`/articles/${article.slug}`}>{article.data.title}</a> — <em>{article.data.date}</em>
+				<br />
+				<small>{article.data.description}</small>
+			</li>
+		))}
+	</ul>
 </BlogLayout>

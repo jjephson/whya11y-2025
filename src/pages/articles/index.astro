@@ -6,14 +6,14 @@ const articles = await getCollection('articles');
 ---
 
 <BlogLayout title="Articles | WhyA11y Blog">
-  <h1>All Articles</h1>
-  <ul>
-    {articles.map((article: any) => (
-      <li>
-        <a href={`/articles/${article.slug}`}>{article.data.title}</a> — <em>{article.data.date}</em>
-        <br />
-        <small>{article.data.description}</small>
-      </li>
-    ))}
-  </ul>
+	<h1>All Articles</h1>
+	<ul>
+		{articles.map((article: any) => (
+			<li>
+				<a href={`/articles/${article.slug}`}>{article.data.title}</a> — <em>{article.data.date}</em>
+				<br />
+				<small>{article.data.description}</small>
+			</li>
+		))}
+	</ul>
 </BlogLayout> 
