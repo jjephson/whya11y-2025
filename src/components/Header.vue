@@ -7,6 +7,11 @@
 				</span>
 				<span class="logo-text">Why A11y?</span>
 			</a>
+			<button class="theme-toggle" @click="toggleTheme" :aria-pressed="isDark.toString()">
+				<span class="sr-only">Toggle dark mode</span>
+				<span v-if="isDark">🌙</span>
+				<span v-else>☀️</span>
+			</button>
 		</div>
 		<nav aria-label="Main navigation" class="nav">
 			<ul class="menu" id="main-menu">
@@ -14,12 +19,9 @@
 				<li><a href="/why-a11y">Why a11y?</a></li>
 				<li><a href="/articles">Articles</a></li>
 			</ul>
-			<!-- <button class="theme-toggle" @click="toggleTheme" :aria-pressed="isDark.toString()">
-				<span class="sr-only">Toggle dark mode</span>
-				<span v-if="isDark">🌙</span>
-				<span v-else>☀️</span>
-			</button> -->
+			
 		</nav>
+
 	</header>
 </template>
 
@@ -132,9 +134,6 @@
 		font-size: 1.5rem;
 		width: 2.5rem;
 		height: 2.5rem;
-		display: flex;
-		align-items: center;
-		justify-content: center;
 		margin-left: 1rem;
 		cursor: pointer;
 		z-index: auto;
