@@ -7,14 +7,14 @@ import Footer from '../components/Footer.astro';
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
-		<title>{Astro.props.title || 'WhyA11y Blog'}</title>
+		<title>{Astro.props.title || 'WhyA11y'}</title>
 		<style>
 			:root {
 				--bg: #fff;
-				--fg: #000;
+				--fg: rgb(54, 54, 54);
 			}
 			[data-theme="dark"] {
-				--bg: #000;
+				--bg: rgb(54, 54, 54);
 				--fg: #fff;
 			}
 			html, body {
@@ -22,7 +22,9 @@ import Footer from '../components/Footer.astro';
 				color: var(--fg);
 				margin: 0;
 				padding: 0;
-				font-family: 'Libre Franklin', Helvetica, Arial, sans-serif;
+				font-family: Georgia, Times, "Times New Roman", serif;
+				font-size: 20px;
+				line-height: 25px;
 				min-height: 100vh;
 				height: 100%;
 			}
@@ -44,8 +46,8 @@ import Footer from '../components/Footer.astro';
 				padding-right: 1rem;
 			}
 			.breadcrumbs {
-				font-size: 0.95rem;
 				margin: 1rem 0 2rem 0;
+				font-size: 1rem;
 				color: var(--fg);
 			}
 			.breadcrumbs a {
@@ -53,7 +55,7 @@ import Footer from '../components/Footer.astro';
 				text-decoration: underline;
 			}
 			.breadcrumbs span {
-				margin: 0 0.5em;
+				margin: 0 .5em;
 			}
 			*, *:focus {
 				outline-color: var(--fg);

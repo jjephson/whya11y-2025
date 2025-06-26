@@ -60,8 +60,8 @@
 		align-items: center;
 		justify-content: space-between;
 		max-width: 900px;
-		margin: 0 auto;
 		position: relative;
+		background-color: rgb(247, 247, 247);
 	}
 	.logo-link {
 		display: inline-block;
@@ -161,6 +161,7 @@
 	@media (max-width: 600px) {
 		.site-header {
 			padding: 0;
+			font-family: 'Libre Franklin', Helvetica, Arial, sans-serif;
 		}
 		.top-container {
 			padding:  .5rem;
@@ -171,11 +172,11 @@
 			border-bottom: 1px solid rgb(226, 226, 226);
 		}
 		.menu {
-			gap: 1rem;
+			gap: 1.5rem;
 		}
 		.menu li a {
 			display: block;
-			padding: .75rem 0;
+			padding: .75rem 0 .5rem;
 			font-size: 13px;
 			font-weight: normal;
 			text-transform: none;
