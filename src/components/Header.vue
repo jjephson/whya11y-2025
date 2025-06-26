@@ -1,34 +1,24 @@
 <template>
 	<header class="site-header">
-		<nav aria-label="Main navigation" class="nav">
+		<div class="top-container">
 			<a href="/" class="logo-link">
 				<span class="logo-bg">
 					<img src="/images/design/logo.png" alt="WhyA11y home page" class="logo-img" />
 				</span>
+				<span class="logo-text">Why A11y?</span>
 			</a>
-			<button
-				class="menu-toggle"
-				:aria-expanded="menuOpen.toString()"
-				aria-controls="main-menu"
-				@click="toggleMenu"
-			>
-				<span class="sr-only">Toggle menu</span>
-				☰
-			</button>
-			<ul
-				:class="['menu', { open: menuOpen }]"
-				id="main-menu"
-				@keydown.esc="menuOpen = false"
-			>
+		</div>
+		<nav aria-label="Main navigation" class="nav">
+			<ul class="menu" id="main-menu">
 				<li><a href="/">Home</a></li>
 				<li><a href="/why-a11y">Why a11y?</a></li>
 				<li><a href="/articles">Articles</a></li>
 			</ul>
-			<button class="theme-toggle" @click="toggleTheme" :aria-pressed="isDark.toString()">
+			<!-- <button class="theme-toggle" @click="toggleTheme" :aria-pressed="isDark.toString()">
 				<span class="sr-only">Toggle dark mode</span>
 				<span v-if="isDark">🌙</span>
 				<span v-else>☀️</span>
-			</button>
+			</button> -->
 		</nav>
 	</header>
 </template>
@@ -36,12 +26,7 @@
 <script setup>
 	import { ref, onMounted } from 'vue';
 
-	const menuOpen = ref(false);
 	const isDark = ref(false);
-
-	function toggleMenu() {
-		menuOpen.value = !menuOpen.value;
-	}
 
 	function setTheme(dark) {
 		isDark.value = dark;
@@ -68,7 +53,6 @@
 	.site-header {
 		background: var(--bg);
 		color: var(--fg);
-		border-bottom: 1px solid var(--fg);
 		padding: .5rem 1rem;
 	}
 	.nav {
@@ -80,20 +64,11 @@
 		position: relative;
 	}
 	.logo-link {
-		display: flex;
-		align-items: center;
-		margin-right: 1.5rem;
-		text-decoration: none;
-		flex-shrink: 0;
-		position: static;
-		left: auto;
-		transform: none;
-		z-index: auto;
+		display: inline-block;
 	}
 	.logo-bg {
-		display: flex;
-		align-items: center;
-		justify-content: center;
+		display: inline-block;
+		vertical-align: middle;
 		background: #222;
 		border-radius: .5rem;
 		padding: .25rem .5rem;
@@ -107,20 +82,24 @@
 		display: block;
 		filter: none;
 	}
+	.logo-text {
+		display: inline-block;
+		margin-left: .5rem;
+		font-size: 1rem;
+		color: var(--fg);
+		text-decoration: none;
+	}
 	[data-theme="dark"] .logo-img {
 		filter: invert(1) brightness(0.9) contrast(1.2);
 	}
 	.menu {
 		display: flex;
-		gap: 1rem;
+		gap: 1.5rem;
 		list-style: none;
-		margin: 0;
+		margin: 0 1.5rem 0 0;
 		padding: 0;
 		align-items: center;
 		position: static;
-		top: auto;
-		right: auto;
-		left: auto;
 		background: none;
 		border-bottom: none;
 		min-width: 0;
@@ -130,24 +109,20 @@
 		color: var(--fg);
 		text-decoration: none;
 		font-weight: bold;
-		padding: .5rem .75rem;
-		border-radius: 4px;
+		font-size: 1rem;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		padding: .5rem 0;
+		border-radius: 0;
+		border-bottom: 2px solid transparent;
+		transition: border-color 0.2s, color 0.2s;
 	}
 	.menu li a:focus,
 	.menu li a:hover {
-		background: var(--fg);
-		color: var(--bg);
-		outline: 2px solid var(--fg);
-	}
-	.menu-toggle {
-		display: none;
-		background: none;
-		border: none;
-		font-size: 2rem;
+		border-bottom: 2px solid var(--fg);
 		color: var(--fg);
-		cursor: pointer;
-		position: static;
-		z-index: auto;
+		background: none;
+		outline: none;
 	}
 	.theme-toggle {
 		background: none;
@@ -178,48 +153,32 @@
 		.nav {
 			max-width: 100%;
 		}
+		.menu {
+			gap: 1rem;
+			margin-right: 0.5rem;
+		}
 	}
 	@media (max-width: 600px) {
+		.site-header {
+			padding: 0;
+		}
+		.top-container {
+			padding:  .5rem;
+		}
 		.nav {
-			flex-direction: row;
-			align-items: center;
-			position: relative;
-		}
-		.logo-link {
-			position: absolute;
-			left: 50%;
-			transform: translateX(-50%);
-			margin: 0;
-			z-index: 12;
-		}
-		.menu-toggle {
-			display: block;
-			position: absolute;
-			right: .5rem;
-			top: 50%;
-			transform: translateY(-50%);
-			z-index: 13;
+			flex-direction: column;
+			border-top: 1px solid rgb(226, 226, 226);
+			border-bottom: 1px solid rgb(226, 226, 226);
 		}
 		.menu {
-			display: none;
-			flex-direction: column;
-			position: absolute;
-			top: 3.5rem;
-			right: 0;
-			left: auto;
-			background: var(--bg);
-			border-bottom: 1px solid var(--fg);
-			z-index: 11;
-			min-width: 160px;
-			box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-			align-items: flex-start;
+			gap: 1rem;
 		}
-		.menu.open {
-			display: flex;
-		}
-		.theme-toggle {
-			margin-left: .5rem;
-			z-index: 13;
+		.menu li a {
+			display: block;
+			padding: .75rem 0;
+			font-size: 13px;
+			font-weight: normal;
+			text-transform: none;
 		}
 	}
 </style> 
