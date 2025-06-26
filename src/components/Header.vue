@@ -19,9 +19,7 @@
 				<li><a href="/why-a11y">Why a11y?</a></li>
 				<li><a href="/articles">Articles</a></li>
 			</ul>
-			
 		</nav>
-
 	</header>
 </template>
 
@@ -55,7 +53,6 @@
 	.site-header {
 		background: var(--bg);
 		color: var(--fg);
-		padding: .5rem 1rem;
 	}
 	.nav {
 		display: flex;
@@ -163,7 +160,7 @@
 			font-family: 'Libre Franklin', Helvetica, Arial, sans-serif;
 		}
 		.top-container {
-			padding:  .5rem;
+			padding:  .5rem .75rem;
 		}
 		.nav {
 			flex-direction: column;

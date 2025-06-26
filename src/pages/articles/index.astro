@@ -5,7 +5,7 @@ import { getCollection } from 'astro:content';
 const articles = await getCollection('articles');
 ---
 
-<BlogLayout title="Articles | WhyA11y Blog">
+<BlogLayout title="Articles | WhyA11y">
 	<h1>All Articles</h1>
 	<ul>
 		{articles.map((article: any) => (
