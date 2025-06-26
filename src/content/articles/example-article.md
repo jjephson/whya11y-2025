@@ -11,4 +11,4 @@ This is the body of the example article. You can write Markdown here!
 
 - Accessible
 - Fast
-- Easy to manage 
+- Easy to manage    
