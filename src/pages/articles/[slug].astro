@@ -12,9 +12,13 @@ export async function getStaticPaths() {
 
 const { article } = Astro.props;
 const { Content } = await article.render();
+
+// Header image logic
+const headerImage = article.data.headerImage || `https://source.unsplash.com/random/1200x320?sig=${Math.floor(Math.random()*1000)}`;
 ---
 
 <BlogLayout title={article.data.title}>
+	{headerImage && <img src={headerImage} alt="" class="article-header-image" />}
 	<h1>{article.data.title}</h1>
 	<p class="meta">Published on <time datetime={article.data.date}>{article.data.date}</time></p>
 	<p class="description">{article.data.description}</p>
