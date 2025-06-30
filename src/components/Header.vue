@@ -14,6 +14,7 @@
 			</button>
 		</div>
 		<nav aria-label="Main navigation" class="nav">
+			<p>Menu:</p>
 			<ul class="menu" id="main-menu">
 				<li><a href="/">Home</a></li>
 				<li><a href="/why-a11y">Why a11y?</a></li>
@@ -95,7 +96,6 @@
 		display: flex;
 		gap: 1.5rem;
 		list-style: none;
-		margin: 0 1.5rem 0 0;
 		padding: 0;
 		align-items: center;
 		position: static;
@@ -163,11 +163,23 @@
 			padding:  .5rem .75rem;
 		}
 		.nav {
-			flex-direction: column;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
 			border-top: 1px solid rgb(226, 226, 226);
 			border-bottom: 1px solid rgb(226, 226, 226);
 		}
+		.nav p {
+			padding: .75rem 0 .5rem;
+			margin: 0;
+			font-size: 13px;
+			font-weight: bold;
+			text-transform: none;
+			border-right: 1px solid rgb(226, 226, 226);
+		}
 		.menu {
+			
+			margin: 0;
 			gap: 1.5rem;
 		}
 		.menu li a {
