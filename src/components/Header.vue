@@ -14,11 +14,18 @@
 			</button>
 		</div>
 		<nav aria-label="Main navigation" class="nav">
-			<p>Menu:</p>
+			<p>Menu</p>
 			<ul class="menu" id="main-menu">
-				<li><a href="/">Home</a></li>
-				<li><a href="/why-a11y">Why a11y?</a></li>
-				<li><a href="/articles">Articles</a></li>
+				<li v-for="link in menuLinks" :key="link.href">
+					<a
+						:href="link.href"
+						:class="{ active: currentPath === (link.href === '/' ? '/' : link.href.replace(/\/$/, '')) }"
+						:aria-current="currentPath === (link.href === '/' ? '/' : link.href.replace(/\/$/, '')) ? 'page' : null"
+					>
+						{{ link.label }}
+						<span v-if="currentPath === (link.href === '/' ? '/' : link.href.replace(/\/$/, ''))" class="sr-only">(current)</span>
+					</a>
+				</li>
 			</ul>
 		</nav>
 	</header>
@@ -48,6 +55,19 @@
 			setTheme(prefersDark);
 		}
 	});
+
+	// --- Active page logic ---
+	const menuLinks = [
+		{ href: '/', label: 'Home' },
+		{ href: '/why-a11y', label: 'Why a11y?' },
+		{ href: '/articles', label: 'Articles' }
+	];
+
+	const currentPath = ref('/');
+
+	onMounted(() => {
+		currentPath.value = window.location.pathname.replace(/\/$/, '') || '/';
+	});
 </script>
 
 <style scoped>
@@ -57,7 +77,6 @@
 	}
 	.nav {
 		display: flex;
-		align-items: center;
 		justify-content: space-between;
 		max-width: 900px;
 		position: relative;
@@ -97,8 +116,6 @@
 		gap: 1.5rem;
 		list-style: none;
 		padding: 0;
-		align-items: center;
-		position: static;
 		background: none;
 		border-bottom: none;
 		min-width: 0;
@@ -170,15 +187,14 @@
 			border-bottom: 1px solid rgb(226, 226, 226);
 		}
 		.nav p {
-			padding: .75rem 0 .5rem;
-			margin: 0;
+			padding: .75rem 1.5rem 0 0;
+			margin: 0 1.5rem 0 0;
 			font-size: 13px;
 			font-weight: bold;
 			text-transform: none;
 			border-right: 1px solid rgb(226, 226, 226);
 		}
 		.menu {
-			
 			margin: 0;
 			gap: 1.5rem;
 		}
@@ -189,5 +205,10 @@
 			font-weight: normal;
 			text-transform: none;
 		}
+	}
+	.menu li a.active,
+	.menu li a[aria-current="page"] {
+		border-bottom: 2px solid var(--fg);
+		color: var(--fg);
 	}
 </style> 
