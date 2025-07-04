@@ -13,23 +13,29 @@ import Footer from '../components/Footer.astro';
 				margin: 0 0 2rem 0;
 				font-size: 0.8rem;
 				color: var(--fg);
+				font-family: 'Libre Franklin', Helvetica, Arial, sans-serif;
 			}
 			.breadcrumbs a {
 				color: var(--fg);
 				text-decoration: underline;
 			}
-			.breadcrumbs span {
-				margin: 0 .5em;
-			}
 			.breadcrumbs ol {
-				list-style: none;
 				display: flex;
 				flex-wrap: wrap;
 				padding: 0;
 				margin: 0;
+				list-style: none;
 			}
-			*, *:focus {
-				outline-color: var(--fg);
+			.breadcrumbs li {
+				display: flex;
+				align-items: center;
+			}
+			.breadcrumbs li:first-child:before {
+				content: "🌐";
+				display: inline-block;
+				margin-right: .75em;
+				font-size: 1em;
+				vertical-align: middle;
 			}
 		</style>
 		<link rel="stylesheet" href="/styles/global.css" />
@@ -48,7 +54,7 @@ import Footer from '../components/Footer.astro';
 								const path = '/' + arr.slice(0, i + 1).join('/');
 								const isLast = i === arr.length - 1;
 								return (
-									<li style="display: flex; align-items: center;">
+									<li>
 										<span aria-hidden="true" style="margin: 0 0.5em;">/</span>
 										{isLast ? (
 											<span aria-current="page">{decodeURIComponent(segment)}</span>

@@ -80,7 +80,8 @@
 		justify-content: space-between;
 		max-width: 900px;
 		position: relative;
-		background-color: rgb(247, 247, 247);
+		background: #F7F7F7;
+		background: linear-gradient(180deg,rgba(247, 247, 247, 1) 0%, rgba(245, 245, 245, 1) 100%);
 	}
 	.logo-link {
 		display: inline-block;
