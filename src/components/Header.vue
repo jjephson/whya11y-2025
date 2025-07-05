@@ -58,7 +58,6 @@
 
 	// --- Active page logic ---
 	const menuLinks = [
-		{ href: '/', label: 'Home' },
 		{ href: '/why-a11y', label: 'Why a11y?' },
 		{ href: '/articles', label: 'Articles' },
 		{ href: '/code-examples', label: 'Code Examples' }
