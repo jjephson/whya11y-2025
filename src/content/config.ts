@@ -9,4 +9,13 @@ const articles = defineCollection({
 	}),
 });
 
-export const collections = { articles: articles };
+const codeExamples = defineCollection({
+	schema: z.object({
+		title: z.string(),
+		description: z.string(),
+		date: z.string(),
+		headerImage: z.string().optional(),
+	}),
+});
+
+export const collections = { articles: articles, codeExamples: codeExamples };

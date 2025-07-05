@@ -1,0 +1,39 @@
+---
+import BlogLayout from '../../layouts/BlogLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+	const codeExamples = await getCollection('codeExamples');
+	return codeExamples.map(example => ({
+		params: { slug: example.slug },
+		props: { example },
+	}));
+}
+
+const { example } = Astro.props;
+const { Content } = await example.render();
+
+// Header image logic
+const headerImage = example.data.headerImage || `https://source.unsplash.com/random/1200x320?sig=${Math.floor(Math.random()*1000)}`;
+---
+
+<BlogLayout title={example.data.title}>
+	<article class="article-content">
+		{headerImage && <img src={headerImage} alt="" class="article-header-image" />}
+		<h1>{example.data.title}</h1>
+		<p class="meta">Published on <time datetime={example.data.date}>{example.data.date}</time></p>
+		<p class="description">{example.data.description}</p>
+		<Content />
+	</article>
+</BlogLayout>
+
+<style>
+	.meta {
+		font-family: 'Libre Franklin', Helvetica, Arial, sans-serif;
+		font-size: 13px;
+		margin: 0 0 .5rem;
+	}
+	.description {
+		font-size: 20px;
+	}
+</style> 

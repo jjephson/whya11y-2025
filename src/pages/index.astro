@@ -3,6 +3,7 @@ import BlogLayout from '../layouts/BlogLayout.astro';
 import { getCollection } from 'astro:content';
 
 const articles = await getCollection('articles');
+const codeExamples = await getCollection('codeExamples');
 ---
 
 <BlogLayout title="Home | WhyA11y">
@@ -15,6 +16,16 @@ const articles = await getCollection('articles');
 				<a href={`/articles/${article.slug}`}>{article.data.title}</a> — <em>{article.data.date}</em>
 				<br />
 				<small>{article.data.description}</small>
+			</li>
+		))}
+	</ul>
+	<h2>Code Examples</h2>
+	<ul>
+		{codeExamples.map((example: any) => (
+			<li>
+				<a href={`/code-examples/${example.slug}`}>{example.data.title}</a> — <em>{example.data.date}</em>
+				<br />
+				<small>{example.data.description}</small>
 			</li>
 		))}
 	</ul>

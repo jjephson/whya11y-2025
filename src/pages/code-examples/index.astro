@@ -1,0 +1,20 @@
+---
+import BlogLayout from '../../layouts/BlogLayout.astro';
+import { getCollection } from 'astro:content';
+
+const codeExamples = await getCollection('codeExamples');
+---
+
+<BlogLayout title="Code Examples | WhyA11y">
+	<h1>Code Examples</h1>
+	<p>Practical, accessible code examples you can use in your projects.</p>
+	<ul>
+		{codeExamples.map((example: any) => (
+			<li>
+				<a href={`/code-examples/${example.slug}`}>{example.data.title}</a> — <em>{example.data.date}</em>
+				<br />
+				<small>{example.data.description}</small>
+			</li>
+		))}
+	</ul>
+</BlogLayout> 
