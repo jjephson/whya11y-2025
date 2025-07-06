@@ -72,16 +72,51 @@
 
 <style scoped>
 	.site-header {
+		padding: 0;
 		background: var(--bg);
 		color: var(--fg);
+		font-family: 'Libre Franklin', Helvetica, Arial, sans-serif;
+	}
+	.top-container {
+		padding:  .5rem .75rem;
 	}
 	.nav {
 		display: flex;
-		justify-content: space-between;
-		max-width: 900px;
-		position: relative;
-		background: #F7F7F7;
+		justify-content: center;
+		background: #f7f7f7;
 		background: linear-gradient(180deg,rgba(247, 247, 247, 1) 0%, rgba(245, 245, 245, 1) 100%);
+		border-top: 1px solid rgb(226, 226, 226);
+		border-bottom: 1px solid rgb(226, 226, 226);
+	}
+	.menu {
+		display: flex;
+		gap: 1.5rem;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	.menu li a {
+		display: block;
+		padding: .75rem 0 .5rem;
+		border-radius: 0;
+		border-bottom: 2px solid transparent;
+		transition: border-color 0.2s, color 0.2s;
+		font-size: 13px;
+		letter-spacing: 0.04em;
+		text-decoration: none;
+		color: var(--fg);
+	}
+	.menu li a:focus,
+	.menu li a:hover {
+		border-bottom: 2px solid var(--fg);
+		color: var(--fg);
+		background: none;
+		outline: none;
+	}
+	.menu li a.active,
+	.menu li a[aria-current="page"] {
+		border-bottom: 2px solid var(--fg);
+		color: var(--fg);
 	}
 	.logo-link {
 		display: inline-block;
@@ -97,49 +132,16 @@
 		background: #fff;
 	}
 	.logo-img {
-		height: 2.2rem;
-		width: auto;
 		display: block;
-		filter: none;
+		height: 2.2rem;
 	}
 	.logo-text {
 		display: inline-block;
 		margin-left: .5rem;
-		font-size: 1rem;
 		color: var(--fg);
-		text-decoration: none;
 	}
 	[data-theme="dark"] .logo-img {
 		filter: invert(1) brightness(0.9) contrast(1.2);
-	}
-	.menu {
-		display: flex;
-		gap: 1.5rem;
-		list-style: none;
-		padding: 0;
-		background: none;
-		border-bottom: none;
-		min-width: 0;
-		box-shadow: none;
-	}
-	.menu li a {
-		color: var(--fg);
-		text-decoration: none;
-		font-weight: bold;
-		font-size: 1rem;
-		text-transform: uppercase;
-		letter-spacing: 0.04em;
-		padding: .5rem 0;
-		border-radius: 0;
-		border-bottom: 2px solid transparent;
-		transition: border-color 0.2s, color 0.2s;
-	}
-	.menu li a:focus,
-	.menu li a:hover {
-		border-bottom: 2px solid var(--fg);
-		color: var(--fg);
-		background: none;
-		outline: none;
 	}
 	.theme-toggle {
 		background: none;
@@ -151,56 +153,5 @@
 		height: 2.5rem;
 		margin-left: 1rem;
 		cursor: pointer;
-		z-index: auto;
-	}
-	
-	@media (max-width: 900px) {
-		.nav {
-			max-width: 100%;
-		}
-		.menu {
-			gap: 1rem;
-			margin-right: 0.5rem;
-		}
-	}
-	@media (max-width: 600px) {
-		.site-header {
-			padding: 0;
-			font-family: 'Libre Franklin', Helvetica, Arial, sans-serif;
-		}
-		.top-container {
-			padding:  .5rem .75rem;
-		}
-		.nav {
-			display: flex;
-			flex-direction: row;
-			justify-content: center;
-			border-top: 1px solid rgb(226, 226, 226);
-			border-bottom: 1px solid rgb(226, 226, 226);
-		}
-		.nav p {
-			padding: .75rem 1.5rem 0 0;
-			margin: 0 1.5rem 0 0;
-			font-size: 13px;
-			font-weight: bold;
-			text-transform: none;
-			border-right: 1px solid rgb(226, 226, 226);
-		}
-		.menu {
-			margin: 0;
-			gap: 1.5rem;
-		}
-		.menu li a {
-			display: block;
-			padding: .75rem 0 .5rem;
-			font-size: 13px;
-			font-weight: normal;
-			text-transform: none;
-		}
-	}
-	.menu li a.active,
-	.menu li a[aria-current="page"] {
-		border-bottom: 2px solid var(--fg);
-		color: var(--fg);
 	}
 </style> 
