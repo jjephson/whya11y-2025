@@ -12,7 +12,7 @@ html {
 	--border: #404040;
 	
 	/* Accessible accent colors for dark mode */
-	--accent-primary: #3b82f6; /* Lighter blue for dark mode */
+	--accent-primary: #3b82f6; /* Better blue for dark mode - WCAG AA compliant */
 	--accent-secondary: #10b981; /* Lighter green for dark mode */
 	--accent-warning: #f59e0b; /* Lighter orange for dark mode */
 	--accent-error: #ef4444; /* Lighter red for dark mode */
@@ -37,14 +37,14 @@ html {
 	--border: #e0e0e0;
 	
 	/* Accessible accent colors */
-	--accent-primary: #2563eb; /* Blue - meets WCAG AA contrast */
+	--accent-primary: #1e40af; /* Even darker blue - WCAG AA compliant */
 	--accent-secondary: #059669; /* Green - meets WCAG AA contrast */
 	--accent-warning: #d97706; /* Orange - meets WCAG AA contrast */
 	--accent-error: #dc2626; /* Red - meets WCAG AA contrast */
 	
 	/* Semantic colors */
 	--link: var(--accent-primary);
-	--link-hover: #1d4ed8;
+	--link-hover: #1e3a8a;
 	--success: var(--accent-secondary);
 	--warning: var(--accent-warning);
 	--error: var(--accent-error);
