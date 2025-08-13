@@ -14,7 +14,6 @@
 			</button>
 		</div>
 		<nav aria-label="Main navigation" class="nav">
-			<!-- <p>Menu</p> -->
 			<ul class="menu" id="main-menu">
 				<li v-for="link in menuLinks" :key="link.href">
 					<a
@@ -60,7 +59,8 @@
 	const menuLinks = [
 		{ href: '/why-a11y', label: 'Why a11y?' },
 		{ href: '/articles', label: 'Articles' },
-		{ href: '/code-examples', label: 'Code Examples' }
+		{ href: '/code-examples', label: 'Code Examples' },
+		{ href: '/en301549', label: 'EN 301 549' }
 	];
 
 	const currentPath = ref('/');
