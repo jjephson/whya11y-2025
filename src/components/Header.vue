@@ -97,6 +97,8 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		max-width: 1200px;
+		margin: 0 auto;
 	}
 	.nav {
 		display: flex;
@@ -239,6 +241,8 @@
 	@media (max-width: 768px) {
 		.top-container {
 			padding: 0.5rem 1rem;
+			max-width: 100%;
+			margin: 0 1rem;
 		}
 
 		.logo-text {
@@ -278,6 +282,8 @@
 	@media (max-width: 480px) {
 		.top-container {
 			padding: 0.5rem 0.75rem;
+			max-width: 100%;
+			margin: 0 0.75rem;
 		}
 
 		.logo-text {
