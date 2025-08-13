@@ -2,7 +2,7 @@
 import BlogLayout from '../layouts/BlogLayout.astro';
 ---
 <BlogLayout title="Why a11y | WhyA11y">
-	<div id="why-a11y-content">
+	<section id="why-a11y-content">
 		<h1>Why Accessibility (a11y)?</h1>
 		<p>Accessibility isn’t just about helping people with disabilities—it’s about making the web better for everyone. When we design and build with accessibility in mind, we create experiences that are easier to use, more inclusive, and more future-proof.</p>
 		<p>Globally, over 1 billion people live with some form of disability, whether permanent, temporary, or situational. That could mean someone who is blind, someone recovering from an injury, or simply someone trying to read a website in bright sunlight on a small phone screen. Accessibility ensures that all of them can interact with your content without unnecessary barriers.</p>
@@ -14,43 +14,38 @@ import BlogLayout from '../layouts/BlogLayout.astro';
 			<li>Business growth – A more accessible product reaches a wider audience, expanding your customer base and building brand loyalty.</li>
 		</ul>
 		<p>Accessibility is not an optional “extra feature.” It’s a core part of good design and responsible development. When we make the web accessible, we make it more flexible, resilient, and enjoyable for everyone—today and in the future.</p>
-	</div>
+	</section>
 </BlogLayout>
 
 <style>
-	#why-a11y-content {
+	section {
 		max-width: 800px;
 		margin: 0 auto;
-		padding: 0 1rem;
+		padding: 0;
 	}
-
-	#why-a11y-content h1 {
+	section h1 {
 		font-size: 2.5rem;
 		line-height: 1.2;
 		margin: 0 0 1.5rem 0;
 		color: var(--fg);
 	}
-
-	#why-a11y-content p {
+	section p {
 		margin: 0 0 1.5rem 0;
 		line-height: 1.6;
 		color: var(--fg);
 		font-size: 1.1rem;
 	}
-
-	#why-a11y-content ul {
+	section ul {
 		margin: 1.5rem 0;
 		padding-left: 1.5rem;
 	}
-
-	#why-a11y-content li {
+	section li {
 		margin: 0.5rem 0;
 		line-height: 1.6;
 		color: var(--fg);
 	}
-
 	@media (max-width: 768px) {
-		#why-a11y-content h1 {
+		section h1 {
 			font-size: 2rem;
 		}
 	}

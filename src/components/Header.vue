@@ -240,39 +240,31 @@
 
 	@media (max-width: 768px) {
 		.top-container {
-			padding: 0.5rem 1rem;
+			padding: 0.8rem 1rem;
 			max-width: 100%;
-			margin: 0 1rem;
 		}
-
 		.logo-text {
 			font-size: 0.9rem;
 		}
-
 		.logo-img {
 			height: 1.8rem;
 		}
-
 		.theme-toggle {
 			width: 40px;
 			height: 40px;
 		}
-
 		.sun-icon,
 		.moon-icon {
 			width: 18px;
 			height: 18px;
 		}
-
 		.nav {
 			padding: 0 0.5rem;
 		}
-
 		.menu {
 			gap: 0.5rem;
 			width: 100%;
 		}
-
 		.menu li a {
 			padding: 0.5rem 0.25rem 0.25rem 0.25rem;
 			font-size: 0.8rem;
@@ -281,36 +273,29 @@
 
 	@media (max-width: 480px) {
 		.top-container {
-			padding: 0.5rem 0.75rem;
+			padding: 0.8rem 0.75rem;
 			max-width: 100%;
-			margin: 0 0.75rem;
 		}
-
 		.logo-text {
 			font-size: 0.8rem;
 			margin-left: 0.25rem;
 		}
-
 		.logo-img {
 			height: 1.6rem;
 		}
-
 		.theme-toggle {
 			width: 36px;
 			height: 36px;
 			margin-left: 0.5rem;
 		}
-
 		.sun-icon,
 		.moon-icon {
 			width: 16px;
 			height: 16px;
 		}
-
 		.menu {
 			gap: 0.25rem;
 		}
-
 		.menu li a {
 			padding: 0.4rem 0.2rem 0.2rem 0.2rem;
 			font-size: 0.75rem;

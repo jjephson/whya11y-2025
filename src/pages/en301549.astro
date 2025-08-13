@@ -2,7 +2,7 @@
 import BlogLayout from '../layouts/BlogLayout.astro';
 ---
 <BlogLayout title="EN 301 549 | WhyA11y">
-	<div id="en301549-content">
+	<section id="en301549-content">
 		<h1>EN 301 549: European Accessibility Standard</h1>
 	
 	<p>EN 301 549 is a European standard that specifies the functional accessibility requirements for Information and Communication Technology (ICT) products and services. This standard is crucial for ensuring digital accessibility across the European Union and has become a benchmark for accessibility compliance worldwide.</p>
@@ -32,52 +32,44 @@ import BlogLayout from '../layouts/BlogLayout.astro';
 	<p>For web developers and designers, understanding EN 301 549 is essential for creating accessible digital experiences. The standard provides clear guidelines for implementing accessibility features such as keyboard navigation, screen reader compatibility, color contrast, and alternative text for images.</p>
 	
 	<p>This standard is particularly important for organizations doing business in the European Union, as it forms the basis for accessibility requirements in public procurement and helps ensure compliance with the European Accessibility Act.</p>
-	</div>
+	</section>
 </BlogLayout>
 
 <style>
-	#en301549-content {
+	section {
 		max-width: 800px;
 		margin: 0 auto;
-		padding: 0 1rem;
 	}
-
-	#en301549-content h1 {
+	section h1 {
 		font-size: 2.5rem;
 		line-height: 1.2;
 		margin: 0 0 1.5rem 0;
 		color: var(--fg);
 	}
-
-	#en301549-content h2 {
+	section h2 {
 		font-size: 1.8rem;
 		margin: 2.5rem 0 1rem 0;
 		color: var(--fg);
 	}
-
-	#en301549-content p {
+	section p {
 		margin: 0 0 1.5rem 0;
 		line-height: 1.6;
 		color: var(--fg);
 	}
-
-	#en301549-content ul {
+	section ul {
 		margin: 1.5rem 0;
 		padding-left: 1.5rem;
 	}
-
-	#en301549-content li {
+	section li {
 		margin: 0.5rem 0;
 		line-height: 1.6;
 		color: var(--fg);
 	}
-
 	@media (max-width: 768px) {
-		#en301549-content h1 {
+		section h1 {
 			font-size: 2rem;
 		}
-
-		#en301549-content h2 {
+		section h2 {
 			font-size: 1.5rem;
 		}
 	}

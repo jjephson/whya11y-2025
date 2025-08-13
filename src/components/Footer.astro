@@ -11,7 +11,6 @@
 				</p>
 			</div>
 		</div>
-
 		<div class="footer-section">
 			<h3>Content</h3>
 			<ul class="footer-links">
@@ -21,7 +20,6 @@
 				<li><a href="/en301549">EN 301 549</a></li>
 			</ul>
 		</div>
-
 		<div class="footer-section">
 			<h3>Resources</h3>
 			<ul class="footer-links">
@@ -31,7 +29,6 @@
 				<li><a href="https://www.a11yproject.com/" target="_blank" rel="noopener">A11y Project</a></li>
 			</ul>
 		</div>
-
 		<div class="footer-section">
 			<h3>Connect</h3>
 			<ul class="footer-links">
@@ -42,7 +39,6 @@
 			</ul>
 		</div>
 	</div>
-
 	<div class="footer-bottom">
 		<div class="footer-bottom-content">
 			<p>&copy; 2025 WhyA11y. All rights reserved.</p>
@@ -60,9 +56,7 @@
 		background: var(--bg);
 		color: var(--fg);
 		border-top: 1px solid var(--border);
-		margin-top: 4rem;
 	}
-
 	.footer-content {
 		max-width: 1200px;
 		margin: 0 auto;
@@ -71,38 +65,31 @@
 		grid-template-columns: 2fr 1fr 1fr 1fr;
 		gap: 2rem;
 	}
-
 	.footer-brand {
 		max-width: 300px;
 	}
-
 	.footer-logo {
 		display: flex;
 		align-items: center;
 		margin-bottom: 1rem;
 	}
-
 	.footer-logo-img {
 		height: 2rem;
 		margin-right: 0.5rem;
 	}
-
 	[data-theme="dark"] .footer-logo-img {
 		filter: invert(1) brightness(0.9) contrast(1.2);
 	}
-
 	.footer-logo-text {
 		font-weight: 600;
 		font-size: 1.1rem;
 		color: var(--fg);
 	}
-
 	.footer-tagline {
 		color: var(--fg-muted);
 		line-height: 1.6;
 		margin: 0;
 	}
-
 	.footer-section h3 {
 		font-size: 1rem;
 		font-weight: 600;
@@ -111,17 +98,14 @@
 		text-transform: uppercase;
 		letter-spacing: 0.05em;
 	}
-
 	.footer-links {
 		list-style: none;
 		padding: 0;
 		margin: 0;
 	}
-
 	.footer-links li {
 		margin-bottom: 0.5rem;
 	}
-
 	.footer-links a {
 		color: var(--fg-muted);
 		text-decoration: underline;
@@ -131,19 +115,16 @@
 		font-size: 0.9rem;
 		transition: all 0.2s ease;
 	}
-
 	.footer-links a:hover {
 		color: var(--accent-primary);
 		text-decoration-color: var(--accent-primary);
 		text-decoration-thickness: 2px;
 	}
-
 	.footer-bottom {
 		border-top: 1px solid var(--border);
 		padding: 1.5rem 1rem;
 		background: var(--bg-muted);
 	}
-
 	.footer-bottom-content {
 		max-width: 1200px;
 		margin: 0 auto;
@@ -153,13 +134,11 @@
 		flex-wrap: wrap;
 		gap: 1rem;
 	}
-
 	.footer-bottom p {
 		margin: 0;
 		font-size: 0.85rem;
 		color: var(--fg-muted);
 	}
-
 	.footer-legal a {
 		color: var(--fg-muted);
 		text-decoration: underline;
@@ -167,40 +146,39 @@
 		text-underline-offset: 0.2em;
 		text-decoration-thickness: 1px;
 	}
-
 	.footer-legal a:hover {
 		color: var(--accent-primary);
 		text-decoration-color: var(--accent-primary);
 		text-decoration-thickness: 2px;
 	}
-
 	@media (max-width: 768px) {
+		.site-footer {
+			margin: 2rem 0 0;
+		}
 		.footer-content {
 			grid-template-columns: 1fr;
 			gap: 2rem;
 			padding: 2rem 1rem 1.5rem 1rem;
 		}
-
 		.footer-brand {
 			max-width: none;
 			text-align: center;
 		}
-
 		.footer-section {
 			text-align: center;
 		}
-
 		.footer-bottom-content {
 			flex-direction: column;
 			text-align: center;
 		}
+		.footer-logo {
+			justify-content: center;
+		}
 	}
-
 	@media (max-width: 480px) {
 		.footer-content {
 			padding: 1.5rem 1rem 1rem 1rem;
 		}
-
 		.footer-bottom {
 			padding: 1rem;
 		}
