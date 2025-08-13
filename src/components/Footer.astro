@@ -1,16 +1,208 @@
 <footer class="site-footer">
-	<p>&copy; 2025 WhyA11y. All rights reserved.</p>
-	<p>Dummy footer content.</p>
-	<p><a href="/accessibility">Accessibility</a></p>
+	<div class="footer-content">
+		<div class="footer-section">
+			<div class="footer-brand">
+				<div class="footer-logo">
+					<img src="/images/design/logo.png" alt="WhyA11y" class="footer-logo-img" />
+					<span class="footer-logo-text">Why A11y?</span>
+				</div>
+				<p class="footer-tagline">
+					Making the web accessible for everyone through education, examples, and best practices.
+				</p>
+			</div>
+		</div>
+
+		<div class="footer-section">
+			<h3>Content</h3>
+			<ul class="footer-links">
+				<li><a href="/why-a11y">Why Accessibility?</a></li>
+				<li><a href="/articles">Articles</a></li>
+				<li><a href="/code-examples">Code Examples</a></li>
+				<li><a href="/en301549">EN 301 549</a></li>
+			</ul>
+		</div>
+
+		<div class="footer-section">
+			<h3>Resources</h3>
+			<ul class="footer-links">
+				<li><a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener">WCAG Quick Reference</a></li>
+				<li><a href="https://www.w3.org/WAI/ARIA/apg/" target="_blank" rel="noopener">ARIA Authoring Practices</a></li>
+				<li><a href="https://web.dev/accessibility/" target="_blank" rel="noopener">Web.dev Accessibility</a></li>
+				<li><a href="https://www.a11yproject.com/" target="_blank" rel="noopener">A11y Project</a></li>
+			</ul>
+		</div>
+
+		<div class="footer-section">
+			<h3>Connect</h3>
+			<ul class="footer-links">
+				<li><a href="https://github.com" target="_blank" rel="noopener">GitHub</a></li>
+				<li><a href="https://twitter.com" target="_blank" rel="noopener">Twitter</a></li>
+				<li><a href="mailto:hello@whya11y.com">Contact</a></li>
+				<li><a href="/accessibility">Accessibility Statement</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="footer-bottom">
+		<div class="footer-bottom-content">
+			<p>&copy; 2025 WhyA11y. All rights reserved.</p>
+			<p class="footer-legal">
+				Built with accessibility in mind. 
+				<a href="/privacy">Privacy Policy</a> • 
+				<a href="/terms">Terms of Use</a>
+			</p>
+		</div>
+	</div>
 </footer>
 
 <style>
 	.site-footer {
 		background: var(--bg);
 		color: var(--fg);
-		border-top: 1px solid var(--fg);
-		text-align: center;
-		padding: 1rem 0;
+		border-top: 1px solid var(--border);
+		margin-top: 4rem;
+	}
+
+	.footer-content {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 3rem 1rem 2rem 1rem;
+		display: grid;
+		grid-template-columns: 2fr 1fr 1fr 1fr;
+		gap: 2rem;
+	}
+
+	.footer-brand {
+		max-width: 300px;
+	}
+
+	.footer-logo {
+		display: flex;
+		align-items: center;
+		margin-bottom: 1rem;
+	}
+
+	.footer-logo-img {
+		height: 2rem;
+		margin-right: 0.5rem;
+	}
+
+	[data-theme="dark"] .footer-logo-img {
+		filter: invert(1) brightness(0.9) contrast(1.2);
+	}
+
+	.footer-logo-text {
+		font-weight: 600;
+		font-size: 1.1rem;
+		color: var(--fg);
+	}
+
+	.footer-tagline {
+		color: var(--fg-muted);
+		line-height: 1.6;
+		margin: 0;
+	}
+
+	.footer-section h3 {
 		font-size: 1rem;
+		font-weight: 600;
+		margin: 0 0 1rem 0;
+		color: var(--fg);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.footer-links {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.footer-links li {
+		margin-bottom: 0.5rem;
+	}
+
+	.footer-links a {
+		color: var(--fg-muted);
+		text-decoration: underline;
+		text-decoration-color: var(--accent-primary);
+		text-underline-offset: 0.2em;
+		text-decoration-thickness: 1px;
+		font-size: 0.9rem;
+		transition: all 0.2s ease;
+	}
+
+	.footer-links a:hover {
+		color: var(--accent-primary);
+		text-decoration-color: var(--accent-primary);
+		text-decoration-thickness: 2px;
+	}
+
+	.footer-bottom {
+		border-top: 1px solid var(--border);
+		padding: 1.5rem 1rem;
+		background: var(--bg-muted);
+	}
+
+	.footer-bottom-content {
+		max-width: 1200px;
+		margin: 0 auto;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 1rem;
+	}
+
+	.footer-bottom p {
+		margin: 0;
+		font-size: 0.85rem;
+		color: var(--fg-muted);
+	}
+
+	.footer-legal a {
+		color: var(--fg-muted);
+		text-decoration: underline;
+		text-decoration-color: var(--accent-primary);
+		text-underline-offset: 0.2em;
+		text-decoration-thickness: 1px;
+	}
+
+	.footer-legal a:hover {
+		color: var(--accent-primary);
+		text-decoration-color: var(--accent-primary);
+		text-decoration-thickness: 2px;
+	}
+
+	@media (max-width: 768px) {
+		.footer-content {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+			padding: 2rem 1rem 1.5rem 1rem;
+		}
+
+		.footer-brand {
+			max-width: none;
+			text-align: center;
+		}
+
+		.footer-section {
+			text-align: center;
+		}
+
+		.footer-bottom-content {
+			flex-direction: column;
+			text-align: center;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.footer-content {
+			padding: 1.5rem 1rem 1rem 1rem;
+		}
+
+		.footer-bottom {
+			padding: 1rem;
+		}
 	}
 </style> 

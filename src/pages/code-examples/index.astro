@@ -3,18 +3,136 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
 import { getCollection } from 'astro:content';
 
 const codeExamples = await getCollection('codeExamples');
+
+// Sort code examples by date (newest first)
+const sortedCodeExamples = codeExamples.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 ---
 
 <BlogLayout title="Code Examples | WhyA11y">
-	<h1>Code Examples</h1>
-	<p>Practical, accessible code examples you can use in your projects.</p>
-	<ul>
-		{codeExamples.map((example: any) => (
-			<li>
-				<a href={`/code-examples/${example.slug}`}>{example.data.title}</a> — <em>{example.data.date}</em>
-				<br />
-				<small>{example.data.description}</small>
-			</li>
+	<section class="page-header">
+		<h1>Code Examples</h1>
+		<p class="page-description">
+			Practical, accessible code snippets and patterns you can implement in your projects today.
+		</p>
+	</section>
+
+	<section class="examples-grid" id="examples-grid">
+		{sortedCodeExamples.map((example) => (
+			<article class="example-card">
+				<div class="example-content">
+					<h2><a href={`/code-examples/${example.slug}`}>{example.data.title}</a></h2>
+					<p class="example-description">{example.data.description}</p>
+					<div class="example-meta">
+						<time datetime={example.data.date}>{new Date(example.data.date).toLocaleDateString()}</time>
+					</div>
+				</div>
+			</article>
 		))}
-	</ul>
-</BlogLayout> 
+	</section>
+</BlogLayout>
+
+<style>
+	.page-header {
+		text-align: center;
+		padding: 2rem 0 3rem 0;
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+	.page-header h1 {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+		color: var(--fg);
+	}
+
+	.page-description {
+		font-size: 1.2rem;
+		line-height: 1.6;
+		color: var(--fg-muted);
+	}
+
+	.examples-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+		gap: 2rem;
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.example-card {
+		border: 1px solid var(--border);
+		border-radius: 0.75rem;
+		background: var(--bg);
+		transition: all 0.2s ease;
+		overflow: hidden;
+	}
+
+	.example-card:hover {
+		border-color: var(--accent-secondary);
+		transform: translateY(-2px);
+		box-shadow: 0 8px 25px rgba(5, 150, 105, 0.15);
+	}
+
+	.example-content {
+		padding: 1.5rem;
+	}
+
+	.example-card h2 {
+		margin: 0 0 0.75rem 0;
+		font-size: 1.3rem;
+		line-height: 1.3;
+	}
+
+	.example-card h2 a {
+		color: var(--fg);
+		text-decoration: underline;
+		text-decoration-color: var(--accent-secondary);
+		text-underline-offset: 0.2em;
+		text-decoration-thickness: 2px;
+	}
+
+	.example-card h2 a:hover {
+		color: var(--accent-secondary);
+		text-decoration-color: var(--accent-secondary);
+		text-decoration-thickness: 3px;
+	}
+
+	.example-description {
+		margin: 0 0 1rem 0;
+		color: var(--fg-muted);
+		line-height: 1.5;
+		font-size: 0.95rem;
+	}
+
+	.example-meta {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.example-meta time {
+		font-size: 0.85rem;
+		color: var(--fg-muted);
+		font-weight: 500;
+	}
+
+	@media (max-width: 768px) {
+		.page-header h1 {
+			font-size: 2rem;
+		}
+
+		.page-description {
+			font-size: 1rem;
+		}
+
+		.examples-grid {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+			padding: 0 1rem;
+		}
+
+		.example-content {
+			padding: 1.25rem;
+		}
+	}
+</style> 

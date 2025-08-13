@@ -7,11 +7,25 @@
 				</span>
 				<span class="logo-text">Why A11y?</span>
 			</a>
-			<button class="theme-toggle" @click="toggleTheme" :aria-pressed="isDark.toString()">
-				<span class="sr-only">Toggle dark mode</span>
-				<span v-if="isDark">🌙</span>
-				<span v-else>☀️</span>
-			</button>
+					<button class="theme-toggle" @click="toggleTheme" :aria-pressed="isDark.toString()" :title="isDark ? 'Switch to light mode' : 'Switch to dark mode'">
+			<span class="sr-only">Toggle dark mode</span>
+			<div class="toggle-icon">
+				<svg v-if="isDark" class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<circle cx="12" cy="12" r="5"/>
+					<line x1="12" y1="1" x2="12" y2="3"/>
+					<line x1="12" y1="21" x2="12" y2="23"/>
+					<line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+					<line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+					<line x1="1" y1="12" x2="3" y2="12"/>
+					<line x1="21" y1="12" x2="23" y2="12"/>
+					<line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+					<line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+				</svg>
+				<svg v-else class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+				</svg>
+			</div>
+		</button>
 		</div>
 		<nav aria-label="Main navigation" class="nav">
 			<ul class="menu" id="main-menu">
@@ -33,7 +47,7 @@
 <script setup>
 	import { ref, onMounted } from 'vue';
 
-	const isDark = ref(false);
+	const isDark = ref(true);
 
 	function setTheme(dark) {
 		isDark.value = dark;
@@ -50,8 +64,9 @@
 		if (saved) {
 			setTheme(saved === 'dark');
 		} else {
-			const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-			setTheme(prefersDark);
+			// Default to dark mode, but respect user's system preference if they prefer light
+			const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+			setTheme(!prefersLight); // Use dark mode unless user explicitly prefers light
 		}
 	});
 
@@ -78,7 +93,10 @@
 		font-family: 'Libre Franklin', Helvetica, Arial, sans-serif;
 	}
 	.top-container {
-		padding:  .5rem .75rem;
+		padding: 0.5rem 0.75rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 	}
 	.nav {
 		display: flex;
@@ -88,23 +106,33 @@
 		border-top: 1px solid rgb(226, 226, 226);
 		border-bottom: 1px solid rgb(226, 226, 226);
 	}
+
+	[data-theme="dark"] .nav {
+		background: #2a2a2a;
+		background: linear-gradient(180deg,rgba(42, 42, 42, 1) 0%, rgba(35, 35, 35, 1) 100%);
+		border-top: 1px solid #444;
+		border-bottom: 1px solid #444;
+	}
 	.menu {
 		display: flex;
-		gap: 1.5rem;
+		gap: 1rem;
 		list-style: none;
 		padding: 0;
 		margin: 0;
+		flex-wrap: wrap;
+		justify-content: center;
 	}
 	.menu li a {
 		display: block;
-		padding: .75rem 0 .5rem;
+		padding: 0.75rem 0.5rem 0.5rem 0.5rem;
 		border-radius: 0;
 		border-bottom: 2px solid transparent;
 		transition: border-color 0.2s, color 0.2s;
-		font-size: 13px;
+		font-size: 0.875rem;
 		letter-spacing: 0.04em;
 		text-decoration: none;
 		color: var(--fg);
+		white-space: nowrap;
 	}
 	.menu li a:focus,
 	.menu li a:hover {
@@ -144,14 +172,142 @@
 		filter: invert(1) brightness(0.9) contrast(1.2);
 	}
 	.theme-toggle {
-		background: none;
-		border: 1px solid var(--fg);
-		border-radius: 50%;
+		background: var(--bg-muted);
+		border: 2px solid var(--border);
+		border-radius: 12px;
 		color: var(--fg);
-		font-size: 1.5rem;
-		width: 2.5rem;
-		height: 2.5rem;
+		width: 44px;
+		height: 44px;
 		margin-left: 1rem;
 		cursor: pointer;
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.theme-toggle:hover {
+		background: var(--accent-primary);
+		border-color: var(--accent-primary);
+		color: white;
+		transform: translateY(-1px);
+		box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+	}
+
+	.theme-toggle:active {
+		transform: translateY(0);
+		box-shadow: 0 2px 6px rgba(37, 99, 235, 0.2);
+	}
+
+	.theme-toggle:focus {
+		background: var(--accent-primary) !important;
+		border-color: var(--accent-primary) !important;
+		color: white !important;
+		outline: none;
+		transform: translateY(-1px);
+		box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+	}
+
+	.toggle-icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	}
+
+	.theme-toggle:hover .toggle-icon {
+		transform: scale(1.1);
+	}
+
+	.sun-icon,
+	.moon-icon {
+		transition: all 0.3s ease;
+	}
+
+	[data-theme="dark"] .theme-toggle {
+		background: var(--bg-muted);
+		border-color: var(--border);
+	}
+
+	[data-theme="dark"] .theme-toggle:hover {
+		background: var(--accent-primary);
+		border-color: var(--accent-primary);
+	}
+
+	@media (max-width: 768px) {
+		.top-container {
+			padding: 0.5rem 1rem;
+		}
+
+		.logo-text {
+			font-size: 0.9rem;
+		}
+
+		.logo-img {
+			height: 1.8rem;
+		}
+
+		.theme-toggle {
+			width: 40px;
+			height: 40px;
+		}
+
+		.sun-icon,
+		.moon-icon {
+			width: 18px;
+			height: 18px;
+		}
+
+		.nav {
+			padding: 0 0.5rem;
+		}
+
+		.menu {
+			gap: 0.5rem;
+			width: 100%;
+		}
+
+		.menu li a {
+			padding: 0.5rem 0.25rem 0.25rem 0.25rem;
+			font-size: 0.8rem;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.top-container {
+			padding: 0.5rem 0.75rem;
+		}
+
+		.logo-text {
+			font-size: 0.8rem;
+			margin-left: 0.25rem;
+		}
+
+		.logo-img {
+			height: 1.6rem;
+		}
+
+		.theme-toggle {
+			width: 36px;
+			height: 36px;
+			margin-left: 0.5rem;
+		}
+
+		.sun-icon,
+		.moon-icon {
+			width: 16px;
+			height: 16px;
+		}
+
+		.menu {
+			gap: 0.25rem;
+		}
+
+		.menu li a {
+			padding: 0.4rem 0.2rem 0.2rem 0.2rem;
+			font-size: 0.75rem;
+		}
 	}
 </style> 

@@ -18,22 +18,208 @@ const headerImage = example.data.headerImage || `https://source.unsplash.com/ran
 ---
 
 <BlogLayout title={example.data.title}>
-	<article class="article-content">
-		{headerImage && <img src={headerImage} alt="" class="article-header-image" />}
-		<h1>{example.data.title}</h1>
-		<p class="meta">Published on <time datetime={example.data.date}>{example.data.date}</time></p>
-		<p class="description">{example.data.description}</p>
-		<Content />
+	<article class="example-content">
+		{headerImage && (
+			<div class="example-header">
+				<img src={headerImage} alt="" class="example-header-image" />
+			</div>
+		)}
+		
+		<div class="example-body">
+			<header class="example-header-content">
+				<h1>{example.data.title}</h1>
+				<div class="example-meta">
+					<time datetime={example.data.date}>{new Date(example.data.date).toLocaleDateString()}</time>
+				</div>
+				<p class="example-description">{example.data.description}</p>
+			</header>
+			
+			<div class="example-text" id="example-text">
+				<Content />
+			</div>
+		</div>
 	</article>
 </BlogLayout>
 
 <style>
-	.meta {
-		font-family: 'Libre Franklin', Helvetica, Arial, sans-serif;
-		font-size: 13px;
-		margin: 0 0 .5rem;
+	.example-content {
+		max-width: 800px;
+		margin: 0 auto;
 	}
-	.description {
-		font-size: 20px;
+
+	.example-header {
+		margin: -2rem -2rem 2rem -2rem;
+		overflow: hidden;
+		border-radius: 0.75rem;
+	}
+
+	.example-header-image {
+		width: 100%;
+		height: 300px;
+		object-fit: cover;
+		display: block;
+	}
+
+	.example-body {
+		padding: 0 1rem;
+	}
+
+	.example-header-content {
+		margin-bottom: 3rem;
+		padding-bottom: 2rem;
+		border-bottom: 1px solid var(--border);
+	}
+
+	.example-header-content h1 {
+		font-size: 2.5rem;
+		line-height: 1.2;
+		margin: 0 0 1rem 0;
+		color: var(--fg);
+	}
+
+	.example-meta {
+		margin-bottom: 1.5rem;
+	}
+
+	.example-meta time {
+		font-size: 0.9rem;
+		color: var(--fg-muted);
+		font-weight: 500;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.example-description {
+		font-size: 1.25rem;
+		line-height: 1.6;
+		color: var(--fg-muted);
+		margin: 0;
+		font-weight: 400;
+	}
+
+	.example-text {
+		font-size: 1.1rem;
+		line-height: 1.7;
+		color: var(--fg);
+	}
+
+	.example-text h2 {
+		font-size: 1.8rem;
+		margin: 2.5rem 0 1rem 0;
+		color: var(--fg);
+	}
+
+	.example-text h3 {
+		font-size: 1.4rem;
+		margin: 2rem 0 0.75rem 0;
+		color: var(--fg);
+	}
+
+	.example-text h4 {
+		font-size: 1.2rem;
+		margin: 1.5rem 0 0.5rem 0;
+		color: var(--fg);
+	}
+
+	.example-text p {
+		margin: 0 0 1.5rem 0;
+	}
+
+	.example-text ul,
+	.example-text ol {
+		margin: 1.5rem 0;
+		padding-left: 1.5rem;
+	}
+
+	.example-text li {
+		margin: 0.5rem 0;
+	}
+
+	.example-text blockquote {
+		margin: 2rem 0;
+		padding: 1.5rem;
+		border-left: 4px solid var(--fg);
+		background: var(--bg-muted);
+		border-radius: 0 0.5rem 0.5rem 0;
+		font-style: italic;
+	}
+
+	.example-text code {
+		background: var(--bg-muted);
+		padding: 0.2rem 0.4rem;
+		border-radius: 0.25rem;
+		font-size: 0.9em;
+		font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+	}
+
+	.example-text pre {
+		background: var(--bg-muted);
+		padding: 1.5rem;
+		border-radius: 0.5rem;
+		overflow-x: auto;
+		margin: 2rem 0;
+		border: 1px solid var(--border);
+	}
+
+	.example-text pre code {
+		background: none;
+		padding: 0;
+		font-size: 0.9rem;
+		line-height: 1.5;
+	}
+
+	.example-text img {
+		max-width: 100%;
+		height: auto;
+		border-radius: 0.5rem;
+		margin: 2rem 0;
+	}
+
+	.example-text a {
+		color: var(--link);
+		text-decoration: underline;
+		text-decoration-color: var(--link-underline);
+		text-underline-offset: 0.2em;
+		text-decoration-thickness: 2px;
+	}
+
+	.example-text a:hover {
+		color: var(--link-hover);
+		text-decoration-color: var(--link-underline-hover);
+		text-decoration-thickness: 3px;
+	}
+
+	@media (max-width: 768px) {
+		.example-header {
+			margin: -1rem -1rem 1.5rem -1rem;
+		}
+
+		.example-header-image {
+			height: 200px;
+		}
+
+		.example-body {
+			padding: 0 0.5rem;
+		}
+
+		.example-header-content h1 {
+			font-size: 2rem;
+		}
+
+		.example-description {
+			font-size: 1.1rem;
+		}
+
+		.example-text {
+			font-size: 1rem;
+		}
+
+		.example-text h2 {
+			font-size: 1.5rem;
+		}
+
+		.example-text h3 {
+			font-size: 1.3rem;
+		}
 	}
 </style> 
