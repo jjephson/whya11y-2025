@@ -15,4 +15,43 @@ import BlogLayout from '../layouts/BlogLayout.astro';
 		</ul>
 		<p>Accessibility is not an optional “extra feature.” It’s a core part of good design and responsible development. When we make the web accessible, we make it more flexible, resilient, and enjoyable for everyone—today and in the future.</p>
 	</div>
-</BlogLayout> 
+</BlogLayout>
+
+<style>
+	#why-a11y-content {
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 0 1rem;
+	}
+
+	#why-a11y-content h1 {
+		font-size: 2.5rem;
+		line-height: 1.2;
+		margin: 0 0 1.5rem 0;
+		color: var(--fg);
+	}
+
+	#why-a11y-content p {
+		margin: 0 0 1.5rem 0;
+		line-height: 1.6;
+		color: var(--fg);
+		font-size: 1.1rem;
+	}
+
+	#why-a11y-content ul {
+		margin: 1.5rem 0;
+		padding-left: 1.5rem;
+	}
+
+	#why-a11y-content li {
+		margin: 0.5rem 0;
+		line-height: 1.6;
+		color: var(--fg);
+	}
+
+	@media (max-width: 768px) {
+		#why-a11y-content h1 {
+			font-size: 2rem;
+		}
+	}
+</style> 

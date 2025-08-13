@@ -34,3 +34,51 @@ import BlogLayout from '../layouts/BlogLayout.astro';
 	<p>This standard is particularly important for organizations doing business in the European Union, as it forms the basis for accessibility requirements in public procurement and helps ensure compliance with the European Accessibility Act.</p>
 	</div>
 </BlogLayout>
+
+<style>
+	#en301549-content {
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 0 1rem;
+	}
+
+	#en301549-content h1 {
+		font-size: 2.5rem;
+		line-height: 1.2;
+		margin: 0 0 1.5rem 0;
+		color: var(--fg);
+	}
+
+	#en301549-content h2 {
+		font-size: 1.8rem;
+		margin: 2.5rem 0 1rem 0;
+		color: var(--fg);
+	}
+
+	#en301549-content p {
+		margin: 0 0 1.5rem 0;
+		line-height: 1.6;
+		color: var(--fg);
+	}
+
+	#en301549-content ul {
+		margin: 1.5rem 0;
+		padding-left: 1.5rem;
+	}
+
+	#en301549-content li {
+		margin: 0.5rem 0;
+		line-height: 1.6;
+		color: var(--fg);
+	}
+
+	@media (max-width: 768px) {
+		#en301549-content h1 {
+			font-size: 2rem;
+		}
+
+		#en301549-content h2 {
+			font-size: 1.5rem;
+		}
+	}
+</style>

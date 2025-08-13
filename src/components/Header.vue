@@ -195,12 +195,12 @@
 		border-color: var(--accent-primary);
 		color: white;
 		transform: translateY(-1px);
-		box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+		box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
 	}
 
 	.theme-toggle:active {
 		transform: translateY(0);
-		box-shadow: 0 2px 6px rgba(37, 99, 235, 0.2);
+		box-shadow: 0 2px 6px rgba(30, 64, 175, 0.2);
 	}
 
 	.theme-toggle:focus {
@@ -209,7 +209,7 @@
 		color: white !important;
 		outline: none;
 		transform: translateY(-1px);
-		box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+		box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
 	}
 
 	.toggle-icon {
