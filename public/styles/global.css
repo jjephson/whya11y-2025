@@ -20,10 +20,13 @@ html {
 	--logo-bg-dark: #fff;
 	
 	/* Accessible accent colors for dark mode */
-	--accent-primary: #3b82f6; /* Better blue for dark mode - WCAG AA compliant */
+	--accent-primary: #0062FF; /* Better blue for dark mode - WCAG AA compliant */
 	--accent-secondary: #10b981; /* Lighter green for dark mode */
 	--accent-warning: #f59e0b; /* Lighter orange for dark mode */
 	--accent-error: #ef4444; /* Lighter red for dark mode */
+	
+	/* Theme-aware colors */
+	--text-on-accent: #ffffff; /* White text on accent colors in dark theme */
 	
 	/* Semantic colors */
 	--link: var(--accent-primary);
@@ -100,6 +103,9 @@ html {
 	--accent-secondary: #059669; /* Green - meets WCAG AA contrast */
 	--accent-warning: #d97706; /* Orange - meets WCAG AA contrast */
 	--accent-error: #dc2626; /* Red - meets WCAG AA contrast */
+	
+	/* Theme-aware colors */
+	--text-on-accent: #000000; /* Black text on accent colors in light theme */
 	
 	/* Semantic colors */
 	--link: var(--accent-primary);
@@ -320,5 +326,13 @@ pre code {
 	background: none;
 	padding: 0;
 	border-radius: 0;
+}
+
+/* Override Shiki comment colors - target all comment-related spans */
+.astro-code span[style*="color:#6A737D"],
+.astro-code span[style*="color:#6a737d"],
+.astro-code span[style*="color:#8b949e"],
+.astro-code span[style*="color:#7d8590"] {
+	color: #e1e4e8 !important;
 }
 

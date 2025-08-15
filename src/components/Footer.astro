@@ -32,8 +32,8 @@
 		<div class="footer-section">
 			<h2>Connect</h2>
 			<ul class="footer-links">
-				<li><a href="https://github.com" target="_blank" rel="noopener">GitHub</a></li>
-				<li><a href="https://twitter.com" target="_blank" rel="noopener">Twitter</a></li>
+				<li><a href="https://x.com/WhyA11y" target="_blank" rel="noopener">X</a></li>
+				<li><a href="https://www.linkedin.com/company/why-a11y/" target="_blank" rel="noopener">LinkedIn</a></li>
 				<li><a href="mailto:hello@whya11y.com">Contact</a></li>
 				<li><a href="/accessibility">Accessibility Statement</a></li>
 			</ul>
@@ -88,7 +88,6 @@
 	.footer-tagline {
 		color: var(--fg-muted);
 		line-height: 1.6;
-		margin: 0;
 	}
 	.footer-section h2 {
 		font-size: 1rem;
@@ -115,9 +114,11 @@
 		font-size: .9rem;
 		transition: all 0.2s ease;
 	}
-	.footer-links a:hover {
-		color: var(--accent-primary);
-		text-decoration-color: var(--accent-primary);
+	.footer-links a:hover,
+	.footer-links a:focus,
+	.footer-links a:active {
+		color: var(--text-on-accent);
+		text-decoration-color: var(--text-on-accent);
 		text-decoration-thickness: 2px;
 	}
 	.footer-bottom {

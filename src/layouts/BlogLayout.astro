@@ -13,11 +13,23 @@ import Footer from '../components/Footer.astro';
 				margin: 0 0 var(--spacing-xl);
 				font-size: var(--text-xs);
 				color: var(--fg);
-				font-family: 'Libre Franklin', Helvetica, Arial, sans-serif;
 			}
 			.breadcrumbs a {
-				color: var(--fg);
+				color: var(--fg-muted);
 				text-decoration: underline;
+				text-decoration-color: var(--accent-primary);
+				text-underline-offset: 0.2em;
+				text-decoration-thickness: 1px;
+				font-size: 0.9rem;
+				transition: all 0.2s ease;
+			}
+			
+			.breadcrumbs a:hover,
+			.breadcrumbs a:focus,
+			.breadcrumbs a:active {
+				color: var(--text-on-accent);
+				text-decoration-color: var(--text-on-accent);
+				text-decoration-thickness: 2px;
 			}
 			.breadcrumbs ol {
 				display: flex;
@@ -33,7 +45,7 @@ import Footer from '../components/Footer.astro';
 			.breadcrumbs li:first-child:before {
 				content: "🌐";
 				display: inline-block;
-				margin-right: var(--spacing-lg);
+				margin-right: var(--spacing-md);
 				font-size: 1em;
 				vertical-align: middle;
 			}

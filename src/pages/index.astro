@@ -26,7 +26,7 @@ const recentCodeExamples = codeExamples
 		</p>
 		<div class="hero-actions">
 			<a href="/why-a11y" class="btn btn-primary">Why Accessibility?</a>
-			<a href="/articles" class="btn btn-secondary">Browse Articles</a>
+			<a href="/articles" class="btn btn-primary">Browse Articles</a>
 		</div>
 	</section>
 	<section class="featured-content" id="featured-content">
@@ -114,30 +114,20 @@ const recentCodeExamples = codeExamples
 	}
 	.btn {
 		display: inline-block;
-		padding: var(--spacing-lg) var(--spacing-2xl);
+		padding: var(--spacing-md) var(--spacing-xl);
 		border-radius: var(--radius-md);
 		text-decoration: none;
 		transition: all 0.2s ease;
 		border: 2px solid transparent;
 	}
 	.btn-primary {
-		background: var(--accent-primary) !important;
-		color: white !important;
-		border-color: var(--accent-primary) !important;
+		background: var(--accent-primary);
+		color: white;
+		border-color: var(--accent-primary);
 	}
 	.btn-primary:hover {
-		background: var(--link-hover) !important;
-		border-color: var(--link-hover) !important;
-	}
-	.btn-secondary {
-		background: transparent !important;
-		color: var(--accent-primary) !important;
-		border-color: var(--accent-primary) !important;
-	}
-	.btn-secondary:hover {
-		background: var(--accent-primary) !important;
-		color: white !important;
-		border-color: var(--accent-primary) !important;
+		background: var(--link-hover);
+		border-color: var(--link-hover);
 	}
 	.featured-content {
 		margin: 2rem 0 3rem;
@@ -161,7 +151,6 @@ const recentCodeExamples = codeExamples
 		flex-direction: column;
 		gap: 1.5rem;
 	}
-
 	.view-all {
 		display: inline-block;
 		margin-top: 1rem;
@@ -172,9 +161,11 @@ const recentCodeExamples = codeExamples
 		text-decoration-thickness: 2px;
 		font-weight: 500;
 	}
-	.view-all:hover {
-		color: var(--accent-primary);
-		text-decoration-color: var(--accent-primary);
+	.view-all:hover,
+	.view-all:focus,
+	.view-all:active {
+		color: var(--text-on-accent);
+		text-decoration-color: var(--text-on-accent);
 		text-decoration-thickness: 3px;
 	}
 	.about-section {

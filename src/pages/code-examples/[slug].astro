@@ -327,13 +327,17 @@ const headerImage = example.data.headerImage || `https://source.unsplash.com/ran
 		display: block;
 		font-size: var(--text-sm);
 		line-height: var(--leading-normal);
-	}
-	.sidebar-section a:hover {
-		color: var(--accent-primary);
 		text-decoration: underline;
 		text-decoration-color: var(--accent-primary);
 		text-underline-offset: 0.2em;
 		text-decoration-thickness: 2px;
+	}
+	.sidebar-section a:hover,
+	.sidebar-section a:focus,
+	.sidebar-section a:active {
+		color: var(--text-on-accent);
+		text-decoration-color: var(--text-on-accent);
+		text-decoration-thickness: 3px;
 	}
 
 	/* Specific list styling */

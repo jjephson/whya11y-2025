@@ -41,9 +41,11 @@ const { title, description, href, date, className = '' } = Astro.props;
 		text-underline-offset: 0.2em;
 		text-decoration-thickness: 2px;
 	}
-	.content-card h2 a:hover {
-		color: var(--accent-primary);
-		text-decoration-color: var(--accent-primary);
+	.content-card h2 a:hover,
+	.content-card h2 a:focus,
+	.content-card h2 a:active {
+		color: var(--text-on-accent);
+		text-decoration-color: var(--text-on-accent);
 		text-decoration-thickness: 3px;
 	}
 	.content-card p {
