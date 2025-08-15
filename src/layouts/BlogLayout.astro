@@ -10,8 +10,8 @@ import Footer from '../components/Footer.astro';
 		<title>{Astro.props.title || 'WhyA11y'}</title>
 		<style>
 			.breadcrumbs {
-				margin: 0 0 2rem;
-				font-size: .8rem;
+				margin: 0 0 var(--spacing-xl);
+				font-size: var(--text-xs);
 				color: var(--fg);
 				font-family: 'Libre Franklin', Helvetica, Arial, sans-serif;
 			}
@@ -33,7 +33,7 @@ import Footer from '../components/Footer.astro';
 			.breadcrumbs li:first-child:before {
 				content: "🌐";
 				display: inline-block;
-				margin-right: .75em;
+				margin-right: var(--spacing-lg);
 				font-size: 1em;
 				vertical-align: middle;
 			}

@@ -1,5 +1,6 @@
 ---
 import BlogLayout from '../layouts/BlogLayout.astro';
+import ContentCard from '../components/ContentCard.astro';
 import { getCollection } from 'astro:content';
 
 const articles = await getCollection('articles');
@@ -35,11 +36,12 @@ const recentCodeExamples = codeExamples
 				<p>Explore our latest insights on web accessibility best practices and techniques.</p>
 				<div class="content-list">
 					{recentArticles.map((article) => (
-						<article class="content-card">
-							<h3><a href={`/articles/${article.slug}`}>{article.data.title}</a></h3>
-							<p>{article.data.description}</p>
-							<time datetime={article.data.date}>{new Date(article.data.date).toLocaleDateString()}</time>
-						</article>
+						<ContentCard
+							title={article.data.title}
+							description={article.data.description}
+							href={`/articles/${article.slug}`}
+							date={article.data.date}
+						/>
 					))}
 				</div>
 				<a href="/articles" class="view-all">View all articles →</a>
@@ -49,11 +51,12 @@ const recentCodeExamples = codeExamples
 				<p>Practical, accessible code snippets you can use in your projects today.</p>
 				<div class="content-list">
 					{recentCodeExamples.map((example) => (
-						<article class="content-card">
-							<h3><a href={`/code-examples/${example.slug}`}>{example.data.title}</a></h3>
-							<p>{example.data.description}</p>
-							<time datetime={example.data.date}>{new Date(example.data.date).toLocaleDateString()}</time>
-						</article>
+						<ContentCard
+							title={example.data.title}
+							description={example.data.description}
+							href={`/code-examples/${example.slug}`}
+							date={example.data.date}
+						/>
 					))}
 				</div>
 				<a href="/code-examples" class="view-all">View all code examples →</a>
@@ -93,14 +96,14 @@ const recentCodeExamples = codeExamples
 		margin: 0 auto;
 	}
 	.hero h1 {
-		font-size: 2.5rem;
-		margin-bottom: 1rem;
+		font-size: var(--text-5xl);
+		margin-bottom: var(--spacing-md);
 		color: var(--fg);
 	}
 	.hero-subtitle {
-		font-size: 1.2rem;
-		line-height: 1.6;
-		margin: 0 0 2rem;
+		font-size: var(--text-xl);
+		line-height: var(--leading-relaxed);
+		margin: 0 0 var(--spacing-xl);
 		color: var(--fg-muted);
 	}
 	.hero-actions {
@@ -111,8 +114,8 @@ const recentCodeExamples = codeExamples
 	}
 	.btn {
 		display: inline-block;
-		padding: .75rem 1.5rem;
-		border-radius: .5rem;
+		padding: var(--spacing-lg) var(--spacing-2xl);
+		border-radius: var(--radius-md);
 		text-decoration: none;
 		transition: all 0.2s ease;
 		border: 2px solid transparent;
@@ -158,43 +161,7 @@ const recentCodeExamples = codeExamples
 		flex-direction: column;
 		gap: 1.5rem;
 	}
-	.content-card {
-		padding: 1.5rem;
-		border: 1px solid var(--border);
-		border-radius: .5rem;
-		background: var(--bg);
-		transition: all 0.2s ease;
-	}
-	.content-card:hover {
-		border-color: var(--accent-primary);
-		box-shadow: 0 4px 12px rgba(30, 64, 175, 0.15);
-	}
-	.content-card h3 {
-		margin: 0 0 .5rem 0;
-		font-size: 1.1rem;
-	}
-	.content-card h3 a {
-		color: var(--fg);
-		text-decoration: underline;
-		text-decoration-color: var(--accent-primary);
-		text-underline-offset: 0.2em;
-		text-decoration-thickness: 2px;
-	}
-	.content-card h3 a:hover {
-		color: var(--accent-primary);
-		text-decoration-color: var(--accent-primary);
-		text-decoration-thickness: 3px;
-	}
-	.content-card p {
-		margin: 0 0 1rem 0;
-		color: var(--fg-muted);
-		font-size: 0.9rem;
-		line-height: 1.5;
-	}
-	.content-card time {
-		font-size: 0.8rem;
-		color: var(--fg-muted);
-	}
+
 	.view-all {
 		display: inline-block;
 		margin-top: 1rem;

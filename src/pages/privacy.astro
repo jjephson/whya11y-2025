@@ -1,0 +1,141 @@
+---
+import BlogLayout from '../layouts/BlogLayout.astro';
+---
+<BlogLayout title="Privacy Policy | WhyA11y">
+	<section id="privacy-content">
+		<h1>Privacy Policy</h1>
+		<p class="last-updated">Last updated: January 2025</p>
+		
+		<h2>Introduction</h2>
+		<p>WhyA11y ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website.</p>
+		
+		<h2>Information We Collect</h2>
+		<h3>Personal Information</h3>
+		<p>We may collect personal information that you voluntarily provide to us, such as when you contact us via email or through our contact forms. This may include:</p>
+		<ul>
+			<li>Name and email address</li>
+			<li>Any other information you choose to provide</li>
+		</ul>
+		
+		<h3>Automatically Collected Information</h3>
+		<p>When you visit our website, we automatically collect certain information about your device, including:</p>
+		<ul>
+			<li>IP address and general location information</li>
+			<li>Browser type and version</li>
+			<li>Operating system</li>
+			<li>Pages visited and time spent on pages</li>
+			<li>Referring website</li>
+		</ul>
+		
+		<h2>How We Use Your Information</h2>
+		<p>We use the information we collect to:</p>
+		<ul>
+			<li>Provide and maintain our website</li>
+			<li>Improve user experience and website functionality</li>
+			<li>Respond to your inquiries and provide customer support</li>
+			<li>Analyze website usage and trends</li>
+			<li>Ensure website security and prevent fraud</li>
+		</ul>
+		
+		<h2>Cookies and Local Storage</h2>
+		<p>We use cookies and local storage to enhance your experience on our website:</p>
+		<ul>
+			<li><strong>Theme Preference:</strong> We store your theme preference (light/dark mode) in your browser's local storage to provide a consistent experience across visits.</li>
+			<li><strong>Analytics:</strong> We may use analytics cookies to understand how visitors use our website.</li>
+		</ul>
+		
+		<h2>Third-Party Services</h2>
+		<p>We may use third-party services that collect, monitor, and analyze website usage. These services have their own privacy policies addressing how they use such information.</p>
+		
+		<h2>Data Security</h2>
+		<p>We implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.</p>
+		
+		<h2>Your Rights</h2>
+		<p>Depending on your location, you may have certain rights regarding your personal information, including:</p>
+		<ul>
+			<li>The right to access your personal information</li>
+			<li>The right to correct inaccurate information</li>
+			<li>The right to delete your personal information</li>
+			<li>The right to restrict processing of your information</li>
+			<li>The right to data portability</li>
+		</ul>
+		
+		<h2>Children's Privacy</h2>
+		<p>Our website is not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13.</p>
+		
+		<h2>Changes to This Privacy Policy</h2>
+		<p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date.</p>
+		
+		<h2>Contact Us</h2>
+		<p>If you have any questions about this Privacy Policy, please contact us at:</p>
+		<p>Email: <a href="mailto:hello@whya11y.com">hello@whya11y.com</a></p>
+	</section>
+</BlogLayout>
+
+<style>
+	section {
+		max-width: var(--container-md);
+		margin: 0 auto;
+		padding: 0;
+	}
+	section h1 {
+		font-size: var(--text-5xl);
+		line-height: var(--leading-tight);
+		margin: 0 0 var(--spacing-md);
+		color: var(--fg);
+	}
+	.last-updated {
+		color: var(--fg-muted);
+		font-style: italic;
+		margin-bottom: var(--spacing-xl);
+	}
+	section h2 {
+		font-size: var(--text-2xl);
+		line-height: var(--leading-tight);
+		margin: var(--spacing-xl) 0 var(--spacing-md);
+		color: var(--fg);
+	}
+	section h3 {
+		font-size: var(--text-xl);
+		line-height: var(--leading-tight);
+		margin: var(--spacing-2xl) 0 var(--spacing-sm);
+		color: var(--fg);
+	}
+	section p {
+		margin: 0 0 var(--spacing-md);
+		line-height: var(--leading-relaxed);
+		color: var(--fg);
+	}
+	section ul {
+		margin: var(--spacing-md) 0;
+		padding-left: var(--spacing-2xl);
+	}
+	section li {
+		margin: var(--spacing-sm) 0;
+		line-height: var(--leading-relaxed);
+		color: var(--fg);
+	}
+	section a {
+		color: var(--link);
+		text-decoration: underline;
+		text-decoration-color: var(--link-underline);
+		text-underline-offset: 0.2em;
+		text-decoration-thickness: 2px;
+	}
+	section a:hover {
+		color: var(--link-hover);
+		text-decoration-color: var(--link-underline-hover);
+		text-decoration-thickness: 3px;
+	}
+	@media (max-width: 768px) {
+		section h1 {
+			font-size: var(--text-4xl);
+		}
+		section h2 {
+			font-size: var(--text-lg);
+		}
+		section h3 {
+			font-size: var(--text-lg);
+		}
+	}
+</style>

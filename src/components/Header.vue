@@ -102,16 +102,16 @@
 	.nav {
 		display: flex;
 		justify-content: center;
-		background: #f7f7f7;
+		background: var(--nav-bg-light);
 		background: linear-gradient(180deg,rgba(247, 247, 247, 1) 0%, rgba(245, 245, 245, 1) 100%);
-		border-top: 1px solid rgb(226, 226, 226);
-		border-bottom: 1px solid rgb(226, 226, 226);
+		border-top: 1px solid var(--nav-border-light);
+		border-bottom: 1px solid var(--nav-border-light);
 	}
 	[data-theme="dark"] .nav {
-		background: #2a2a2a;
+		background: var(--nav-bg-dark);
 		background: linear-gradient(180deg,rgba(42, 42, 42, 1) 0%, rgba(35, 35, 35, 1) 100%);
-		border-top: 1px solid #444;
-		border-bottom: 1px solid #444;
+		border-top: 1px solid var(--nav-border-dark);
+		border-bottom: 1px solid var(--nav-border-dark);
 	}
 	.menu {
 		display: flex;
@@ -153,12 +153,12 @@
 	.logo-bg {
 		display: inline-block;
 		vertical-align: middle;
-		background: #222;
-		border-radius: .5rem;
-		padding: .25rem .5rem;
+		background: var(--logo-bg-light);
+		border-radius: var(--radius-md);
+		padding: var(--spacing-xs) var(--spacing-sm);
 	}
 	[data-theme="dark"] .logo-bg {
-		background: #fff;
+		background: var(--logo-bg-dark);
 	}
 	.logo-img {
 		display: block;
@@ -179,7 +179,7 @@
 		color: var(--fg);
 		width: 44px;
 		height: 44px;
-		margin-left: 1rem;
+		margin-left: var(--spacing-md);
 		cursor: pointer;
 		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 		display: flex;
@@ -193,11 +193,11 @@
 		border-color: var(--accent-primary);
 		color: white;
 		transform: translateY(-1px);
-		box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+		box-shadow: var(--shadow-xl);
 	}
 	.theme-toggle:active {
 		transform: translateY(0);
-		box-shadow: 0 2px 6px rgba(30, 64, 175, 0.2);
+		box-shadow: var(--shadow-sm);
 	}
 	.theme-toggle:focus {
 		background: var(--accent-primary) !important;
@@ -205,7 +205,7 @@
 		color: white !important;
 		outline: none;
 		transform: translateY(-1px);
-		box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+		box-shadow: var(--shadow-xl);
 	}
 	.toggle-icon {
 		display: flex;
