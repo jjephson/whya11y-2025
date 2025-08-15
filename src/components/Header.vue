@@ -7,10 +7,10 @@
 				</span>
 				<span class="logo-text">Why A11y?</span>
 			</a>
-					<button class="theme-toggle" @click="toggleTheme" :aria-pressed="isDark.toString()" :title="isDark ? 'Switch to light mode' : 'Switch to dark mode'">
+			<button class="theme-toggle" @click="toggleTheme" :aria-pressed="isDark.toString()" :title="isDark ? 'Switch to light mode' : 'Switch to dark mode'">
 			<span class="sr-only">Toggle dark mode</span>
 			<div class="toggle-icon">
-				<svg v-if="isDark" class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<svg v-if="isDark" class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img">
 					<circle cx="12" cy="12" r="5"/>
 					<line x1="12" y1="1" x2="12" y2="3"/>
 					<line x1="12" y1="21" x2="12" y2="23"/>
@@ -46,7 +46,6 @@
 
 <script setup>
 	import { ref, onMounted } from 'vue';
-
 	const isDark = ref(true);
 
 	function setTheme(dark) {
@@ -93,7 +92,7 @@
 		font-family: 'Libre Franklin', Helvetica, Arial, sans-serif;
 	}
 	.top-container {
-		padding: 0.5rem 0.75rem;
+		padding: .5rem .75rem;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -108,7 +107,6 @@
 		border-top: 1px solid rgb(226, 226, 226);
 		border-bottom: 1px solid rgb(226, 226, 226);
 	}
-
 	[data-theme="dark"] .nav {
 		background: #2a2a2a;
 		background: linear-gradient(180deg,rgba(42, 42, 42, 1) 0%, rgba(35, 35, 35, 1) 100%);
@@ -126,12 +124,12 @@
 	}
 	.menu li a {
 		display: block;
-		padding: 0.75rem 0.5rem 0.5rem 0.5rem;
+		padding: .75rem .5rem .5rem;
 		border-radius: 0;
 		border-bottom: 2px solid transparent;
 		transition: border-color 0.2s, color 0.2s;
-		font-size: 0.875rem;
-		letter-spacing: 0.04em;
+		font-size: .875rem;
+		letter-spacing: .04em;
 		text-decoration: none;
 		color: var(--fg);
 		white-space: nowrap;
@@ -147,6 +145,7 @@
 	.menu li a[aria-current="page"] {
 		border-bottom: 2px solid var(--fg);
 		color: var(--fg);
+		font-weight: 700;
 	}
 	.logo-link {
 		display: inline-block;
@@ -189,7 +188,6 @@
 		position: relative;
 		overflow: hidden;
 	}
-
 	.theme-toggle:hover {
 		background: var(--accent-primary);
 		border-color: var(--accent-primary);
@@ -197,12 +195,10 @@
 		transform: translateY(-1px);
 		box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
 	}
-
 	.theme-toggle:active {
 		transform: translateY(0);
 		box-shadow: 0 2px 6px rgba(30, 64, 175, 0.2);
 	}
-
 	.theme-toggle:focus {
 		background: var(--accent-primary) !important;
 		border-color: var(--accent-primary) !important;
@@ -211,40 +207,34 @@
 		transform: translateY(-1px);
 		box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
 	}
-
 	.toggle-icon {
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 	}
-
 	.theme-toggle:hover .toggle-icon {
 		transform: scale(1.1);
 	}
-
 	.sun-icon,
 	.moon-icon {
 		transition: all 0.3s ease;
 	}
-
 	[data-theme="dark"] .theme-toggle {
 		background: var(--bg-muted);
 		border-color: var(--border);
 	}
-
 	[data-theme="dark"] .theme-toggle:hover {
 		background: var(--accent-primary);
 		border-color: var(--accent-primary);
 	}
-
 	@media (max-width: 768px) {
 		.top-container {
-			padding: 0.8rem 1rem;
+			padding: .8rem 1rem;
 			max-width: 100%;
 		}
 		.logo-text {
-			font-size: 0.9rem;
+			font-size: .9rem;
 		}
 		.logo-img {
 			height: 1.8rem;
@@ -266,19 +256,18 @@
 			width: 100%;
 		}
 		.menu li a {
-			padding: 0.5rem 0.25rem 0.25rem 0.25rem;
-			font-size: 0.8rem;
+			padding: .5rem .25rem .25rem;
+			font-size: .8rem;
 		}
 	}
-
 	@media (max-width: 480px) {
 		.top-container {
-			padding: 0.8rem 0.75rem;
+			padding: .8rem .75rem;
 			max-width: 100%;
 		}
 		.logo-text {
-			font-size: 0.8rem;
-			margin-left: 0.25rem;
+			font-size: .8rem;
+			margin-left: .25rem;
 		}
 		.logo-img {
 			height: 1.6rem;
@@ -286,7 +275,7 @@
 		.theme-toggle {
 			width: 36px;
 			height: 36px;
-			margin-left: 0.5rem;
+			margin: 0 0 0 .5rem;
 		}
 		.sun-icon,
 		.moon-icon {
