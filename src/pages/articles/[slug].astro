@@ -12,10 +12,12 @@ import { getCollection } from 'astro:content';
  * 2. Add frontmatter with: title, description, date, and optional headerImage
  * 3. Write your content using markdown
  * 
- * CODE BLOCK USAGE:
- * - Use ```html, ```css, ```js, etc. for syntax highlighting
- * - Code blocks automatically get proper padding and styling
- * - Inline code uses `backticks` for inline code styling
+ * OPTIONAL FRONTMATTER FIELDS:
+ * - wcagCriteria: Array of WCAG criteria this article addresses
+ * - keyTakeaways: Array of key points from the article
+ * - whoBenefits: Array of user groups who benefit
+ * - relatedResources: Array of related links
+ * - furtherReading: Array of additional reading materials
  * 
  * EXAMPLE FRONTMATTER:
  * ---
@@ -23,6 +25,13 @@ import { getCollection } from 'astro:content';
  * description: "Brief description of what this article covers"
  * date: "2024-12-19"
  * headerImage: "https://example.com/image.jpg" (optional)
+ * wcagCriteria:
+ *   - code: "1.3.1"
+ *     title: "Info and Relationships"
+ *     url: "https://www.w3.org/WAI/WCAG21/quickref/#info-and-relationships"
+ * keyTakeaways:
+ *   - "Key point 1"
+ *   - "Key point 2"
  * ---
  */
 
@@ -42,36 +51,162 @@ const headerImage = article.data.headerImage || `https://source.unsplash.com/ran
 ---
 
 <BlogLayout title={article.data.title}>
-	<article class="article-content">
-		{headerImage && (
-			<div class="article-header">
-				<img src={headerImage} alt="" class="article-header-image" />
-			</div>
-		)}
-		<div class="article-body">
-			<header class="article-header-content">
-				<h1>{article.data.title}</h1>
-				<div class="article-meta">
-					<time datetime={article.data.date}>{new Date(article.data.date).toLocaleDateString()}</time>
-				</div>
-				<p class="article-description">{article.data.description}</p>
-			</header>
-			<div class="article-text" id="article-text">
-				<Content />
-			</div>
+	<!-- Page Header Section -->
+	<section class="page-header">
+		<h1>{article.data.title}</h1>
+		<p class="page-description">{article.data.description}</p>
+		<div class="page-meta">
+			<time datetime={article.data.date}>{new Date(article.data.date).toLocaleDateString()}</time>
 		</div>
-	</article>
+	</section>
+
+	<!-- Two Column Layout -->
+	<div class="article-layout">
+		<!-- Main Content Column (2/3 width) -->
+		<main class="article-main">
+			<article class="article-content">
+				{headerImage && (
+					<div class="article-header">
+						<img src={headerImage} alt="" class="article-header-image" />
+					</div>
+				)}
+				<div class="article-text" id="article-text">
+					<Content />
+				</div>
+			</article>
+		</main>
+
+		<!-- Sidebar Column (1/3 width) -->
+		<aside class="article-sidebar">
+			<!-- WCAG Criteria Section -->
+			{article.data.wcagCriteria && (
+				<section class="sidebar-section">
+					<h2>WCAG Criteria</h2>
+					<ul class="wcag-list">
+						{article.data.wcagCriteria.map((criterion) => (
+							<li>
+								<a href={criterion.url} target="_blank" rel="noopener">
+									{criterion.code}: {criterion.title}
+								</a>
+							</li>
+						))}
+					</ul>
+				</section>
+			)}
+
+			<!-- Key Takeaways Section -->
+			{article.data.keyTakeaways && (
+				<section class="sidebar-section">
+					<h2>Key Takeaways</h2>
+					<ul class="takeaways-list">
+						{article.data.keyTakeaways.map((takeaway) => (
+							<li>{takeaway}</li>
+						))}
+					</ul>
+				</section>
+			)}
+
+			<!-- Who Benefits Section -->
+			{article.data.whoBenefits && (
+				<section class="sidebar-section">
+					<h2>Who Benefits</h2>
+					<ul class="benefits-list">
+						{article.data.whoBenefits.map((benefit) => (
+							<li>{benefit}</li>
+						))}
+					</ul>
+				</section>
+			)}
+
+			<!-- Related Resources -->
+			{article.data.relatedResources && (
+				<section class="sidebar-section">
+					<h2>Related Resources</h2>
+					<ul class="resources-list">
+						{article.data.relatedResources.map((resource) => (
+							<li>
+								<a href={resource.url} target="_blank" rel="noopener">
+									{resource.title}
+								</a>
+							</li>
+						))}
+					</ul>
+				</section>
+			)}
+
+			<!-- Further Reading -->
+			{article.data.furtherReading && (
+				<section class="sidebar-section">
+					<h2>Further Reading</h2>
+					<ul class="reading-list">
+						{article.data.furtherReading.map((reading) => (
+							<li>
+								<a href={reading.url} target="_blank" rel="noopener">
+									{reading.title}
+								</a>
+							</li>
+						))}
+					</ul>
+				</section>
+			)}
+		</aside>
+	</div>
 </BlogLayout>
 
 <style>
-	.article-content {
-		max-width: 800px;
-		margin: 0 auto;
+	/* Page Header - Centered above the two columns */
+	.page-header {
+		text-align: center;
+		padding: var(--spacing-xl) 0 var(--spacing-3xl);
+		max-width: var(--container-md);
+		margin: 0 auto var(--spacing-3xl);
+		border-bottom: 1px solid var(--border);
 	}
+	.page-header h1 {
+		font-size: var(--text-5xl);
+		line-height: var(--leading-tight);
+		margin: 0 0 var(--spacing-md);
+		color: var(--fg);
+	}
+	.page-description {
+		font-size: var(--text-xl);
+		line-height: var(--leading-relaxed);
+		color: var(--fg-muted);
+		margin: 0 0 var(--spacing-lg);
+	}
+	.page-meta {
+		margin-bottom: var(--spacing-lg);
+	}
+	.page-meta time {
+		font-size: var(--text-sm);
+		color: var(--fg-muted);
+		font-weight: 500;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	/* Two Column Layout */
+	.article-layout {
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		gap: var(--spacing-3xl);
+		max-width: var(--container-lg);
+		margin: 0 auto;
+		align-items: start;
+	}
+
+	/* Main Content Column */
+	.article-main {
+		min-width: 0; /* Prevents grid overflow */
+	}
+	.article-content {
+		width: 100%;
+	}
+	/* Header image styling */
 	.article-header {
-		margin: -2rem -2rem 2rem;
+		margin: 0 0 var(--spacing-xl);
 		overflow: hidden;
-		border-radius: .75rem;
+		border-radius: var(--radius-lg);
 	}
 	.article-header-image {
 		width: 100%;
@@ -79,74 +214,45 @@ const headerImage = article.data.headerImage || `https://source.unsplash.com/ran
 		object-fit: cover;
 		display: block;
 	}
-	.article-body {
-		padding: 0 1rem;
-	}
-	.article-header-content {
-		margin-bottom: 3rem;
-		padding-bottom: 2rem;
-		border-bottom: 1px solid var(--border);
-	}
-	.article-header-content h1 {
-		font-size: 2.5rem;
-		line-height: 1.2;
-		margin: 0 0 1rem;
-		color: var(--fg);
-	}
-	.article-meta {
-		margin-bottom: 1.5rem;
-	}
-	.article-meta time {
-		font-size: .9rem;
-		color: var(--fg-muted);
-		font-weight: 500;
-		text-transform: uppercase;
-		letter-spacing: .05em;
-	}
-	.article-description {
-		font-size: 1.25rem;
-		line-height: 1.6;
-		color: var(--fg-muted);
-		margin: 0;
-		font-weight: 400;
-	}
+
+	/* Main content text styling */
 	.article-text {
-		font-size: 1.1rem;
-		line-height: 1.7;
+		font-size: var(--text-lg);
+		line-height: var(--leading-relaxed);
 		color: var(--fg);
 	}
 	.article-text h2 {
-		font-size: 1.8rem;
-		margin: 2.5rem 0 1rem;
+		font-size: var(--text-3xl);
+		margin: var(--spacing-2xl) 0 var(--spacing-md);
 		color: var(--fg);
 	}
 	.article-text h3 {
-		font-size: 1.4rem;
-		margin: 2rem 0 0.75rem 0;
+		font-size: var(--text-2xl);
+		margin: var(--spacing-xl) 0 var(--spacing-lg);
 		color: var(--fg);
 	}
 	.article-text h4 {
-		font-size: 1.2rem;
-		margin: 1.5rem 0 0.5rem;
+		font-size: var(--text-xl);
+		margin: var(--spacing-lg) 0 var(--spacing-sm);
 		color: var(--fg);
 	}
 	.article-text p {
-		margin: 0 0 1.5rem;
+		margin: 0 0 var(--spacing-2xl);
 	}
 	.article-text ul,
 	.article-text ol {
-		margin: 1.5rem 0;
-		padding-left: 1.5rem;
+		margin: var(--spacing-2xl) 0;
+		padding-left: var(--spacing-2xl);
 	}
 	.article-text li {
-		margin: .5rem 0;
+		margin: var(--spacing-sm) 0;
 	}
 	.article-text blockquote {
-		margin: 2rem 0;
-		padding: 1.5rem;
+		margin: var(--spacing-xl) 0;
+		padding: var(--spacing-2xl);
 		border-left: 4px solid var(--fg);
 		background: var(--bg-muted);
-		border-radius: 0 .5rem .5rem 0;
+		border-radius: 0 var(--radius-md) var(--radius-md) 0;
 		font-style: italic;
 	}
 	/* Inline code styling */
@@ -181,8 +287,8 @@ const headerImage = article.data.headerImage || `https://source.unsplash.com/ran
 	.article-text img {
 		max-width: 100%;
 		height: auto;
-		border-radius: .5rem;
-		margin: 2rem 0;
+		border-radius: var(--radius-md);
+		margin: var(--spacing-xl) 0;
 	}
 	.article-text a {
 		color: var(--link);
@@ -196,30 +302,129 @@ const headerImage = article.data.headerImage || `https://source.unsplash.com/ran
 		text-decoration-color: var(--link-underline-hover);
 		text-decoration-thickness: 3px;
 	}
-	@media (max-width: 768px) {
-		.article-header {
-			margin: -1rem -1rem 1.5rem;
+
+	/* Sidebar Styling */
+	.article-sidebar {
+		background: var(--bg-muted);
+		border-radius: var(--radius-lg);
+		padding: var(--spacing-lg);
+		border: 1px solid var(--border);
+		height: fit-content;
+		margin: 0 0 var(--spacing-xl);
+	}
+	.sidebar-section {
+		margin-bottom: var(--spacing-2xl);
+	}
+	.sidebar-section:last-child {
+		margin-bottom: 0;
+	}
+	.sidebar-section h2 {
+		font-size: var(--text-lg);
+		margin: 0 0 var(--spacing-md);
+		color: var(--fg);
+		border-bottom: 2px solid var(--accent-primary);
+		padding-bottom: var(--spacing-sm);
+	}
+	.sidebar-section ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	.sidebar-section li {
+		margin-bottom: var(--spacing-sm);
+		padding: var(--spacing-sm);
+		background: var(--bg);
+		border-radius: var(--radius-sm);
+		border: 1px solid var(--border);
+		transition: all 0.2s ease;
+	}
+	.sidebar-section li:hover {
+		border-color: var(--accent-primary);
+		background: var(--bg);
+	}
+	.sidebar-section a {
+		color: var(--fg);
+		text-decoration: none;
+		display: block;
+		font-size: var(--text-sm);
+		line-height: var(--leading-normal);
+	}
+	.sidebar-section a:hover {
+		color: var(--accent-primary);
+		text-decoration: underline;
+		text-decoration-color: var(--accent-primary);
+		text-underline-offset: 0.2em;
+		text-decoration-thickness: 2px;
+	}
+
+	/* Specific list styling */
+	.wcag-list li {
+		font-weight: 500;
+	}
+
+	.takeaways-list li,
+	.benefits-list li {
+		font-size: var(--text-sm);
+		line-height: var(--leading-normal);
+	}
+
+	.resources-list li,
+	.reading-list li {
+		font-size: var(--text-sm);
+	}
+
+	/* Responsive Design */
+	@media (max-width: 1024px) {
+		.article-layout {
+			grid-template-columns: 1fr;
+			gap: var(--spacing-2xl);
 		}
+		
+		.article-sidebar {
+			position: static;
+			order: 1; /* Move sidebar after main content on mobile */
+		}
+	}
+
+	@media (max-width: 768px) {
+		.page-header {
+			padding: var(--spacing-lg) 0 var(--spacing-2xl);
+		}
+		
+		.page-header h1 {
+			font-size: var(--text-4xl);
+		}
+		
+		.page-description {
+			font-size: var(--text-base);
+		}
+		
+		.article-header {
+			margin: 0 0 var(--spacing-lg);
+		}
+		
 		.article-header-image {
 			height: 200px;
 		}
-		.article-body {
-			padding: 0 .5rem;
-		}
-		.article-header-content h1 {
-			font-size: 2rem;
-		}
-		.article-description {
-			font-size: 1.1rem;
-		}
+		
 		.article-text {
-			font-size: 1rem;
+			font-size: var(--text-base);
 		}
+		
 		.article-text h2 {
-			font-size: 1.5rem;
+			font-size: var(--text-2xl);
 		}
+		
 		.article-text h3 {
-			font-size: 1.3rem;
+			font-size: var(--text-xl);
+		}
+		
+		.article-sidebar {
+			padding: var(--spacing-lg);
+		}
+		
+		.sidebar-section h2 {
+			font-size: var(--text-base);
 		}
 	}
 </style> 

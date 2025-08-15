@@ -11,16 +11,16 @@ const { title, description, href, date, className = '' } = Astro.props;
 ---
 
 <article class={`content-card ${className}`}>
-	<h3><a href={href}>{title}</a></h3>
+	<h2><a href={href}>{title}</a></h2>
 	<p>{description}</p>
 	<time datetime={date}>{new Date(date).toLocaleDateString()}</time>
 </article>
 
 <style>
 	.content-card {
-		padding: var(--spacing-2xl);
+		padding: var(--spacing-md);
 		border: 1px solid var(--border);
-		border-radius: var(--radius-lg);
+		border-radius: var(--radius-md);
 		background: var(--bg);
 		transition: all 0.2s ease;
 		overflow: hidden;
@@ -29,19 +29,19 @@ const { title, description, href, date, className = '' } = Astro.props;
 		border-color: var(--accent-primary);
 		box-shadow: var(--shadow-lg);
 	}
-	.content-card h3 {
+	.content-card h2 {
 		margin: 0 0 var(--spacing-sm) 0;
 		font-size: var(--text-lg);
 		line-height: var(--leading-tight);
 	}
-	.content-card h3 a {
+	.content-card h2 a {
 		color: var(--fg);
 		text-decoration: underline;
 		text-decoration-color: var(--accent-primary);
 		text-underline-offset: 0.2em;
 		text-decoration-thickness: 2px;
 	}
-	.content-card h3 a:hover {
+	.content-card h2 a:hover {
 		color: var(--accent-primary);
 		text-decoration-color: var(--accent-primary);
 		text-decoration-thickness: 3px;

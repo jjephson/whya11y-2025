@@ -6,6 +6,26 @@ const articles = defineCollection({
 		description: z.string(),
 		date: z.string(),
 		headerImage: z.string().optional(),
+		// WCAG Criteria that this article addresses
+		wcagCriteria: z.array(z.object({
+			code: z.string(),
+			title: z.string(),
+			url: z.string(),
+		})).optional(),
+		// Key takeaways from this article
+		keyTakeaways: z.array(z.string()).optional(),
+		// Who benefits from this accessibility topic
+		whoBenefits: z.array(z.string()).optional(),
+		// Related resources and documentation
+		relatedResources: z.array(z.object({
+			title: z.string(),
+			url: z.string(),
+		})).optional(),
+		// Further reading materials
+		furtherReading: z.array(z.object({
+			title: z.string(),
+			url: z.string(),
+		})).optional(),
 	}),
 });
 

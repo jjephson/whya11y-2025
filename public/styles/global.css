@@ -294,7 +294,7 @@ article img,
 /* Global code block styling - ensures proper padding for all pre elements */
 pre {
 	background: var(--bg-muted);
-	padding: var(--spacing-2xl);
+	padding: var(--spacing-lg);
 	border-radius: var(--radius-md);
 	overflow-x: auto;
 	margin: var(--spacing-xl) 0;
