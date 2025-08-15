@@ -2,6 +2,30 @@
 import BlogLayout from '../../layouts/BlogLayout.astro';
 import { getCollection } from 'astro:content';
 
+/**
+ * Article Page Template
+ * 
+ * This page renders individual articles from the content/articles collection.
+ * 
+ * HOW TO CREATE AN ARTICLE:
+ * 1. Create a new .md file in src/content/articles/
+ * 2. Add frontmatter with: title, description, date, and optional headerImage
+ * 3. Write your content using markdown
+ * 
+ * CODE BLOCK USAGE:
+ * - Use ```html, ```css, ```js, etc. for syntax highlighting
+ * - Code blocks automatically get proper padding and styling
+ * - Inline code uses `backticks` for inline code styling
+ * 
+ * EXAMPLE FRONTMATTER:
+ * ---
+ * title: "Your Article Title"
+ * description: "Brief description of what this article covers"
+ * date: "2024-12-19"
+ * headerImage: "https://example.com/image.jpg" (optional)
+ * ---
+ */
+
 export async function getStaticPaths() {
 	const articles = await getCollection('articles');
 	return articles.map(article => ({
@@ -13,7 +37,7 @@ export async function getStaticPaths() {
 const { article } = Astro.props;
 const { Content } = await article.render();
 
-// Header image logic
+// Header image logic - uses provided image or generates a random one
 const headerImage = article.data.headerImage || `https://source.unsplash.com/random/1200x320?sig=${Math.floor(Math.random()*1000)}`;
 ---
 
@@ -125,26 +149,34 @@ const headerImage = article.data.headerImage || `https://source.unsplash.com/ran
 		border-radius: 0 .5rem .5rem 0;
 		font-style: italic;
 	}
+	/* Inline code styling */
 	.article-text code {
 		background: var(--bg-muted);
-		padding: .2rem .4rem;
-		border-radius: .25rem;
-		font-size: .9em;
+		padding: var(--spacing-xs) var(--spacing-sm);
+		border-radius: var(--radius-sm);
+		font-size: 0.9em;
 		font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
 	}
+	
+	/* Code block styling - for ```code blocks in markdown */
 	.article-text pre {
 		background: var(--bg-muted);
-		padding: 1.5rem;
-		border-radius: .5rem;
+		padding: var(--spacing-2xl);
+		border-radius: var(--radius-md);
 		overflow-x: auto;
-		margin: 2rem 0;
+		margin: var(--spacing-xl) 0;
 		border: 1px solid var(--border);
+		/* Ensure proper spacing for code blocks */
+		white-space: pre;
+		word-wrap: normal;
 	}
+	/* Code inside pre blocks - removes background and padding from inline code */
 	.article-text pre code {
 		background: none;
 		padding: 0;
-		font-size: .9rem;
+		font-size: 0.9rem;
 		line-height: 1.5;
+		border-radius: 0;
 	}
 	.article-text img {
 		max-width: 100%;
