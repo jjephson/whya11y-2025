@@ -11,6 +11,7 @@
 			<span class="sr-only">Toggle dark mode</span>
 			<div class="toggle-icon">
 				<svg v-if="isDark" class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img">
+					<title>Switch to light mode</title>
 					<circle cx="12" cy="12" r="5"/>
 					<line x1="12" y1="1" x2="12" y2="3"/>
 					<line x1="12" y1="21" x2="12" y2="23"/>
@@ -21,13 +22,14 @@
 					<line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
 					<line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
 				</svg>
-				<svg v-else class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<svg v-else class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img">
+					<title>Switch to dark mode</title>
 					<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
 				</svg>
 			</div>
 		</button>
 		</div>
-		<nav aria-label="Main navigation" class="nav">
+		<nav aria-label="Main navigation">
 			<ul class="menu" id="main-menu">
 				<li v-for="link in menuLinks" :key="link.href">
 					<a
@@ -99,7 +101,7 @@
 		max-width: 1200px;
 		margin: 0 auto;
 	}
-	.nav {
+	nav {
 		display: flex;
 		justify-content: center;
 		background: var(--nav-bg-light);
@@ -107,7 +109,7 @@
 		border-top: 1px solid var(--nav-border-light);
 		border-bottom: 1px solid var(--nav-border-light);
 	}
-	[data-theme="dark"] .nav {
+	[data-theme="dark"] nav {
 		background: var(--nav-bg-dark);
 		background: linear-gradient(180deg,rgba(42, 42, 42, 1) 0%, rgba(35, 35, 35, 1) 100%);
 		border-top: 1px solid var(--nav-border-dark);
@@ -248,7 +250,7 @@
 			width: 18px;
 			height: 18px;
 		}
-		.nav {
+		nav {
 			padding: 0 0.5rem;
 		}
 		.menu {
