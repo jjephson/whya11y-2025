@@ -1,9 +1,10 @@
 ---
-import BlogLayout from '../layouts/BlogLayout.astro';
+import BasicPageLayout from '../layouts/BasicPageLayout.astro';
 ---
-<BlogLayout 
+<BasicPageLayout 
 	title="Privacy Policy | WhyA11y"
 	description="Our privacy policy explains how WhyA11y collects, uses, and protects your information when you visit our website. Learn about your rights and our data practices."
+	contentId="privacy-content"
 >
 	<section id="privacy-content">
 		<h1>Privacy Policy</h1>
@@ -125,72 +126,4 @@ import BlogLayout from '../layouts/BlogLayout.astro';
 			any concerns you may have.
 		</p>
 	</section>
-</BlogLayout>
-
-<style>
-	section {
-		max-width: var(--container-md);
-		margin: 0 auto;
-		padding: 0;
-	}
-	section h1 {
-		font-size: var(--text-5xl);
-		line-height: var(--leading-tight);
-		margin: 0 0 var(--spacing-md);
-		color: var(--fg);
-	}
-	.last-updated {
-		color: var(--fg-muted);
-		font-style: italic;
-		margin-bottom: var(--spacing-xl);
-	}
-	section h2 {
-		font-size: var(--text-2xl);
-		line-height: var(--leading-tight);
-		margin: var(--spacing-xl) 0 var(--spacing-md);
-		color: var(--fg);
-	}
-	section h3 {
-		font-size: var(--text-xl);
-		line-height: var(--leading-tight);
-		margin: var(--spacing-2xl) 0 var(--spacing-sm);
-		color: var(--fg);
-	}
-	section p {
-		margin: 0 0 var(--spacing-md);
-		line-height: var(--leading-relaxed);
-		color: var(--fg);
-	}
-	section ul {
-		margin: var(--spacing-md) 0;
-		padding-left: var(--spacing-2xl);
-	}
-	section li {
-		margin: var(--spacing-sm) 0;
-		line-height: var(--leading-relaxed);
-		color: var(--fg);
-	}
-	section a {
-		color: var(--link);
-		text-decoration: underline;
-		text-decoration-color: var(--link-underline);
-		text-underline-offset: 0.2em;
-		text-decoration-thickness: 2px;
-	}
-	section a:hover {
-		color: var(--link-hover);
-		text-decoration-color: var(--link-underline-hover);
-		text-decoration-thickness: 3px;
-	}
-	@media (max-width: 768px) {
-		section h1 {
-			font-size: var(--text-4xl);
-		}
-		section h2 {
-			font-size: var(--text-lg);
-		}
-		section h3 {
-			font-size: var(--text-lg);
-		}
-	}
-</style>
+</BasicPageLayout>

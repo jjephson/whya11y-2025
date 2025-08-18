@@ -1,9 +1,10 @@
 ---
-import BlogLayout from '../layouts/BlogLayout.astro';
+import BasicPageLayout from '../layouts/BasicPageLayout.astro';
 ---
-<BlogLayout 
+<BasicPageLayout 
 	title="EN 301 549 | WhyA11y"
 	description="Learn about EN 301 549, the European accessibility standard for ICT products and services. Understand compliance levels and requirements for digital accessibility in the EU."
+	contentId="en301549-content"
 >
 	<section id="en301549-content">
 		<h1>EN 301 549: European Accessibility Standard</h1>
@@ -36,44 +37,4 @@ import BlogLayout from '../layouts/BlogLayout.astro';
 	
 	<p>This standard is particularly important for organizations doing business in the European Union, as it forms the basis for accessibility requirements in public procurement and helps ensure compliance with the European Accessibility Act.</p>
 	</section>
-</BlogLayout>
-
-<style>
-	section {
-		max-width: 800px;
-		margin: 0 auto;
-	}
-	section h1 {
-		font-size: 2.5rem;
-		line-height: 1.2;
-		margin: 0 0 1.5rem;
-		color: var(--fg);
-	}
-	section h2 {
-		font-size: 1.8rem;
-		margin: 2.5rem 0 1rem;
-		color: var(--fg);
-	}
-	section p {
-		margin: 0 0 1.5rem;
-		line-height: 1.6;
-		color: var(--fg);
-	}
-	section ul {
-		margin: 1.5rem 0;
-		padding-left: 1.5rem;
-	}
-	section li {
-		margin: .5rem 0;
-		line-height: 1.6;
-		color: var(--fg);
-	}
-	@media (max-width: 768px) {
-		section h1 {
-			font-size: 2rem;
-		}
-		section h2 {
-			font-size: 1.5rem;
-		}
-	}
-</style>
+</BasicPageLayout>

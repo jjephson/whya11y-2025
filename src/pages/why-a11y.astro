@@ -1,9 +1,10 @@
 ---
-import BlogLayout from '../layouts/BlogLayout.astro';
+import BasicPageLayout from '../layouts/BasicPageLayout.astro';
 ---
-<BlogLayout 
+<BasicPageLayout 
 	title="Why a11y | WhyA11y"
 	description="Learn why web accessibility matters for everyone. Discover how accessible design benefits all users, improves SEO, ensures legal compliance, and expands your audience reach."
+	contentId="why-a11y-content"
 >
 	<section id="why-a11y-content">
 		<h1>Why Accessibility (a11y)?</h1>
@@ -18,38 +19,4 @@ import BlogLayout from '../layouts/BlogLayout.astro';
 		</ul>
 		<p>Accessibility is not an optional “extra feature.” It’s a core part of good design and responsible development. When we make the web accessible, we make it more flexible, resilient, and enjoyable for everyone—today and in the future.</p>
 	</section>
-</BlogLayout>
-
-<style>
-	section {
-		max-width: var(--container-md);
-		margin: 0 auto;
-		padding: 0;
-	}
-	section h1 {
-		font-size: var(--text-5xl);
-		line-height: var(--leading-tight);
-		margin: 0 0 var(--spacing-2xl);
-		color: var(--fg);
-	}
-	section p {
-		margin: 0 0 var(--spacing-2xl);
-		line-height: var(--leading-relaxed);
-		color: var(--fg);
-		font-size: var(--text-lg);
-	}
-	section ul {
-		margin: var(--spacing-2xl) 0;
-		padding-left: var(--spacing-2xl);
-	}
-	section li {
-		margin: var(--spacing-sm) 0;
-		line-height: var(--leading-relaxed);
-		color: var(--fg);
-	}
-	@media (max-width: 768px) {
-		section h1 {
-			font-size: var(--text-4xl);
-		}
-	}
-</style> 
+</BasicPageLayout> 
