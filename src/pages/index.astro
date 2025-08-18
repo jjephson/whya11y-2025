@@ -6,14 +6,15 @@ import { getCollection } from 'astro:content';
 const articles = await getCollection('articles');
 const codeExamples = await getCollection('codeExamples');
 
-// Get the most recent articles and code examples
-const recentArticles = articles
-	.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
-	.slice(0, 3);
+// Function to shuffle array and get random items
+function getRandomItems<T>(array: T[], count: number): T[] {
+	const shuffled = [...array].sort(() => Math.random() - 0.5);
+	return shuffled.slice(0, count);
+}
 
-const recentCodeExamples = codeExamples
-	.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
-	.slice(0, 3);
+// Get 3 random articles and 3 random code examples
+const randomArticles = getRandomItems(articles, 3);
+const randomCodeExamples = getRandomItems(codeExamples, 3);
 ---
 
 <BlogLayout title="Home | WhyA11y">
@@ -35,7 +36,7 @@ const recentCodeExamples = codeExamples
 				<h2>Latest Articles</h2>
 				<p>Explore our latest insights on web accessibility best practices and techniques.</p>
 				<div class="content-list">
-					{recentArticles.map((article) => (
+					{randomArticles.map((article) => (
 						<ContentCard
 							title={article.data.title}
 							description={article.data.description}
@@ -51,7 +52,7 @@ const recentCodeExamples = codeExamples
 				<h2>Code Examples</h2>
 				<p>Ready-to-use code examples that demonstrate accessible patterns and techniques.</p>
 				<div class="content-list">
-					{recentCodeExamples.map((example) => (
+					{randomCodeExamples.map((example) => (
 						<ContentCard
 							title={example.data.title}
 							description={example.data.description}
