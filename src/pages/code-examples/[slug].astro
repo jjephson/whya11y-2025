@@ -42,7 +42,10 @@ const { Content } = await example.render();
 const headerImage = example.data.headerImage || `https://source.unsplash.com/random/1200x320?sig=${Math.floor(Math.random()*1000)}`;
 ---
 
-<BlogLayout title={example.data.title}>
+<BlogLayout 
+	title={example.data.title}
+	description={example.data.description}
+>
 	<!-- Page Header Section -->
 	<PageHeader 
 		title={example.data.title}

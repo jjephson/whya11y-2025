@@ -51,7 +51,10 @@ const { Content } = await article.render();
 const headerImage = article.data.headerImage || `https://source.unsplash.com/random/1200x320?sig=${Math.floor(Math.random()*1000)}`;
 ---
 
-<BlogLayout title={article.data.title}>
+<BlogLayout 
+	title={article.data.title}
+	description={article.data.description}
+>
 	<!-- Page Header Section -->
 	<PageHeader 
 		title={article.data.title}

@@ -2,17 +2,62 @@
 import Header from '../components/Header.vue';
 import Footer from '../components/Footer.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+export interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { title = 'WhyA11y', description = 'Making the web accessible for everyone. Learn about web accessibility, WCAG guidelines, and inclusive design practices.' } = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
-		<title>{Astro.props.title || 'WhyA11y'}</title>
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:site_name" content="WhyA11y" />
+		
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
 
-		<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+		<!-- Font Optimization -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+		<link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+		
+		<!-- Preload critical font -->
+		<link 
+			rel="preload" 
+			href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" 
+			as="style" 
+			onload="this.onload=null;this.rel='stylesheet'"
+		/>
+		<noscript>
+			<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet" />
+		</noscript>
+		
 		<link rel="stylesheet" href="/styles/global.css" />
 		<script>
+			// Font loading optimization
+			if ('fonts' in document) {
+				Promise.all([
+					document.fonts.load('400 1em "Atkinson Hyperlegible"'),
+					document.fonts.load('700 1em "Atkinson Hyperlegible"')
+				]).then(() => {
+					document.documentElement.classList.add('fonts-loaded');
+				});
+			}
+			
 			// Set theme immediately to prevent flash of unstyled content
 			(function() {
 				const saved = localStorage.getItem('theme');
