@@ -190,7 +190,8 @@
 		position: relative;
 		overflow: hidden;
 	}
-	.theme-toggle:hover {
+	.theme-toggle:hover,
+	.theme-toggle:focus {
 		background: var(--accent-primary);
 		border-color: var(--accent-primary);
 		color: white;
@@ -202,12 +203,7 @@
 		box-shadow: var(--shadow-sm);
 	}
 	.theme-toggle:focus {
-		background: var(--accent-primary) !important;
-		border-color: var(--accent-primary) !important;
-		color: white !important;
 		outline: none;
-		transform: translateY(-1px);
-		box-shadow: var(--shadow-xl);
 	}
 	.toggle-icon {
 		display: flex;

@@ -46,8 +46,6 @@ testingTools:
     url: "https://developers.google.com/web/tools/lighthouse"
 ---
 
-# Accessible Button Implementation
-
 Buttons are one of the most fundamental interactive elements on the web. When implemented correctly, they provide clear, predictable interactions for all users. This guide covers essential accessibility practices for button implementation.
 
 ## Why Button Accessibility Matters

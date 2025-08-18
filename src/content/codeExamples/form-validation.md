@@ -5,7 +5,7 @@ date: "2024-12-19"
 headerImage: "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80"
 ---
 
-# Accessible Form Validation
+
 
 Form validation should provide clear, immediate feedback to all users. Here's how to implement it accessibly.
 

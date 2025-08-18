@@ -5,7 +5,7 @@ date: "2024-12-19"
 headerImage: "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1200&q=80"
 ---
 
-# Accessible Modal Dialog
+
 
 Modal dialogs should trap focus, provide clear navigation, and work seamlessly with assistive technologies.
 

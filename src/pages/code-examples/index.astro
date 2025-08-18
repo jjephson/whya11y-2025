@@ -23,6 +23,7 @@ const sortedCodeExamples = codeExamples.sort((a, b) => new Date(b.data.date).get
 				description={example.data.description}
 				href={`/code-examples/${example.slug}`}
 				date={example.data.date}
+				headingLevel="h2"
 			/>
 		))}
 	</section>

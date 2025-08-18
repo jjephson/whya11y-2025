@@ -5,7 +5,7 @@ date: "2024-12-19"
 headerImage: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=1200&q=80"
 ---
 
-# Color Contrast Best Practices
+
 
 Good color contrast is essential for users with low vision or color blindness. Here's how to implement it properly.
 

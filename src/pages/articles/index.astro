@@ -23,6 +23,7 @@ const sortedArticles = articles.sort((a, b) => new Date(b.data.date).getTime() -
 				description={article.data.description}
 				href={`/articles/${article.slug}`}
 				date={article.data.date}
+				headingLevel="h2"
 			/>
 		))}
 	</section>
