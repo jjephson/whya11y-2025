@@ -254,7 +254,7 @@
 			width: 100%;
 		}
 		.menu li a {
-			padding: .5rem .25rem .25rem;
+			padding: .75rem .25rem .25rem;
 			font-size: .8rem;
 		}
 	}

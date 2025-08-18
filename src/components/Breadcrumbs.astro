@@ -1,0 +1,73 @@
+---
+// Only show breadcrumbs if not on home page
+const showBreadcrumbs = Astro.url.pathname !== '/';
+---
+
+{showBreadcrumbs && (
+	<nav class="breadcrumbs" aria-label="Breadcrumb">
+		<ol>
+			<li>
+				<a href="/">Home</a>
+			</li>
+			{Astro.url.pathname.split('/').filter(Boolean).map((segment, i, arr) => {
+				const path = '/' + arr.slice(0, i + 1).join('/');
+				const isLast = i === arr.length - 1;
+				return (
+					<li>
+						<span aria-hidden="true" class="breadcrumb-separator">/</span>
+						{isLast ? (
+							<span aria-current="page">{decodeURIComponent(segment)}</span>
+						) : (
+							<a href={path}>{decodeURIComponent(segment)}</a>
+						)}
+					</li>
+				);
+			})}
+		</ol>
+	</nav>
+)}
+
+<style>
+	.breadcrumbs {
+		margin: 0 0 var(--spacing-md);
+		font-size: var(--text-xs);
+		color: var(--fg);
+	}
+	.breadcrumbs a {
+		color: var(--fg-muted);
+		text-decoration: underline;
+		text-decoration-color: var(--accent-primary);
+		text-underline-offset: 0.2em;
+		text-decoration-thickness: 1px;
+		font-size: 0.9rem;
+		transition: all 0.2s ease;
+	}
+	.breadcrumbs a:hover,
+	.breadcrumbs a:focus,
+	.breadcrumbs a:active {
+		color: var(--text-on-accent);
+		text-decoration-color: var(--text-on-accent);
+		text-decoration-thickness: 2px;
+	}
+	.breadcrumbs ol {
+		display: flex;
+		flex-wrap: wrap;
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+	.breadcrumbs li {
+		display: flex;
+		align-items: center;
+	}
+	.breadcrumbs li:first-child:before {
+		content: "🌐";
+		display: inline-block;
+		margin-right: var(--spacing-md);
+		font-size: 1em;
+		vertical-align: middle;
+	}
+	.breadcrumb-separator {
+		margin: 0 0.5em;
+	}
+</style>

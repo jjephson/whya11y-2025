@@ -1,0 +1,63 @@
+---
+export interface Props {
+	title: string;
+	description?: string;
+	date?: string;
+	className?: string;
+}
+
+const { title, description, date, className = '' } = Astro.props;
+---
+
+<section class={`page-header ${className}`}>
+	<h1>{title}</h1>
+	{description && <p class="page-description">{description}</p>}
+	{date && (
+		<div class="page-meta">
+			<time datetime={date}>{new Date(date).toLocaleDateString()}</time>
+		</div>
+	)}
+</section>
+
+<style>
+	.page-header {
+		text-align: center;
+		padding: var(--spacing-xl) 0 var(--spacing-2xl);
+		max-width: var(--container-md);
+		margin: 0 auto var(--spacing-3xl);
+		border-bottom: 1px solid var(--border);
+	}
+	.page-header h1 {
+		font-size: var(--text-5xl);
+		line-height: var(--leading-tight);
+		margin: 0 0 var(--spacing-sm);
+		color: var(--fg);
+	}
+	.page-description {
+		font-size: var(--text-xl);
+		line-height: var(--leading-relaxed);
+		color: var(--fg-muted);
+		margin: 0 0 var(--spacing-lg);
+	}
+	.page-meta {
+		margin-bottom: var(--spacing-lg);
+	}
+	.page-meta time {
+		font-size: var(--text-sm);
+		color: var(--fg-muted);
+		font-weight: 500;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+	@media (max-width: 768px) {
+		.page-header {
+			padding: var(--spacing-md) 0 var(--spacing-xl);
+		}
+		.page-header h1 {
+			font-size: var(--text-4xl);
+		}
+		.page-description {
+			font-size: var(--text-base);
+		}
+	}
+</style>
