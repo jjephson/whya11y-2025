@@ -3,7 +3,7 @@
 		<div class="top-container">
 			<a href="/" class="logo-link">
 				<span class="logo-bg">
-					<img src="/images/design/logo.png" alt="WhyA11y home page" class="logo-img" />
+					<img src="/images/design/logo.png" alt="WhyA11y home page" class="logo-img" width="70" height="35" />
 				</span>
 				<span class="logo-text">Why A11y?</span>
 			</a>

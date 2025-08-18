@@ -48,16 +48,6 @@ const { title = 'WhyA11y', description = 'Making the web accessible for everyone
 		
 		<link rel="stylesheet" href="/styles/global.css" />
 		<script>
-			// Font loading optimization
-			if ('fonts' in document) {
-				Promise.all([
-					document.fonts.load('400 1em "Atkinson Hyperlegible"'),
-					document.fonts.load('700 1em "Atkinson Hyperlegible"')
-				]).then(() => {
-					document.documentElement.classList.add('fonts-loaded');
-				});
-			}
-			
 			// Set theme immediately to prevent flash of unstyled content
 			(function() {
 				const saved = localStorage.getItem('theme');
