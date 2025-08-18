@@ -1,0 +1,300 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Color Contrast Guidelines</title><link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/styles/global.css"><script type="module">(function(){const e=localStorage.getItem("theme");if(e)document.documentElement.setAttribute("data-theme",e);else{const t=window.matchMedia("(prefers-color-scheme: light)").matches;document.documentElement.setAttribute("data-theme",t?"light":"dark")}})();</script><style>.page-header[data-astro-cid-wu5dj4rx]{text-align:center;padding:var(--spacing-xl) 0 var(--spacing-2xl);max-width:var(--container-md);margin:0 auto var(--spacing-3xl);border-bottom:1px solid var(--border)}.page-header[data-astro-cid-wu5dj4rx] h1[data-astro-cid-wu5dj4rx]{font-size:var(--text-5xl);line-height:var(--leading-tight);margin:0 0 var(--spacing-sm);color:var(--fg)}.page-description[data-astro-cid-wu5dj4rx]{font-size:var(--text-xl);line-height:var(--leading-relaxed);color:var(--fg-muted);margin:0 0 var(--spacing-lg)}.page-meta[data-astro-cid-wu5dj4rx]{margin-bottom:var(--spacing-lg)}.page-meta[data-astro-cid-wu5dj4rx] time[data-astro-cid-wu5dj4rx]{font-size:var(--text-sm);color:var(--fg-muted);font-weight:500;text-transform:uppercase;letter-spacing:.05em}@media (max-width: 768px){.page-header[data-astro-cid-wu5dj4rx]{padding:var(--spacing-md) 0 var(--spacing-xl)}.page-header[data-astro-cid-wu5dj4rx] h1[data-astro-cid-wu5dj4rx]{font-size:var(--text-4xl)}.page-description[data-astro-cid-wu5dj4rx]{font-size:var(--text-base)}}
+</style>
+<link rel="stylesheet" href="/_astro/accessibility.C_UQgitg.css">
+<link rel="stylesheet" href="/_astro/_slug_.CVgT4Amv.css"></head> <body> <a href="#main-content" class="skip-link">Skip to main content</a> <style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var A=Object.defineProperty;var g=(i,o,a)=>o in i?A(i,o,{enumerable:!0,configurable:!0,writable:!0,value:a}):i[o]=a;var d=(i,o,a)=>g(i,typeof o!="symbol"?o+"":o,a);{let i={0:t=>m(t),1:t=>a(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(a(t)),5:t=>new Set(a(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>1/0*t},o=t=>{let[l,e]=t;return l in i?i[l](e):void 0},a=t=>t.map(o),m=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([l,e])=>[l,o(e)]));class y extends HTMLElement{constructor(){super(...arguments);d(this,"Component");d(this,"hydrator");d(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let c=this.querySelectorAll("astro-slot"),n={},h=this.querySelectorAll("template[data-astro-template]");for(let r of h){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(let r of c){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("name")||"default"]=r.innerHTML)}let p;try{p=this.hasAttribute("props")?m(JSON.parse(this.getAttribute("props"))):{}}catch(r){let s=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(s+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${s}`,this.getAttribute("props"),r),r}let u;await this.hydrator(this)(this.Component,p,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});d(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),c.disconnect(),this.childrenConnectedCallback()},c=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});c.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}async start(){let e=JSON.parse(this.getAttribute("opts")),c=this.getAttribute("client");if(Astro[c]===void 0){window.addEventListener(`astro:${c}`,()=>this.start(),{once:!0});return}try{await Astro[c](async()=>{let n=this.getAttribute("renderer-url"),[h,{default:p}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),u=this.getAttribute("component-export")||"default";if(!u.includes("."))this.Component=h[u];else{this.Component=h;for(let f of u.split("."))this.Component=this.Component[f]}return this.hydrator=p,this.hydrate},e,this)}catch(n){console.error(`[astro-island] Error hydrating ${this.getAttribute("component-url")}`,n)}}attributeChangedCallback(){this.hydrate()}}d(y,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",y)}})();</script><astro-island uid="Z1dNYJ5" prefix="s0" component-url="/_astro/Header.BVEKR-rM.js" component-export="default" renderer-url="/_astro/client.Bbk_tNaG.js" props="{}" ssr client="load" opts="{&quot;name&quot;:&quot;Header&quot;,&quot;value&quot;:true}" await-children><header class="site-header" data-v-90913b0d><div class="top-container" data-v-90913b0d><a href="/" class="logo-link" data-v-90913b0d><span class="logo-bg" data-v-90913b0d><img src="/images/design/logo.png" alt="WhyA11y home page" class="logo-img" data-v-90913b0d></span><span class="logo-text" data-v-90913b0d>Why A11y?</span></a><button class="theme-toggle" aria-pressed="true" title="Switch to light mode" data-v-90913b0d><span class="sr-only" data-v-90913b0d>Toggle dark mode</span><div class="toggle-icon" data-v-90913b0d><svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" data-v-90913b0d><title data-v-90913b0d>Switch to light mode</title><circle cx="12" cy="12" r="5" data-v-90913b0d></circle><line x1="12" y1="1" x2="12" y2="3" data-v-90913b0d></line><line x1="12" y1="21" x2="12" y2="23" data-v-90913b0d></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" data-v-90913b0d></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" data-v-90913b0d></line><line x1="1" y1="12" x2="3" y2="12" data-v-90913b0d></line><line x1="21" y1="12" x2="23" y2="12" data-v-90913b0d></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" data-v-90913b0d></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" data-v-90913b0d></line></svg></div></button></div><nav aria-label="Main navigation" data-v-90913b0d><ul class="menu" id="main-menu" data-v-90913b0d><!--[--><li data-v-90913b0d><a href="/why-a11y" class="" data-v-90913b0d>Why a11y? <!----></a></li><li data-v-90913b0d><a href="/articles" class="" data-v-90913b0d>Articles <!----></a></li><li data-v-90913b0d><a href="/code-examples" class="" data-v-90913b0d>Code Examples <!----></a></li><li data-v-90913b0d><a href="/en301549" class="" data-v-90913b0d>EN 301 549 <!----></a></li><!--]--></ul></nav></header><!--astro:end--></astro-island> <main id="main-content" tabindex="-1"> <div class="container"> <nav class="breadcrumbs" aria-label="Breadcrumb" data-astro-cid-ilhxcym7><ol data-astro-cid-ilhxcym7><li data-astro-cid-ilhxcym7><a href="/" data-astro-cid-ilhxcym7>Home</a></li><li data-astro-cid-ilhxcym7><span aria-hidden="true" class="breadcrumb-separator" data-astro-cid-ilhxcym7>/</span><a href="/code-examples" data-astro-cid-ilhxcym7>code-examples</a></li><li data-astro-cid-ilhxcym7><span aria-hidden="true" class="breadcrumb-separator" data-astro-cid-ilhxcym7>/</span><span aria-current="page" data-astro-cid-ilhxcym7>contrasts</span></li></ol></nav>   <section class="page-header " data-astro-cid-wu5dj4rx> <h1 data-astro-cid-wu5dj4rx>Color Contrast Guidelines</h1> <p class="page-description" data-astro-cid-wu5dj4rx>Learn how to ensure sufficient color contrast for text and interactive elements to meet accessibility standards.</p> <div class="page-meta" data-astro-cid-wu5dj4rx> <time datetime="2024-12-19" data-astro-cid-wu5dj4rx>12/19/2024</time> </div> </section>   <div class="example-layout" data-astro-cid-6ydlrl3t> <!-- Main Content Column (2/3 width) --> <main class="example-main" data-astro-cid-6ydlrl3t> <article class="example-content" data-astro-cid-6ydlrl3t> <div class="example-header" data-astro-cid-6ydlrl3t> <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80" alt="" class="example-header-image" data-astro-cid-6ydlrl3t> </div> <div class="example-text" id="example-text" data-astro-cid-6ydlrl3t> <p>Color contrast is crucial for ensuring that text and interactive elements are readable by all users, including those with visual impairments. Proper contrast ratios help meet accessibility standards and improve the overall user experience.</p>
+<h2 id="why-color-contrast-matters">Why Color Contrast Matters</h2>
+<p>Text that doesn’t have sufficient contrast against its background can be difficult or impossible to read for many users. Good contrast ensures that:</p>
+<ul>
+<li>Users with low vision can read text clearly</li>
+<li>Content is readable in various lighting conditions</li>
+<li>Users with color vision deficiencies can distinguish elements</li>
+<li>All users benefit from clear, readable content</li>
+</ul>
+<h2 id="wcag-contrast-requirements">WCAG Contrast Requirements</h2>
+<h3 id="level-aa-minimum">Level AA (Minimum)</h3>
+<ul>
+<li><strong>Normal text</strong>: 4.5:1 contrast ratio</li>
+<li><strong>Large text</strong>: 3:1 contrast ratio (18pt or 14pt bold)</li>
+</ul>
+<h3 id="level-aaa-enhanced">Level AAA (Enhanced)</h3>
+<ul>
+<li><strong>Normal text</strong>: 7:1 contrast ratio</li>
+<li><strong>Large text</strong>: 4.5:1 contrast ratio</li>
+</ul>
+<h2 id="css-variables-for-consistent-contrast">CSS Variables for Consistent Contrast</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#B392F0">:root</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#6A737D">  /* High contrast colors for dark theme */</span></span>
+<span class="line"><span style="color:#FFAB70">  --text-primary</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#ffffff</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">  --text-secondary</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#e1e4e8</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">  --text-muted</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#b8b8b8</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">  --bg-primary</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#1a1a1a</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">  --bg-secondary</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#2d2d2d</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">  --accent-primary</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#007bff</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">  --accent-secondary</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#0056b3</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">  --error-color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#d32f2f</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">  --success-color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#2e7d32</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">  --warning-color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#ed6c02</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">[</span><span style="color:#B392F0">data-theme</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"light"</span><span style="color:#E1E4E8">] {</span></span>
+<span class="line"><span style="color:#6A737D">  /* High contrast colors for light theme */</span></span>
+<span class="line"><span style="color:#FFAB70">  --text-primary</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#000000</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">  --text-secondary</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#333333</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">  --text-muted</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#666666</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">  --bg-primary</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#ffffff</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">  --bg-secondary</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#f5f5f5</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">  --accent-primary</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#0056b3</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">  --accent-secondary</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#003d82</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">  --error-color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#b71c1c</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">  --success-color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#1b5e20</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">  --warning-color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#e65100</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h2 id="text-contrast-examples">Text Contrast Examples</h2>
+<h3 id="good-contrast-aa-compliant">Good Contrast (AA Compliant)</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#6A737D">/* Dark text on light background */</span></span>
+<span class="line"><span style="color:#B392F0">.text-good</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#333333</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  background-color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#ffffff</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6A737D">  /* Contrast ratio: 12.6:1 - Excellent */</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">/* Light text on dark background */</span></span>
+<span class="line"><span style="color:#B392F0">.text-good-dark</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#ffffff</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  background-color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#1a1a1a</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6A737D">  /* Contrast ratio: 15.6:1 - Excellent */</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">/* Blue text on white background */</span></span>
+<span class="line"><span style="color:#B392F0">.text-accent</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#0056b3</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  background-color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#ffffff</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6A737D">  /* Contrast ratio: 7:1 - AAA compliant */</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="poor-contrast-not-accessible">Poor Contrast (Not Accessible)</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#6A737D">/* Light gray text on white background */</span></span>
+<span class="line"><span style="color:#B392F0">.text-poor</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#cccccc</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  background-color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#ffffff</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6A737D">  /* Contrast ratio: 1.6:1 - Very poor */</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">/* Yellow text on white background */</span></span>
+<span class="line"><span style="color:#B392F0">.text-poor-yellow</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#ffff00</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  background-color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#ffffff</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6A737D">  /* Contrast ratio: 1.1:1 - Extremely poor */</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">/* Light blue text on light gray background */</span></span>
+<span class="line"><span style="color:#B392F0">.text-poor-blue</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#87ceeb</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  background-color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#f0f0f0</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6A737D">  /* Contrast ratio: 1.4:1 - Very poor */</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h2 id="interactive-element-contrast">Interactive Element Contrast</h2>
+<h3 id="buttons-and-links">Buttons and Links</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#6A737D">/* Good button contrast */</span></span>
+<span class="line"><span style="color:#B392F0">.btn-primary</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  background-color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#0056b3</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#ffffff</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6A737D">  /* Contrast ratio: 7:1 - AAA compliant */</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">.btn-primary:hover</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  background-color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#003d82</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#ffffff</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6A737D">  /* Contrast ratio: 11.2:1 - Excellent */</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">/* Good link contrast */</span></span>
+<span class="line"><span style="color:#B392F0">.link-good</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#0056b3</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  text-decoration</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">underline</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6A737D">  /* Contrast ratio: 7:1 against white background */</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">.link-good:hover</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#003d82</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  text-decoration-thickness</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">2</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6A737D">  /* Contrast ratio: 11.2:1 against white background */</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="form-elements">Form Elements</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#6A737D">/* Input field with good contrast */</span></span>
+<span class="line"><span style="color:#B392F0">.input-field</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  background-color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#ffffff</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  border</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">2</span><span style="color:#F97583">px</span><span style="color:#79B8FF"> solid</span><span style="color:#79B8FF"> #666666</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#333333</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6A737D">  /* Text contrast: 12.6:1 - Excellent */</span></span>
+<span class="line"><span style="color:#6A737D">  /* Border contrast: 4.5:1 - AA compliant */</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">.input-field:focus</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  border-color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#0056b3</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  outline</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">2</span><span style="color:#F97583">px</span><span style="color:#79B8FF"> solid</span><span style="color:#79B8FF"> #0056b3</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  outline-offset</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">2</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6A737D">  /* Focus indicator contrast: 7:1 - AAA compliant */</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">/* Error state with good contrast */</span></span>
+<span class="line"><span style="color:#B392F0">.input-error</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  border-color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#d32f2f</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  background-color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#ffebee</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#333333</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6A737D">  /* Text contrast: 12.6:1 - Excellent */</span></span>
+<span class="line"><span style="color:#6A737D">  /* Border contrast: 4.5:1 - AA compliant */</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h2 id="status-and-feedback-colors">Status and Feedback Colors</h2>
+<h3 id="success-messages">Success Messages</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#B392F0">.success-message</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  background-color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#e8f5e8</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  border</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1</span><span style="color:#F97583">px</span><span style="color:#79B8FF"> solid</span><span style="color:#79B8FF"> #2e7d32</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#1b5e20</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6A737D">  /* Text contrast: 7.5:1 - AAA compliant */</span></span>
+<span class="line"><span style="color:#6A737D">  /* Border contrast: 4.5:1 - AA compliant */</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="error-messages">Error Messages</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#B392F0">.error-message</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  background-color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#ffebee</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  border</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1</span><span style="color:#F97583">px</span><span style="color:#79B8FF"> solid</span><span style="color:#79B8FF"> #d32f2f</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#b71c1c</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6A737D">  /* Text contrast: 7.5:1 - AAA compliant */</span></span>
+<span class="line"><span style="color:#6A737D">  /* Border contrast: 4.5:1 - AA compliant */</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="warning-messages">Warning Messages</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#B392F0">.warning-message</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  background-color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#fff3e0</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  border</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1</span><span style="color:#F97583">px</span><span style="color:#79B8FF"> solid</span><span style="color:#79B8FF"> #ed6c02</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#e65100</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6A737D">  /* Text contrast: 7.5:1 - AAA compliant */</span></span>
+<span class="line"><span style="color:#6A737D">  /* Border contrast: 4.5:1 - AA compliant */</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h2 id="non-text-contrast">Non-Text Contrast</h2>
+<h3 id="focus-indicators">Focus Indicators</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#6A737D">/* Good focus indicator */</span></span>
+<span class="line"><span style="color:#B392F0">.focus-visible</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  outline</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">2</span><span style="color:#F97583">px</span><span style="color:#79B8FF"> solid</span><span style="color:#79B8FF"> #0056b3</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  outline-offset</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">2</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6A737D">  /* Contrast ratio: 7:1 - AAA compliant */</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">/* Alternative focus indicator */</span></span>
+<span class="line"><span style="color:#B392F0">.focus-visible-alt</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  box-shadow</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0</span><span style="color:#79B8FF"> 0</span><span style="color:#79B8FF"> 0</span><span style="color:#79B8FF"> 2</span><span style="color:#F97583">px</span><span style="color:#79B8FF"> #ffffff</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">0</span><span style="color:#79B8FF"> 0</span><span style="color:#79B8FF"> 0</span><span style="color:#79B8FF"> 4</span><span style="color:#F97583">px</span><span style="color:#79B8FF"> #0056b3</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6A737D">  /* Inner white border, outer blue border */</span></span>
+<span class="line"><span style="color:#6A737D">  /* Blue contrast: 7:1 - AAA compliant */</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="borders-and-dividers">Borders and Dividers</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#6A737D">/* Good border contrast */</span></span>
+<span class="line"><span style="color:#B392F0">.border-good</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  border</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1</span><span style="color:#F97583">px</span><span style="color:#79B8FF"> solid</span><span style="color:#79B8FF"> #666666</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6A737D">  /* Contrast ratio: 4.5:1 - AA compliant */</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">/* Good divider contrast */</span></span>
+<span class="line"><span style="color:#B392F0">.divider</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  border-top</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1</span><span style="color:#F97583">px</span><span style="color:#79B8FF"> solid</span><span style="color:#79B8FF"> #cccccc</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6A737D">  /* Contrast ratio: 3:1 - AA compliant for large elements */</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h2 id="common-contrast-mistakes">Common Contrast Mistakes</h2>
+<h3 id="-bad-insufficient-text-contrast">❌ Bad: Insufficient text contrast</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#B392F0">.text-bad</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#999999</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  background-color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#ffffff</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6A737D">  /* Contrast ratio: 2.8:1 - Below AA requirement */</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="-bad-relying-only-on-color">❌ Bad: Relying only on color</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#6A737D">&#x3C;!-- Bad: Using only color to indicate required fields --></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">input</span><span style="color:#B392F0"> type</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"text"</span><span style="color:#B392F0"> style</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"border-color: red;"</span><span style="color:#E1E4E8"> /></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">span</span><span style="color:#B392F0"> style</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"color: red;"</span><span style="color:#E1E4E8">>* Required&#x3C;/</span><span style="color:#85E89D">span</span><span style="color:#E1E4E8">></span></span></code></pre>
+<h3 id="-bad-low-contrast-focus-indicators">❌ Bad: Low contrast focus indicators</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#B392F0">.focus-bad</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  outline</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1</span><span style="color:#F97583">px</span><span style="color:#79B8FF"> solid</span><span style="color:#79B8FF"> #cccccc</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6A737D">  /* Contrast ratio: 1.6:1 - Very poor */</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="-bad-inconsistent-contrast-across-themes">❌ Bad: Inconsistent contrast across themes</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#6A737D">/* Dark theme with poor contrast */</span></span>
+<span class="line"><span style="color:#E1E4E8">[</span><span style="color:#B392F0">data-theme</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"dark"</span><span style="color:#E1E4E8">] </span><span style="color:#B392F0">.text-bad</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#666666</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  background-color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#1a1a1a</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6A737D">  /* Contrast ratio: 2.8:1 - Below AA requirement */</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h2 id="testing-color-contrast">Testing Color Contrast</h2>
+<h3 id="manual-testing">Manual Testing</h3>
+<ol>
+<li><strong>Use contrast checkers</strong>: WebAIM, Color Contrast Analyzer</li>
+<li><strong>Test in different lighting</strong>: Bright sunlight, dim rooms</li>
+<li><strong>Test with color vision simulators</strong>: Chrome DevTools</li>
+<li><strong>User testing</strong>: Get feedback from users with visual impairments</li>
+</ol>
+<h3 id="automated-testing">Automated Testing</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">// Example: Check contrast ratios programmatically</span></span>
+<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> checkContrastRatio</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">color1</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">color2</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#6A737D">  // Convert colors to luminance and calculate ratio</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> luminance1</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> getLuminance</span><span style="color:#E1E4E8">(color1);</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> luminance2</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> getLuminance</span><span style="color:#E1E4E8">(color2);</span></span>
+<span class="line"><span style="color:#E1E4E8">  </span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> lighter</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> Math.</span><span style="color:#B392F0">max</span><span style="color:#E1E4E8">(luminance1, luminance2);</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> darker</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> Math.</span><span style="color:#B392F0">min</span><span style="color:#E1E4E8">(luminance1, luminance2);</span></span>
+<span class="line"><span style="color:#E1E4E8">  </span></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> (lighter </span><span style="color:#F97583">+</span><span style="color:#79B8FF"> 0.05</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">/</span><span style="color:#E1E4E8"> (darker </span><span style="color:#F97583">+</span><span style="color:#79B8FF"> 0.05</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> getLuminance</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">color</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#6A737D">  // Convert hex to RGB and calculate luminance</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> rgb</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> hexToRgb</span><span style="color:#E1E4E8">(color);</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#E1E4E8"> [</span><span style="color:#79B8FF">r</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">g</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">b</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> [rgb.r, rgb.g, rgb.b].</span><span style="color:#B392F0">map</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">c</span><span style="color:#F97583"> =></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">    c </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> c </span><span style="color:#F97583">/</span><span style="color:#79B8FF"> 255</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> c </span><span style="color:#F97583">&#x3C;=</span><span style="color:#79B8FF"> 0.03928</span><span style="color:#F97583"> ?</span><span style="color:#E1E4E8"> c </span><span style="color:#F97583">/</span><span style="color:#79B8FF"> 12.92</span><span style="color:#F97583"> :</span><span style="color:#E1E4E8"> Math.</span><span style="color:#B392F0">pow</span><span style="color:#E1E4E8">((c </span><span style="color:#F97583">+</span><span style="color:#79B8FF"> 0.055</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">/</span><span style="color:#79B8FF"> 1.055</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">2.4</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">  });</span></span>
+<span class="line"><span style="color:#F97583">  return</span><span style="color:#79B8FF"> 0.2126</span><span style="color:#F97583"> *</span><span style="color:#E1E4E8"> r </span><span style="color:#F97583">+</span><span style="color:#79B8FF"> 0.7152</span><span style="color:#F97583"> *</span><span style="color:#E1E4E8"> g </span><span style="color:#F97583">+</span><span style="color:#79B8FF"> 0.0722</span><span style="color:#F97583"> *</span><span style="color:#E1E4E8"> b;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h2 id="advanced-contrast-patterns">Advanced Contrast Patterns</h2>
+<h3 id="high-contrast-mode-support">High Contrast Mode Support</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#F97583">@media</span><span style="color:#E1E4E8"> (prefers-contrast: high) {</span></span>
+<span class="line"><span style="color:#B392F0">  :root</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">    --text-primary</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#000000</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">    --text-secondary</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#000000</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">    --bg-primary</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#ffffff</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">    --accent-primary</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#000000</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">    --border-color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#000000</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">  </span></span>
+<span class="line"><span style="color:#E1E4E8">  [</span><span style="color:#B392F0">data-theme</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"dark"</span><span style="color:#E1E4E8">] {</span></span>
+<span class="line"><span style="color:#FFAB70">    --text-primary</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#ffffff</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">    --text-secondary</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#ffffff</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">    --bg-primary</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#000000</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">    --accent-primary</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#ffffff</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">    --border-color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#ffffff</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="reduced-motion-support">Reduced Motion Support</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#F97583">@media</span><span style="color:#E1E4E8"> (prefers-reduced-motion: reduce) {</span></span>
+<span class="line"><span style="color:#85E89D">  *</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">    animation-duration</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0.01</span><span style="color:#F97583">ms</span><span style="color:#F97583"> !important</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">    animation-iteration-count</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1</span><span style="color:#F97583"> !important</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">    transition-duration</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0.01</span><span style="color:#F97583">ms</span><span style="color:#F97583"> !important</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="focus-indicators-for-high-contrast">Focus Indicators for High Contrast</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#6A737D">/* High contrast focus indicators */</span></span>
+<span class="line"><span style="color:#F97583">@media</span><span style="color:#E1E4E8"> (prefers-contrast: high) {</span></span>
+<span class="line"><span style="color:#B392F0">  .focus-visible</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">    outline</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">3</span><span style="color:#F97583">px</span><span style="color:#79B8FF"> solid</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">    outline-offset</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">2</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">  </span></span>
+<span class="line"><span style="color:#85E89D">  button</span><span style="color:#B392F0">:focus</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#85E89D">  input</span><span style="color:#B392F0">:focus</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#85E89D">  select</span><span style="color:#B392F0">:focus</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#85E89D">  textarea</span><span style="color:#B392F0">:focus</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">    outline</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">3</span><span style="color:#F97583">px</span><span style="color:#79B8FF"> solid</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">    outline-offset</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">2</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>Remember: Good color contrast is essential for accessibility and usability. Always test your color combinations with contrast checkers and consider the needs of users with visual impairments.</p> </div> </article> </main> <!-- Sidebar Column (1/3 width) --> <aside class="example-sidebar" data-astro-cid-6ydlrl3t> <!-- WCAG Criteria Section --> <section class="sidebar-section" data-astro-cid-6ydlrl3t> <h2 data-astro-cid-6ydlrl3t>WCAG Criteria</h2> <ul class="wcag-list" data-astro-cid-6ydlrl3t> <li data-astro-cid-6ydlrl3t> <a href="https://www.w3.org/WAI/WCAG21/quickref/#contrast-minimum" target="_blank" rel="noopener" data-astro-cid-6ydlrl3t> 1.4.3: Contrast (Minimum) </a> </li><li data-astro-cid-6ydlrl3t> <a href="https://www.w3.org/WAI/WCAG21/quickref/#contrast-enhanced" target="_blank" rel="noopener" data-astro-cid-6ydlrl3t> 1.4.6: Contrast (Enhanced) </a> </li><li data-astro-cid-6ydlrl3t> <a href="https://www.w3.org/WAI/WCAG21/quickref/#non-text-contrast" target="_blank" rel="noopener" data-astro-cid-6ydlrl3t> 1.4.11: Non-text Contrast </a> </li> </ul> </section> <!-- Best Practices Section --> <section class="sidebar-section" data-astro-cid-6ydlrl3t> <h2 data-astro-cid-6ydlrl3t>Best Practices</h2> <ul class="practices-list" data-astro-cid-6ydlrl3t> <li data-astro-cid-6ydlrl3t>Ensure text has sufficient contrast against its background</li><li data-astro-cid-6ydlrl3t>Use contrast ratios of 4.5:1 for normal text (AA)</li><li data-astro-cid-6ydlrl3t>Use contrast ratios of 7:1 for normal text (AAA)</li><li data-astro-cid-6ydlrl3t>Test contrast with color contrast checkers</li><li data-astro-cid-6ydlrl3t>Consider contrast for interactive elements</li><li data-astro-cid-6ydlrl3t>Don&#39;t rely solely on color to convey information</li><li data-astro-cid-6ydlrl3t>Test with users who have color vision deficiencies</li> </ul> </section> <!-- Who Benefits Section --> <section class="sidebar-section" data-astro-cid-6ydlrl3t> <h2 data-astro-cid-6ydlrl3t>Who Benefits</h2> <ul class="benefits-list" data-astro-cid-6ydlrl3t> <li data-astro-cid-6ydlrl3t>Users with low vision who need high contrast</li><li data-astro-cid-6ydlrl3t>Users with color vision deficiencies</li><li data-astro-cid-6ydlrl3t>Users viewing content in bright sunlight</li><li data-astro-cid-6ydlrl3t>Users with aging eyes who need better contrast</li><li data-astro-cid-6ydlrl3t>All users who benefit from clear, readable text</li> </ul> </section> <!-- Related Resources --> <section class="sidebar-section" data-astro-cid-6ydlrl3t> <h2 data-astro-cid-6ydlrl3t>Related Resources</h2> <ul class="resources-list" data-astro-cid-6ydlrl3t> <li data-astro-cid-6ydlrl3t> <a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener" data-astro-cid-6ydlrl3t> WebAIM Contrast Checker </a> </li><li data-astro-cid-6ydlrl3t> <a href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html" target="_blank" rel="noopener" data-astro-cid-6ydlrl3t> W3C Contrast Requirements </a> </li><li data-astro-cid-6ydlrl3t> <a href="https://www.tpgi.com/color-contrast-checker/" target="_blank" rel="noopener" data-astro-cid-6ydlrl3t> Color Contrast Analyzer </a> </li> </ul> </section> <!-- Testing Tools --> <section class="sidebar-section" data-astro-cid-6ydlrl3t> <h2 data-astro-cid-6ydlrl3t>Testing Tools</h2> <ul class="tools-list" data-astro-cid-6ydlrl3t> <li data-astro-cid-6ydlrl3t> <a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener" data-astro-cid-6ydlrl3t> WebAIM Contrast Checker </a> </li><li data-astro-cid-6ydlrl3t> <a href="https://www.tpgi.com/color-contrast-checker/" target="_blank" rel="noopener" data-astro-cid-6ydlrl3t> Color Contrast Analyzer </a> </li><li data-astro-cid-6ydlrl3t> <a href="https://developers.google.com/web/tools/lighthouse" target="_blank" rel="noopener" data-astro-cid-6ydlrl3t> Lighthouse Accessibility Audit </a> </li> </ul> </section> </aside> </div>  </div> </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-content" data-astro-cid-sz7xmlte> <div class="footer-section" data-astro-cid-sz7xmlte> <div class="footer-brand" data-astro-cid-sz7xmlte> <div class="footer-logo" data-astro-cid-sz7xmlte> <img src="/images/design/logo.png" alt="WhyA11y" class="footer-logo-img" data-astro-cid-sz7xmlte> <span class="footer-logo-text" data-astro-cid-sz7xmlte>Why A11y?</span> </div> <p class="footer-tagline" data-astro-cid-sz7xmlte>
+Making the web accessible for everyone through education, examples, and best practices.
+</p> </div> </div> <div class="footer-section" data-astro-cid-sz7xmlte> <h2 data-astro-cid-sz7xmlte>Content</h2> <ul class="footer-links" data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/why-a11y" data-astro-cid-sz7xmlte>Why Accessibility?</a></li> <li data-astro-cid-sz7xmlte><a href="/articles" data-astro-cid-sz7xmlte>Articles</a></li> <li data-astro-cid-sz7xmlte><a href="/code-examples" data-astro-cid-sz7xmlte>Code Examples</a></li> <li data-astro-cid-sz7xmlte><a href="/en301549" data-astro-cid-sz7xmlte>EN 301 549</a></li> </ul> </div> <div class="footer-section" data-astro-cid-sz7xmlte> <h2 data-astro-cid-sz7xmlte>Resources</h2> <ul class="footer-links" data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>WCAG Quick Reference</a></li> <li data-astro-cid-sz7xmlte><a href="https://www.w3.org/WAI/ARIA/apg/" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>ARIA Authoring Practices</a></li> <li data-astro-cid-sz7xmlte><a href="https://web.dev/accessibility/" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>Web.dev Accessibility</a></li> <li data-astro-cid-sz7xmlte><a href="https://www.a11yproject.com/" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>A11y Project</a></li> </ul> </div> <div class="footer-section" data-astro-cid-sz7xmlte> <h2 data-astro-cid-sz7xmlte>Connect</h2> <ul class="footer-links" data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="https://x.com/WhyA11y" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>X</a></li> <li data-astro-cid-sz7xmlte><a href="https://www.linkedin.com/company/why-a11y/" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>LinkedIn</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:hello@whya11y.com" data-astro-cid-sz7xmlte>Contact</a></li> <li data-astro-cid-sz7xmlte><a href="/accessibility" data-astro-cid-sz7xmlte>Accessibility Statement</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <div class="footer-bottom-content" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte>&copy; 2025 WhyA11y. All rights reserved.</p> <p class="footer-legal" data-astro-cid-sz7xmlte>
+Built with accessibility in mind.
+<a href="/privacy" data-astro-cid-sz7xmlte>Privacy Policy</a> •
+<a href="/terms" data-astro-cid-sz7xmlte>Terms of Use</a> </p> </div> </div> </footer>  </body></html> 

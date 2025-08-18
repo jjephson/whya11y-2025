@@ -1,0 +1,567 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Video Captions Implementation</title><link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/styles/global.css"><script type="module">(function(){const e=localStorage.getItem("theme");if(e)document.documentElement.setAttribute("data-theme",e);else{const t=window.matchMedia("(prefers-color-scheme: light)").matches;document.documentElement.setAttribute("data-theme",t?"light":"dark")}})();</script><style>.page-header[data-astro-cid-wu5dj4rx]{text-align:center;padding:var(--spacing-xl) 0 var(--spacing-2xl);max-width:var(--container-md);margin:0 auto var(--spacing-3xl);border-bottom:1px solid var(--border)}.page-header[data-astro-cid-wu5dj4rx] h1[data-astro-cid-wu5dj4rx]{font-size:var(--text-5xl);line-height:var(--leading-tight);margin:0 0 var(--spacing-sm);color:var(--fg)}.page-description[data-astro-cid-wu5dj4rx]{font-size:var(--text-xl);line-height:var(--leading-relaxed);color:var(--fg-muted);margin:0 0 var(--spacing-lg)}.page-meta[data-astro-cid-wu5dj4rx]{margin-bottom:var(--spacing-lg)}.page-meta[data-astro-cid-wu5dj4rx] time[data-astro-cid-wu5dj4rx]{font-size:var(--text-sm);color:var(--fg-muted);font-weight:500;text-transform:uppercase;letter-spacing:.05em}@media (max-width: 768px){.page-header[data-astro-cid-wu5dj4rx]{padding:var(--spacing-md) 0 var(--spacing-xl)}.page-header[data-astro-cid-wu5dj4rx] h1[data-astro-cid-wu5dj4rx]{font-size:var(--text-4xl)}.page-description[data-astro-cid-wu5dj4rx]{font-size:var(--text-base)}}
+</style>
+<link rel="stylesheet" href="/_astro/accessibility.C_UQgitg.css">
+<link rel="stylesheet" href="/_astro/_slug_.CVgT4Amv.css"></head> <body> <a href="#main-content" class="skip-link">Skip to main content</a> <style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var A=Object.defineProperty;var g=(i,o,a)=>o in i?A(i,o,{enumerable:!0,configurable:!0,writable:!0,value:a}):i[o]=a;var d=(i,o,a)=>g(i,typeof o!="symbol"?o+"":o,a);{let i={0:t=>m(t),1:t=>a(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(a(t)),5:t=>new Set(a(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>1/0*t},o=t=>{let[l,e]=t;return l in i?i[l](e):void 0},a=t=>t.map(o),m=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([l,e])=>[l,o(e)]));class y extends HTMLElement{constructor(){super(...arguments);d(this,"Component");d(this,"hydrator");d(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let c=this.querySelectorAll("astro-slot"),n={},h=this.querySelectorAll("template[data-astro-template]");for(let r of h){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(let r of c){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("name")||"default"]=r.innerHTML)}let p;try{p=this.hasAttribute("props")?m(JSON.parse(this.getAttribute("props"))):{}}catch(r){let s=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(s+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${s}`,this.getAttribute("props"),r),r}let u;await this.hydrator(this)(this.Component,p,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});d(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),c.disconnect(),this.childrenConnectedCallback()},c=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});c.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}async start(){let e=JSON.parse(this.getAttribute("opts")),c=this.getAttribute("client");if(Astro[c]===void 0){window.addEventListener(`astro:${c}`,()=>this.start(),{once:!0});return}try{await Astro[c](async()=>{let n=this.getAttribute("renderer-url"),[h,{default:p}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),u=this.getAttribute("component-export")||"default";if(!u.includes("."))this.Component=h[u];else{this.Component=h;for(let f of u.split("."))this.Component=this.Component[f]}return this.hydrator=p,this.hydrate},e,this)}catch(n){console.error(`[astro-island] Error hydrating ${this.getAttribute("component-url")}`,n)}}attributeChangedCallback(){this.hydrate()}}d(y,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",y)}})();</script><astro-island uid="Z1dNYJ5" prefix="s0" component-url="/_astro/Header.BVEKR-rM.js" component-export="default" renderer-url="/_astro/client.Bbk_tNaG.js" props="{}" ssr client="load" opts="{&quot;name&quot;:&quot;Header&quot;,&quot;value&quot;:true}" await-children><header class="site-header" data-v-90913b0d><div class="top-container" data-v-90913b0d><a href="/" class="logo-link" data-v-90913b0d><span class="logo-bg" data-v-90913b0d><img src="/images/design/logo.png" alt="WhyA11y home page" class="logo-img" data-v-90913b0d></span><span class="logo-text" data-v-90913b0d>Why A11y?</span></a><button class="theme-toggle" aria-pressed="true" title="Switch to light mode" data-v-90913b0d><span class="sr-only" data-v-90913b0d>Toggle dark mode</span><div class="toggle-icon" data-v-90913b0d><svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" data-v-90913b0d><title data-v-90913b0d>Switch to light mode</title><circle cx="12" cy="12" r="5" data-v-90913b0d></circle><line x1="12" y1="1" x2="12" y2="3" data-v-90913b0d></line><line x1="12" y1="21" x2="12" y2="23" data-v-90913b0d></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" data-v-90913b0d></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" data-v-90913b0d></line><line x1="1" y1="12" x2="3" y2="12" data-v-90913b0d></line><line x1="21" y1="12" x2="23" y2="12" data-v-90913b0d></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" data-v-90913b0d></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" data-v-90913b0d></line></svg></div></button></div><nav aria-label="Main navigation" data-v-90913b0d><ul class="menu" id="main-menu" data-v-90913b0d><!--[--><li data-v-90913b0d><a href="/why-a11y" class="" data-v-90913b0d>Why a11y? <!----></a></li><li data-v-90913b0d><a href="/articles" class="" data-v-90913b0d>Articles <!----></a></li><li data-v-90913b0d><a href="/code-examples" class="" data-v-90913b0d>Code Examples <!----></a></li><li data-v-90913b0d><a href="/en301549" class="" data-v-90913b0d>EN 301 549 <!----></a></li><!--]--></ul></nav></header><!--astro:end--></astro-island> <main id="main-content" tabindex="-1"> <div class="container"> <nav class="breadcrumbs" aria-label="Breadcrumb" data-astro-cid-ilhxcym7><ol data-astro-cid-ilhxcym7><li data-astro-cid-ilhxcym7><a href="/" data-astro-cid-ilhxcym7>Home</a></li><li data-astro-cid-ilhxcym7><span aria-hidden="true" class="breadcrumb-separator" data-astro-cid-ilhxcym7>/</span><a href="/code-examples" data-astro-cid-ilhxcym7>code-examples</a></li><li data-astro-cid-ilhxcym7><span aria-hidden="true" class="breadcrumb-separator" data-astro-cid-ilhxcym7>/</span><span aria-current="page" data-astro-cid-ilhxcym7>video-captions</span></li></ol></nav>   <section class="page-header " data-astro-cid-wu5dj4rx> <h1 data-astro-cid-wu5dj4rx>Video Captions Implementation</h1> <p class="page-description" data-astro-cid-wu5dj4rx>Learn how to create accessible video content with proper captions, transcripts, and audio descriptions for users with hearing and visual impairments.</p> <div class="page-meta" data-astro-cid-wu5dj4rx> <time datetime="2024-12-19" data-astro-cid-wu5dj4rx>12/19/2024</time> </div> </section>   <div class="example-layout" data-astro-cid-6ydlrl3t> <!-- Main Content Column (2/3 width) --> <main class="example-main" data-astro-cid-6ydlrl3t> <article class="example-content" data-astro-cid-6ydlrl3t> <div class="example-header" data-astro-cid-6ydlrl3t> <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80" alt="" class="example-header-image" data-astro-cid-6ydlrl3t> </div> <div class="example-text" id="example-text" data-astro-cid-6ydlrl3t> <p>Video captions are essential for making multimedia content accessible to users who are deaf or hard of hearing, as well as users in noisy environments or those learning a new language. Proper caption implementation ensures that all users can access and understand video content.</p>
+<h2 id="why-video-captions-matter">Why Video Captions Matter</h2>
+<p>Video content without captions excludes users who cannot hear the audio. Good captions ensure that:</p>
+<ul>
+<li>Users who are deaf or hard of hearing can understand the content</li>
+<li>Users in noisy environments can follow along</li>
+<li>Users learning a new language can read along with the audio</li>
+<li>All users benefit from having a text alternative to audio content</li>
+</ul>
+<h2 id="basic-video-with-captions">Basic Video with Captions</h2>
+<p>The foundation of accessible video starts with proper HTML structure:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">video</span><span style="color:#B392F0"> controls</span><span style="color:#B392F0"> width</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"640"</span><span style="color:#B392F0"> height</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"360"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">source</span><span style="color:#B392F0"> src</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"video.mp4"</span><span style="color:#B392F0"> type</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"video/mp4"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">source</span><span style="color:#B392F0"> src</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"video.webm"</span><span style="color:#B392F0"> type</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"video/webm"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">track</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">    kind</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"captions"</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">    src</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"captions.vtt"</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">    srclang</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"en"</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">    label</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"English"</span></span>
+<span class="line"><span style="color:#B392F0">    default</span></span>
+<span class="line"><span style="color:#E1E4E8">  ></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">track</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">    kind</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"captions"</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">    src</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"captions-es.vtt"</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">    srclang</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"es"</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">    label</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"Español"</span></span>
+<span class="line"><span style="color:#E1E4E8">  ></span></span>
+<span class="line"><span style="color:#E1E4E8">  Your browser does not support the video tag.</span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">video</span><span style="color:#E1E4E8">></span></span></code></pre>
+<p><strong>Key Points:</strong></p>
+<ul>
+<li>Use <code>&#x3C;track></code> elements for captions</li>
+<li>Provide multiple caption languages when possible</li>
+<li>Include fallback text for unsupported browsers</li>
+</ul>
+<h2 id="webvtt-caption-format">WebVTT Caption Format</h2>
+<p>WebVTT (Web Video Text Tracks) is the standard format for video captions:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>WEBVTT</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>00:00:00.000 --> 00:00:03.000</span></span>
+<span class="line"><span>Welcome to our accessibility tutorial.</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>00:00:03.000 --> 00:00:06.000</span></span>
+<span class="line"><span>Today we'll learn about video captions.</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>00:00:06.000 --> 00:00:09.000</span></span>
+<span class="line"><span>Captions are essential for accessibility.</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>00:00:09.000 --> 00:00:12.000</span></span>
+<span class="line"><span>They help users who are deaf or hard of hearing.</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>00:00:12.000 --> 00:00:15.000</span></span>
+<span class="line"><span>Speaker 1: Let's start with the basics.</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>00:00:15.000 --> 00:00:18.000</span></span>
+<span class="line"><span>Speaker 2: Great! I'm ready to learn.</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>00:00:18.000 --> 00:00:21.000</span></span>
+<span class="line"><span>[Music playing softly in background]</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>00:00:21.000 --> 00:00:24.000</span></span>
+<span class="line"><span>Speaker 1: First, we need to create a WebVTT file.</span></span></code></pre>
+<h2 id="advanced-caption-features">Advanced Caption Features</h2>
+<h3 id="speaker-identification">Speaker Identification</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>WEBVTT</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>00:00:00.000 --> 00:00:03.000</span></span>
+<span class="line"><span>&#x3C;v Speaker 1>Hello, welcome to our tutorial.</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>00:00:03.000 --> 00:00:06.000</span></span>
+<span class="line"><span>&#x3C;v Speaker 2>Thank you for having us.</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>00:00:06.000 --> 00:00:09.000</span></span>
+<span class="line"><span>&#x3C;v Speaker 1>Today we'll discuss accessibility.</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>00:00:09.000 --> 00:00:12.000</span></span>
+<span class="line"><span>&#x3C;v Speaker 2>That sounds interesting.</span></span></code></pre>
+<h3 id="caption-positioning">Caption Positioning</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>WEBVTT</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>00:00:00.000 --> 00:00:03.000</span></span>
+<span class="line"><span>&#x3C;c.important>This is important information&#x3C;/c></span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>00:00:03.000 --> 00:00:06.000</span></span>
+<span class="line"><span>&#x3C;c.quote>"Accessibility is for everyone"&#x3C;/c></span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>00:00:06.000 --> 00:00:09.000</span></span>
+<span class="line"><span>&#x3C;c.whisper>This is whispered&#x3C;/c></span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>00:00:09.000 --> 00:00:12.000</span></span>
+<span class="line"><span>&#x3C;c.music>♪ Background music playing ♪&#x3C;/c></span></span></code></pre>
+<h3 id="css-styling-for-captions">CSS Styling for Captions</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#6A737D">/* Custom caption styling */</span></span>
+<span class="line"><span style="color:#85E89D">video</span><span style="color:#E1E4E8">::cue {</span></span>
+<span class="line"><span style="color:#79B8FF">  background-color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">rgba</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">0.8</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#79B8FF">  color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">white</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  font-family</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">Arial</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">sans-serif</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  font-size</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">16</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  line-height</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1.4</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">/* Style specific caption classes */</span></span>
+<span class="line"><span style="color:#85E89D">video</span><span style="color:#E1E4E8">::cue(</span><span style="color:#B392F0">.important</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#79B8FF">  color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#ff6b6b</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  font-weight</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">bold</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#85E89D">video</span><span style="color:#E1E4E8">::cue(</span><span style="color:#B392F0">.quote</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#79B8FF">  font-style</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">italic</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#4ecdc4</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#85E89D">video</span><span style="color:#E1E4E8">::cue(</span><span style="color:#B392F0">.whisper</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#79B8FF">  font-size</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">14</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  opacity</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0.8</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#85E89D">video</span><span style="color:#E1E4E8">::cue(</span><span style="color:#B392F0">.music</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#79B8FF">  color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#ffe66d</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  font-style</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">italic</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h2 id="multiple-language-captions">Multiple Language Captions</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">video</span><span style="color:#B392F0"> controls</span><span style="color:#B392F0"> width</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"640"</span><span style="color:#B392F0"> height</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"360"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">source</span><span style="color:#B392F0"> src</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"tutorial.mp4"</span><span style="color:#B392F0"> type</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"video/mp4"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  </span></span>
+<span class="line"><span style="color:#6A737D">  &#x3C;!-- English captions (default) --></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">track</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">    kind</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"captions"</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">    src</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"captions-en.vtt"</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">    srclang</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"en"</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">    label</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"English"</span></span>
+<span class="line"><span style="color:#B392F0">    default</span></span>
+<span class="line"><span style="color:#E1E4E8">  ></span></span>
+<span class="line"><span style="color:#E1E4E8">  </span></span>
+<span class="line"><span style="color:#6A737D">  &#x3C;!-- Spanish captions --></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">track</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">    kind</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"captions"</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">    src</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"captions-es.vtt"</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">    srclang</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"es"</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">    label</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"Español"</span></span>
+<span class="line"><span style="color:#E1E4E8">  ></span></span>
+<span class="line"><span style="color:#E1E4E8">  </span></span>
+<span class="line"><span style="color:#6A737D">  &#x3C;!-- French captions --></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">track</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">    kind</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"captions"</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">    src</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"captions-fr.vtt"</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">    srclang</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"fr"</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">    label</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"Français"</span></span>
+<span class="line"><span style="color:#E1E4E8">  ></span></span>
+<span class="line"><span style="color:#E1E4E8">  </span></span>
+<span class="line"><span style="color:#6A737D">  &#x3C;!-- Audio descriptions --></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">track</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">    kind</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"descriptions"</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">    src</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"descriptions-en.vtt"</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">    srclang</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"en"</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">    label</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"Audio Descriptions"</span></span>
+<span class="line"><span style="color:#E1E4E8">  ></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">video</span><span style="color:#E1E4E8">></span></span></code></pre>
+<h2 id="audio-descriptions">Audio Descriptions</h2>
+<p>For content that is visual-only, provide audio descriptions:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>WEBVTT</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>00:00:00.000 --> 00:00:05.000</span></span>
+<span class="line"><span>[Screen shows a person walking into a room]</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>00:00:05.000 --> 00:00:10.000</span></span>
+<span class="line"><span>[Person sits at a desk and opens a laptop]</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>00:00:10.000 --> 00:00:15.000</span></span>
+<span class="line"><span>[Person types on the keyboard]</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>00:00:15.000 --> 00:00:20.000</span></span>
+<span class="line"><span>[Screen displays a website with accessibility features]</span></span></code></pre>
+<h2 id="javascript-for-caption-control">JavaScript for Caption Control</h2>
+<h3 id="custom-caption-controls">Custom Caption Controls</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">// Custom caption control</span></span>
+<span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> CaptionController</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">  constructor</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">video</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.video </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> video;</span></span>
+<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.tracks </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> video.textTracks;</span></span>
+<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">createControls</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">  </span></span>
+<span class="line"><span style="color:#B392F0">  createControls</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> container</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> document.</span><span style="color:#B392F0">createElement</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'div'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">    container.className </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'caption-controls'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#6A737D">    // Caption toggle button</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> toggleBtn</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> document.</span><span style="color:#B392F0">createElement</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'button'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">    toggleBtn.textContent </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'CC'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">    toggleBtn.</span><span style="color:#B392F0">addEventListener</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'click'</span><span style="color:#E1E4E8">, () </span><span style="color:#F97583">=></span><span style="color:#79B8FF"> this</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">toggleCaptions</span><span style="color:#E1E4E8">());</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#6A737D">    // Language selector</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> langSelect</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> document.</span><span style="color:#B392F0">createElement</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'select'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">    langSelect.</span><span style="color:#B392F0">addEventListener</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'change'</span><span style="color:#E1E4E8">, (</span><span style="color:#FFAB70">e</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#79B8FF"> this</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">changeLanguage</span><span style="color:#E1E4E8">(e.target.value));</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#6A737D">    // Add language options</span></span>
+<span class="line"><span style="color:#F97583">    for</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">let</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">; i </span><span style="color:#F97583">&#x3C;</span><span style="color:#79B8FF"> this</span><span style="color:#E1E4E8">.tracks.</span><span style="color:#79B8FF">length</span><span style="color:#E1E4E8">; i</span><span style="color:#F97583">++</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#F97583">      const</span><span style="color:#79B8FF"> track</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> this</span><span style="color:#E1E4E8">.tracks[i];</span></span>
+<span class="line"><span style="color:#F97583">      if</span><span style="color:#E1E4E8"> (track.kind </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'captions'</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#F97583">        const</span><span style="color:#79B8FF"> option</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> document.</span><span style="color:#B392F0">createElement</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'option'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">        option.value </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> i;</span></span>
+<span class="line"><span style="color:#E1E4E8">        option.textContent </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> track.label </span><span style="color:#F97583">||</span><span style="color:#E1E4E8"> track.language;</span></span>
+<span class="line"><span style="color:#E1E4E8">        langSelect.</span><span style="color:#B392F0">appendChild</span><span style="color:#E1E4E8">(option);</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#E1E4E8">    container.</span><span style="color:#B392F0">appendChild</span><span style="color:#E1E4E8">(toggleBtn);</span></span>
+<span class="line"><span style="color:#E1E4E8">    container.</span><span style="color:#B392F0">appendChild</span><span style="color:#E1E4E8">(langSelect);</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#6A737D">    // Insert controls after video</span></span>
+<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.video.parentNode.</span><span style="color:#B392F0">insertBefore</span><span style="color:#E1E4E8">(container, </span><span style="color:#79B8FF">this</span><span style="color:#E1E4E8">.video.nextSibling);</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">  </span></span>
+<span class="line"><span style="color:#B392F0">  toggleCaptions</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> activeTrack</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> this</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">getActiveTrack</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (activeTrack) {</span></span>
+<span class="line"><span style="color:#E1E4E8">      activeTrack.mode </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> activeTrack.mode </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'showing'</span><span style="color:#F97583"> ?</span><span style="color:#9ECBFF"> 'hidden'</span><span style="color:#F97583"> :</span><span style="color:#9ECBFF"> 'showing'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">  </span></span>
+<span class="line"><span style="color:#B392F0">  changeLanguage</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">trackIndex</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#6A737D">    // Hide all caption tracks</span></span>
+<span class="line"><span style="color:#F97583">    for</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">let</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">; i </span><span style="color:#F97583">&#x3C;</span><span style="color:#79B8FF"> this</span><span style="color:#E1E4E8">.tracks.</span><span style="color:#79B8FF">length</span><span style="color:#E1E4E8">; i</span><span style="color:#F97583">++</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#F97583">      if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">this</span><span style="color:#E1E4E8">.tracks[i].kind </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'captions'</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#79B8FF">        this</span><span style="color:#E1E4E8">.tracks[i].mode </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'hidden'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#6A737D">    // Show selected track</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">this</span><span style="color:#E1E4E8">.tracks[trackIndex]) {</span></span>
+<span class="line"><span style="color:#79B8FF">      this</span><span style="color:#E1E4E8">.tracks[trackIndex].mode </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'showing'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">  </span></span>
+<span class="line"><span style="color:#B392F0">  getActiveTrack</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#F97583">    for</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">let</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">; i </span><span style="color:#F97583">&#x3C;</span><span style="color:#79B8FF"> this</span><span style="color:#E1E4E8">.tracks.</span><span style="color:#79B8FF">length</span><span style="color:#E1E4E8">; i</span><span style="color:#F97583">++</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#F97583">      if</span><span style="color:#E1E4E8"> (</span><span style="color:#79B8FF">this</span><span style="color:#E1E4E8">.tracks[i].kind </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'captions'</span><span style="color:#F97583"> &#x26;&#x26;</span><span style="color:#79B8FF"> this</span><span style="color:#E1E4E8">.tracks[i].mode </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'showing'</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#F97583">        return</span><span style="color:#79B8FF"> this</span><span style="color:#E1E4E8">.tracks[i];</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#79B8FF"> null</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// Initialize caption controller</span></span>
+<span class="line"><span style="color:#E1E4E8">document.</span><span style="color:#B392F0">addEventListener</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'DOMContentLoaded'</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">function</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> video</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> document.</span><span style="color:#B392F0">querySelector</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'video'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (video) {</span></span>
+<span class="line"><span style="color:#F97583">    new</span><span style="color:#B392F0"> CaptionController</span><span style="color:#E1E4E8">(video);</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">});</span></span></code></pre>
+<h2 id="css-for-caption-controls">CSS for Caption Controls</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#B392F0">.caption-controls</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  display</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">flex</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  gap</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">10</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  margin-top</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">10</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  align-items</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">center</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">.caption-controls</span><span style="color:#85E89D"> button</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  padding</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">8</span><span style="color:#F97583">px</span><span style="color:#79B8FF"> 12</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  background</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">var</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">--accent-primary</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#79B8FF">  color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">white</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  border</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">none</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  border-radius</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">4</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  cursor</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">pointer</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  font-size</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">14</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">.caption-controls</span><span style="color:#85E89D"> button</span><span style="color:#B392F0">:hover</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  background</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">var</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">--accent-secondary</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">.caption-controls</span><span style="color:#85E89D"> select</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  padding</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">6</span><span style="color:#F97583">px</span><span style="color:#79B8FF"> 10</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  border</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1</span><span style="color:#F97583">px</span><span style="color:#79B8FF"> solid</span><span style="color:#79B8FF"> var</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">--border</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#79B8FF">  border-radius</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">4</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  background</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">var</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">--bg</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#79B8FF">  color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">var</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">--fg</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#79B8FF">  font-size</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">14</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">.caption-controls</span><span style="color:#85E89D"> select</span><span style="color:#B392F0">:focus</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  outline</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">2</span><span style="color:#F97583">px</span><span style="color:#79B8FF"> solid</span><span style="color:#79B8FF"> var</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">--accent-primary</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#79B8FF">  outline-offset</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">2</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h2 id="live-captions">Live Captions</h2>
+<p>For live video content, implement real-time captions:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">video</span><span style="color:#B392F0"> controls</span><span style="color:#B392F0"> width</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"640"</span><span style="color:#B392F0"> height</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"360"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">source</span><span style="color:#B392F0"> src</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"live-stream.mp4"</span><span style="color:#B392F0"> type</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"video/mp4"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">track</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">    kind</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"captions"</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">    src</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"live-captions.vtt"</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">    srclang</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"en"</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">    label</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"Live Captions"</span></span>
+<span class="line"><span style="color:#E1E4E8">  ></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">video</span><span style="color:#E1E4E8">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"live-caption-status"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">span</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"status-indicator"</span><span style="color:#E1E4E8">>●&#x3C;/</span><span style="color:#85E89D">span</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  Live Captions: &#x3C;</span><span style="color:#85E89D">span</span><span style="color:#B392F0"> id</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"caption-text"</span><span style="color:#E1E4E8">>Waiting for captions...&#x3C;/</span><span style="color:#85E89D">span</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">// Live caption implementation</span></span>
+<span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> LiveCaptionManager</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">  constructor</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">video</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">captionElement</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.video </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> video;</span></span>
+<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.captionElement </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> captionElement;</span></span>
+<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.websocket </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> null</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">connect</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">  </span></span>
+<span class="line"><span style="color:#B392F0">  connect</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#6A737D">    // Connect to live caption service</span></span>
+<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.websocket </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> WebSocket</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'wss://caption-service.example.com'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.websocket.</span><span style="color:#B392F0">onmessage</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> (</span><span style="color:#FFAB70">event</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">      const</span><span style="color:#79B8FF"> caption</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> JSON</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">parse</span><span style="color:#E1E4E8">(event.data);</span></span>
+<span class="line"><span style="color:#79B8FF">      this</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">updateCaption</span><span style="color:#E1E4E8">(caption.text);</span></span>
+<span class="line"><span style="color:#E1E4E8">    };</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.websocket.</span><span style="color:#B392F0">onerror</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> (</span><span style="color:#FFAB70">error</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">      console.</span><span style="color:#B392F0">error</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'Caption service error:'</span><span style="color:#E1E4E8">, error);</span></span>
+<span class="line"><span style="color:#79B8FF">      this</span><span style="color:#E1E4E8">.captionElement.textContent </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'Caption service unavailable'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">    };</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">  </span></span>
+<span class="line"><span style="color:#B392F0">  updateCaption</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">text</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.captionElement.textContent </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> text;</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#6A737D">    // Update video track if available</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> track</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> this</span><span style="color:#E1E4E8">.video.textTracks[</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">];</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (track </span><span style="color:#F97583">&#x26;&#x26;</span><span style="color:#E1E4E8"> track.mode </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'showing'</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#6A737D">      // Add caption to track</span></span>
+<span class="line"><span style="color:#F97583">      const</span><span style="color:#79B8FF"> cue</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> VTTCue</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">this</span><span style="color:#E1E4E8">.video.currentTime, </span><span style="color:#79B8FF">this</span><span style="color:#E1E4E8">.video.currentTime </span><span style="color:#F97583">+</span><span style="color:#79B8FF"> 3</span><span style="color:#E1E4E8">, text);</span></span>
+<span class="line"><span style="color:#E1E4E8">      track.</span><span style="color:#B392F0">addCue</span><span style="color:#E1E4E8">(cue);</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h2 id="common-caption-mistakes">Common Caption Mistakes</h2>
+<h3 id="-bad-no-captions-provided">❌ Bad: No captions provided</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#6A737D">&#x3C;!-- Bad: Video without captions --></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">video</span><span style="color:#B392F0"> controls</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">source</span><span style="color:#B392F0"> src</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"video.mp4"</span><span style="color:#B392F0"> type</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"video/mp4"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#6A737D">  &#x3C;!-- No track elements for captions --></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">video</span><span style="color:#E1E4E8">></span></span></code></pre>
+<p><strong>Problems:</strong></p>
+<ul>
+<li>Excludes users who are deaf or hard of hearing</li>
+<li>Violates WCAG 1.2.2 (Captions)</li>
+<li>Poor accessibility</li>
+</ul>
+<h3 id="-bad-auto-generated-captions-only">❌ Bad: Auto-generated captions only</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#6A737D">&#x3C;!-- Bad: Relying only on auto-generated captions --></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">video</span><span style="color:#B392F0"> controls</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">source</span><span style="color:#B392F0"> src</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"video.mp4"</span><span style="color:#B392F0"> type</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"video/mp4"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">track</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">    kind</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"captions"</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">    src</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"auto-captions.vtt"</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">    srclang</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"en"</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">    label</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"Auto-generated"</span></span>
+<span class="line"><span style="color:#E1E4E8">  ></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">video</span><span style="color:#E1E4E8">></span></span></code></pre>
+<p><strong>Problems:</strong></p>
+<ul>
+<li>Auto-generated captions are often inaccurate</li>
+<li>May miss important context or speaker identification</li>
+<li>Should be reviewed and corrected</li>
+</ul>
+<h3 id="-bad-poor-caption-timing">❌ Bad: Poor caption timing</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>WEBVTT</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>00:00:00.000 --> 00:00:10.000</span></span>
+<span class="line"><span>This is a very long caption that stays on screen for too long and doesn't match the audio timing properly.</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>00:00:10.000 --> 00:00:12.000</span></span>
+<span class="line"><span>Short caption.</span></span></code></pre>
+<p><strong>Problems:</strong></p>
+<ul>
+<li>Captions don’t match audio timing</li>
+<li>Long captions are difficult to read</li>
+<li>Poor user experience</li>
+</ul>
+<h3 id="-bad-missing-speaker-identification">❌ Bad: Missing speaker identification</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>WEBVTT</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>00:00:00.000 --> 00:00:03.000</span></span>
+<span class="line"><span>Hello, how are you today?</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>00:00:03.000 --> 00:00:06.000</span></span>
+<span class="line"><span>I'm doing well, thank you for asking.</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>00:00:06.000 --> 00:00:09.000</span></span>
+<span class="line"><span>That's great to hear.</span></span></code></pre>
+<p><strong>Problems:</strong></p>
+<ul>
+<li>Users can’t identify who is speaking</li>
+<li>Confusing in multi-speaker content</li>
+<li>Poor accessibility</li>
+</ul>
+<h2 id="caption-quality-guidelines">Caption Quality Guidelines</h2>
+<h3 id="accuracy">Accuracy</h3>
+<ul>
+<li>Captions should be 99% accurate</li>
+<li>Include all spoken words</li>
+<li>Correct spelling and grammar</li>
+<li>Preserve meaning and context</li>
+</ul>
+<h3 id="synchronization">Synchronization</h3>
+<ul>
+<li>Captions should appear when words are spoken</li>
+<li>Timing should be precise</li>
+<li>Avoid long delays or early appearance</li>
+</ul>
+<h3 id="completeness">Completeness</h3>
+<ul>
+<li>Include all dialogue</li>
+<li>Identify speakers when relevant</li>
+<li>Include important sound effects</li>
+<li>Describe music when relevant</li>
+</ul>
+<h3 id="readability">Readability</h3>
+<ul>
+<li>Use clear, readable font</li>
+<li>Appropriate text size</li>
+<li>Good contrast with background</li>
+<li>Break long sentences appropriately</li>
+</ul>
+<h2 id="testing-video-captions">Testing Video Captions</h2>
+<h3 id="manual-testing">Manual Testing</h3>
+<ol>
+<li><strong>Play video with captions enabled</strong></li>
+<li><strong>Verify timing accuracy</strong></li>
+<li><strong>Check for missing content</strong></li>
+<li><strong>Test with different languages</strong></li>
+<li><strong>Verify speaker identification</strong></li>
+</ol>
+<h3 id="automated-testing">Automated Testing</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">// Test caption functionality</span></span>
+<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> testCaptions</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> video</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> document.</span><span style="color:#B392F0">querySelector</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'video'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> tracks</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> video.textTracks;</span></span>
+<span class="line"><span style="color:#E1E4E8">  </span></span>
+<span class="line"><span style="color:#6A737D">  // Check if captions are available</span></span>
+<span class="line"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (tracks.</span><span style="color:#79B8FF">length</span><span style="color:#F97583"> ===</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#E1E4E8">    console.</span><span style="color:#B392F0">error</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'No caption tracks found'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">  </span></span>
+<span class="line"><span style="color:#6A737D">  // Check for default language</span></span>
+<span class="line"><span style="color:#F97583">  let</span><span style="color:#E1E4E8"> hasDefault </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> false</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">  for</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">let</span><span style="color:#E1E4E8"> i </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">; i </span><span style="color:#F97583">&#x3C;</span><span style="color:#E1E4E8"> tracks.</span><span style="color:#79B8FF">length</span><span style="color:#E1E4E8">; i</span><span style="color:#F97583">++</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (tracks[i].kind </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'captions'</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#E1E4E8">      console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">`Caption track found: ${</span><span style="color:#E1E4E8">tracks</span><span style="color:#9ECBFF">[</span><span style="color:#E1E4E8">i</span><span style="color:#9ECBFF">].</span><span style="color:#E1E4E8">label</span><span style="color:#9ECBFF">} (${</span><span style="color:#E1E4E8">tracks</span><span style="color:#9ECBFF">[</span><span style="color:#E1E4E8">i</span><span style="color:#9ECBFF">].</span><span style="color:#E1E4E8">language</span><span style="color:#9ECBFF">})`</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">      if</span><span style="color:#E1E4E8"> (tracks[i].mode </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'showing'</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#E1E4E8">        hasDefault </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">  </span></span>
+<span class="line"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">hasDefault) {</span></span>
+<span class="line"><span style="color:#E1E4E8">    console.</span><span style="color:#B392F0">warn</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'No default caption track enabled'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">  </span></span>
+<span class="line"><span style="color:#6A737D">  // Test caption loading</span></span>
+<span class="line"><span style="color:#E1E4E8">  video.</span><span style="color:#B392F0">addEventListener</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'loadedmetadata'</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">function</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#E1E4E8">    console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'Video metadata loaded'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">    console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">`Duration: ${</span><span style="color:#E1E4E8">video</span><span style="color:#9ECBFF">.</span><span style="color:#E1E4E8">duration</span><span style="color:#9ECBFF">} seconds`</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">  });</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h2 id="advanced-caption-patterns">Advanced Caption Patterns</h2>
+<h3 id="interactive-captions">Interactive Captions</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">video</span><span style="color:#B392F0"> controls</span><span style="color:#B392F0"> width</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"640"</span><span style="color:#B392F0"> height</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"360"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">source</span><span style="color:#B392F0"> src</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"interactive-video.mp4"</span><span style="color:#B392F0"> type</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"video/mp4"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">track</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">    kind</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"captions"</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">    src</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"interactive-captions.vtt"</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">    srclang</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"en"</span><span style="color:#E1E4E8"> </span></span>
+<span class="line"><span style="color:#B392F0">    label</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"Interactive Captions"</span></span>
+<span class="line"><span style="color:#E1E4E8">  ></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">video</span><span style="color:#E1E4E8">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"interactive-captions"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"caption-timeline"</span><span style="color:#E1E4E8">>&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"caption-content"</span><span style="color:#E1E4E8">>&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">// Interactive caption implementation</span></span>
+<span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> InteractiveCaptions</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">  constructor</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">video</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">container</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.video </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> video;</span></span>
+<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.container </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> container;</span></span>
+<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.track </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> video.textTracks[</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">];</span></span>
+<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.cues </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> [];</span></span>
+<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">init</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">  </span></span>
+<span class="line"><span style="color:#B392F0">  init</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.track.</span><span style="color:#B392F0">addEventListener</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'cuechange'</span><span style="color:#E1E4E8">, () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">      const</span><span style="color:#79B8FF"> activeCues</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> this</span><span style="color:#E1E4E8">.track.activeCues;</span></span>
+<span class="line"><span style="color:#F97583">      if</span><span style="color:#E1E4E8"> (activeCues.</span><span style="color:#79B8FF">length</span><span style="color:#F97583"> ></span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#79B8FF">        this</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">showInteractiveCaption</span><span style="color:#E1E4E8">(activeCues[</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">]);</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    });</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">loadCaptions</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">  </span></span>
+<span class="line"><span style="color:#B392F0">  loadCaptions</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#B392F0">    fetch</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'interactive-captions.vtt'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">      .</span><span style="color:#B392F0">then</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">response</span><span style="color:#F97583"> =></span><span style="color:#E1E4E8"> response.</span><span style="color:#B392F0">text</span><span style="color:#E1E4E8">())</span></span>
+<span class="line"><span style="color:#E1E4E8">      .</span><span style="color:#B392F0">then</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">data</span><span style="color:#F97583"> =></span><span style="color:#79B8FF"> this</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">parseCaptions</span><span style="color:#E1E4E8">(data));</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">  </span></span>
+<span class="line"><span style="color:#B392F0">  parseCaptions</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">vttData</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#6A737D">    // Parse VTT and create interactive elements</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> lines</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> vttData.</span><span style="color:#B392F0">split</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">    let</span><span style="color:#E1E4E8"> currentCue </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> null</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#E1E4E8">    lines.</span><span style="color:#B392F0">forEach</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">line</span><span style="color:#F97583"> =></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">      if</span><span style="color:#E1E4E8"> (line.</span><span style="color:#B392F0">includes</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'-->'</span><span style="color:#E1E4E8">)) {</span></span>
+<span class="line"><span style="color:#F97583">        const</span><span style="color:#E1E4E8"> [</span><span style="color:#79B8FF">start</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">end</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> line.</span><span style="color:#B392F0">split</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">' --> '</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">        currentCue </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">          start: </span><span style="color:#79B8FF">this</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">parseTime</span><span style="color:#E1E4E8">(start),</span></span>
+<span class="line"><span style="color:#E1E4E8">          end: </span><span style="color:#79B8FF">this</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">parseTime</span><span style="color:#E1E4E8">(end),</span></span>
+<span class="line"><span style="color:#E1E4E8">          text: </span><span style="color:#9ECBFF">''</span></span>
+<span class="line"><span style="color:#E1E4E8">        };</span></span>
+<span class="line"><span style="color:#79B8FF">        this</span><span style="color:#E1E4E8">.cues.</span><span style="color:#B392F0">push</span><span style="color:#E1E4E8">(currentCue);</span></span>
+<span class="line"><span style="color:#E1E4E8">      } </span><span style="color:#F97583">else</span><span style="color:#F97583"> if</span><span style="color:#E1E4E8"> (currentCue </span><span style="color:#F97583">&#x26;&#x26;</span><span style="color:#E1E4E8"> line.</span><span style="color:#B392F0">trim</span><span style="color:#E1E4E8">()) {</span></span>
+<span class="line"><span style="color:#E1E4E8">        currentCue.text </span><span style="color:#F97583">+=</span><span style="color:#E1E4E8"> line </span><span style="color:#F97583">+</span><span style="color:#9ECBFF"> '</span><span style="color:#79B8FF">\n</span><span style="color:#9ECBFF">'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    });</span></span>
+<span class="line"><span style="color:#E1E4E8">    </span></span>
+<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">createTimeline</span><span style="color:#E1E4E8">();</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">  </span></span>
+<span class="line"><span style="color:#B392F0">  createTimeline</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> timeline</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> this</span><span style="color:#E1E4E8">.container.</span><span style="color:#B392F0">querySelector</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'.caption-timeline'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.cues.</span><span style="color:#B392F0">forEach</span><span style="color:#E1E4E8">((</span><span style="color:#FFAB70">cue</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">index</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">      const</span><span style="color:#79B8FF"> marker</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> document.</span><span style="color:#B392F0">createElement</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'div'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">      marker.className </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> 'timeline-marker'</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">      marker.textContent </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> `Caption ${</span><span style="color:#E1E4E8">index</span><span style="color:#F97583"> +</span><span style="color:#79B8FF"> 1</span><span style="color:#9ECBFF">}`</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">      marker.</span><span style="color:#B392F0">addEventListener</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'click'</span><span style="color:#E1E4E8">, () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">        this</span><span style="color:#E1E4E8">.video.currentTime </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> cue.start;</span></span>
+<span class="line"><span style="color:#E1E4E8">      });</span></span>
+<span class="line"><span style="color:#E1E4E8">      timeline.</span><span style="color:#B392F0">appendChild</span><span style="color:#E1E4E8">(marker);</span></span>
+<span class="line"><span style="color:#E1E4E8">    });</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">  </span></span>
+<span class="line"><span style="color:#B392F0">  showInteractiveCaption</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">cue</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> content</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> this</span><span style="color:#E1E4E8">.container.</span><span style="color:#B392F0">querySelector</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'.caption-content'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">    content.innerHTML </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> cue.text;</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">  </span></span>
+<span class="line"><span style="color:#B392F0">  parseTime</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">timeString</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#F97583">    const</span><span style="color:#E1E4E8"> [</span><span style="color:#79B8FF">hours</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">minutes</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">seconds</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> timeString.</span><span style="color:#B392F0">split</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">':'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#B392F0"> parseInt</span><span style="color:#E1E4E8">(hours) </span><span style="color:#F97583">*</span><span style="color:#79B8FF"> 3600</span><span style="color:#F97583"> +</span><span style="color:#B392F0"> parseInt</span><span style="color:#E1E4E8">(minutes) </span><span style="color:#F97583">*</span><span style="color:#79B8FF"> 60</span><span style="color:#F97583"> +</span><span style="color:#B392F0"> parseFloat</span><span style="color:#E1E4E8">(seconds);</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>Remember: Video captions are essential for accessibility and should be accurate, synchronized, and comprehensive. Always test captions with users who rely on them and ensure they meet WCAG requirements.</p> </div> </article> </main> <!-- Sidebar Column (1/3 width) --> <aside class="example-sidebar" data-astro-cid-6ydlrl3t> <!-- WCAG Criteria Section --> <section class="sidebar-section" data-astro-cid-6ydlrl3t> <h2 data-astro-cid-6ydlrl3t>WCAG Criteria</h2> <ul class="wcag-list" data-astro-cid-6ydlrl3t> <li data-astro-cid-6ydlrl3t> <a href="https://www.w3.org/WAI/WCAG21/quickref/#audio-only-and-video-only-prerecorded" target="_blank" rel="noopener" data-astro-cid-6ydlrl3t> 1.2.1: Audio-only and Video-only (Prerecorded) </a> </li><li data-astro-cid-6ydlrl3t> <a href="https://www.w3.org/WAI/WCAG21/quickref/#captions-prerecorded" target="_blank" rel="noopener" data-astro-cid-6ydlrl3t> 1.2.2: Captions (Prerecorded) </a> </li><li data-astro-cid-6ydlrl3t> <a href="https://www.w3.org/WAI/WCAG21/quickref/#audio-description-or-media-alternative-prerecorded" target="_blank" rel="noopener" data-astro-cid-6ydlrl3t> 1.2.3: Audio Description or Media Alternative (Prerecorded) </a> </li><li data-astro-cid-6ydlrl3t> <a href="https://www.w3.org/WAI/WCAG21/quickref/#captions-live" target="_blank" rel="noopener" data-astro-cid-6ydlrl3t> 1.2.4: Captions (Live) </a> </li> </ul> </section> <!-- Best Practices Section --> <section class="sidebar-section" data-astro-cid-6ydlrl3t> <h2 data-astro-cid-6ydlrl3t>Best Practices</h2> <ul class="practices-list" data-astro-cid-6ydlrl3t> <li data-astro-cid-6ydlrl3t>Provide captions for all video content</li><li data-astro-cid-6ydlrl3t>Ensure captions are accurate and synchronized</li><li data-astro-cid-6ydlrl3t>Include speaker identification in captions</li><li data-astro-cid-6ydlrl3t>Provide audio descriptions for visual-only content</li><li data-astro-cid-6ydlrl3t>Offer transcripts as an alternative to captions</li><li data-astro-cid-6ydlrl3t>Test captions with users who are deaf or hard of hearing</li><li data-astro-cid-6ydlrl3t>Use proper caption formatting and styling</li> </ul> </section> <!-- Who Benefits Section --> <section class="sidebar-section" data-astro-cid-6ydlrl3t> <h2 data-astro-cid-6ydlrl3t>Who Benefits</h2> <ul class="benefits-list" data-astro-cid-6ydlrl3t> <li data-astro-cid-6ydlrl3t>Users who are deaf or hard of hearing</li><li data-astro-cid-6ydlrl3t>Users in noisy environments</li><li data-astro-cid-6ydlrl3t>Users learning a new language</li><li data-astro-cid-6ydlrl3t>Users with cognitive disabilities who benefit from text</li><li data-astro-cid-6ydlrl3t>All users who prefer reading over listening</li> </ul> </section> <!-- Related Resources --> <section class="sidebar-section" data-astro-cid-6ydlrl3t> <h2 data-astro-cid-6ydlrl3t>Related Resources</h2> <ul class="resources-list" data-astro-cid-6ydlrl3t> <li data-astro-cid-6ydlrl3t> <a href="https://www.w3.org/WAI/tutorials/videos/captions/" target="_blank" rel="noopener" data-astro-cid-6ydlrl3t> W3C Captions Tutorial </a> </li><li data-astro-cid-6ydlrl3t> <a href="https://webaim.org/techniques/captions/" target="_blank" rel="noopener" data-astro-cid-6ydlrl3t> WebAIM Video Accessibility </a> </li><li data-astro-cid-6ydlrl3t> <a href="https://support.google.com/youtube/answer/2734796" target="_blank" rel="noopener" data-astro-cid-6ydlrl3t> YouTube Caption Guidelines </a> </li> </ul> </section> <!-- Testing Tools --> <section class="sidebar-section" data-astro-cid-6ydlrl3t> <h2 data-astro-cid-6ydlrl3t>Testing Tools</h2> <ul class="tools-list" data-astro-cid-6ydlrl3t> <li data-astro-cid-6ydlrl3t> <a href="https://amara.org/en/" target="_blank" rel="noopener" data-astro-cid-6ydlrl3t> Amara Caption Editor </a> </li><li data-astro-cid-6ydlrl3t> <a href="https://www.youtube.com/" target="_blank" rel="noopener" data-astro-cid-6ydlrl3t> YouTube Caption Editor </a> </li><li data-astro-cid-6ydlrl3t> <a href="https://www.videolan.org/vlc/" target="_blank" rel="noopener" data-astro-cid-6ydlrl3t> VLC Media Player </a> </li> </ul> </section> </aside> </div>  </div> </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-content" data-astro-cid-sz7xmlte> <div class="footer-section" data-astro-cid-sz7xmlte> <div class="footer-brand" data-astro-cid-sz7xmlte> <div class="footer-logo" data-astro-cid-sz7xmlte> <img src="/images/design/logo.png" alt="WhyA11y" class="footer-logo-img" data-astro-cid-sz7xmlte> <span class="footer-logo-text" data-astro-cid-sz7xmlte>Why A11y?</span> </div> <p class="footer-tagline" data-astro-cid-sz7xmlte>
+Making the web accessible for everyone through education, examples, and best practices.
+</p> </div> </div> <div class="footer-section" data-astro-cid-sz7xmlte> <h2 data-astro-cid-sz7xmlte>Content</h2> <ul class="footer-links" data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/why-a11y" data-astro-cid-sz7xmlte>Why Accessibility?</a></li> <li data-astro-cid-sz7xmlte><a href="/articles" data-astro-cid-sz7xmlte>Articles</a></li> <li data-astro-cid-sz7xmlte><a href="/code-examples" data-astro-cid-sz7xmlte>Code Examples</a></li> <li data-astro-cid-sz7xmlte><a href="/en301549" data-astro-cid-sz7xmlte>EN 301 549</a></li> </ul> </div> <div class="footer-section" data-astro-cid-sz7xmlte> <h2 data-astro-cid-sz7xmlte>Resources</h2> <ul class="footer-links" data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>WCAG Quick Reference</a></li> <li data-astro-cid-sz7xmlte><a href="https://www.w3.org/WAI/ARIA/apg/" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>ARIA Authoring Practices</a></li> <li data-astro-cid-sz7xmlte><a href="https://web.dev/accessibility/" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>Web.dev Accessibility</a></li> <li data-astro-cid-sz7xmlte><a href="https://www.a11yproject.com/" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>A11y Project</a></li> </ul> </div> <div class="footer-section" data-astro-cid-sz7xmlte> <h2 data-astro-cid-sz7xmlte>Connect</h2> <ul class="footer-links" data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="https://x.com/WhyA11y" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>X</a></li> <li data-astro-cid-sz7xmlte><a href="https://www.linkedin.com/company/why-a11y/" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>LinkedIn</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:hello@whya11y.com" data-astro-cid-sz7xmlte>Contact</a></li> <li data-astro-cid-sz7xmlte><a href="/accessibility" data-astro-cid-sz7xmlte>Accessibility Statement</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <div class="footer-bottom-content" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte>&copy; 2025 WhyA11y. All rights reserved.</p> <p class="footer-legal" data-astro-cid-sz7xmlte>
+Built with accessibility in mind.
+<a href="/privacy" data-astro-cid-sz7xmlte>Privacy Policy</a> •
+<a href="/terms" data-astro-cid-sz7xmlte>Terms of Use</a> </p> </div> </div> </footer>  </body></html> 
