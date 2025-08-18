@@ -168,8 +168,12 @@
 	}
 	.logo-text {
 		display: inline-block;
-		margin-left: .5rem;
+		margin-left: .75rem;
 		color: var(--fg);
+		vertical-align: middle;
+		font-size: 1.1rem;
+		line-height: 1;
+		font-weight: 700;
 	}
 	[data-theme="dark"] .logo-img {
 		filter: invert(1) brightness(0.9) contrast(1.2);
@@ -228,14 +232,12 @@
 	}
 	@media (max-width: 768px) {
 		.top-container {
-			padding: .8rem 1rem;
+			padding: .5rem .75rem;
 			max-width: 100%;
 		}
-		.logo-text {
-			font-size: .9rem;
-		}
+
 		.logo-img {
-			height: 1.8rem;
+			height: 2.2rem;
 		}
 		.theme-toggle {
 			width: 40px;
@@ -260,15 +262,12 @@
 	}
 	@media (max-width: 480px) {
 		.top-container {
-			padding: .8rem .75rem;
+			padding: .5rem .75rem;
 			max-width: 100%;
 		}
-		.logo-text {
-			font-size: .8rem;
-			margin-left: .25rem;
-		}
+
 		.logo-img {
-			height: 1.6rem;
+			height: 2.2rem;
 		}
 		.theme-toggle {
 			width: 36px;

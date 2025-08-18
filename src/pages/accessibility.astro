@@ -6,5 +6,146 @@ import BlogLayout from '../layouts/BlogLayout.astro';
 	description="Our accessibility statement explains how WhyA11y ensures our website is accessible to all users. Learn about our commitment to inclusive design and how to report accessibility issues."
 >
 	<h1>Accessibility Statement</h1>
-	<p>This site is built with accessibility in mind. We strive to ensure our content and features are usable by everyone, including people with disabilities. If you encounter any accessibility issues, please contact us so we can improve.</p>
+	
+	<section class="accessibility-intro">
+		<p>
+			WhyA11y is committed to ensuring digital accessibility for people with disabilities. 
+			We are continually improving the user experience for everyone and applying the 
+			relevant accessibility standards.
+		</p>
+	</section>
+
+	<section class="accessibility-standards">
+		<h2>Conformance Status</h2>
+		<p>
+			The WhyA11y website is designed to conform to the 
+			<a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener">Web Content Accessibility Guidelines (WCAG) 2.1</a> 
+			at the AA level. These guidelines explain how to make web content more accessible 
+			for people with disabilities and more user-friendly for everyone.
+		</p>
+		<p>
+			We also strive to meet the requirements of 
+			<a href="/en301549">EN 301 549</a>, the European accessibility standard for 
+			ICT products and services.
+		</p>
+	</section>
+
+	<section class="accessibility-features">
+		<h2>Accessibility Features</h2>
+		<p>Our website includes the following accessibility features:</p>
+		
+		<h3>Navigation and Structure</h3>
+		<ul>
+			<li><strong>Skip Links:</strong> A "Skip to main content" link is available at the top of every page for keyboard users</li>
+			<li><strong>Semantic HTML:</strong> Proper heading structure (H1, H2, H3, etc.) and landmark regions</li>
+			<li><strong>Breadcrumbs:</strong> Clear navigation path displayed on all pages except the homepage</li>
+			<li><strong>Consistent Navigation:</strong> Main navigation menu is consistent across all pages</li>
+		</ul>
+
+		<h3>Visual Design and Colors</h3>
+		<ul>
+			<li><strong>High Contrast:</strong> All text meets WCAG AA contrast requirements (4.5:1 for normal text, 3:1 for large text)</li>
+			<li><strong>Dark/Light Theme:</strong> Toggle between dark and light themes to suit your preference</li>
+			<li><strong>Focus Indicators:</strong> Clear, visible focus indicators for keyboard navigation</li>
+			<li><strong>Responsive Design:</strong> Website adapts to different screen sizes and orientations</li>
+		</ul>
+
+		<h3>Content and Typography</h3>
+		<ul>
+			<li><strong>Readable Fonts:</strong> Atkinson Hyperlegible font family for improved readability</li>
+			<li><strong>Scalable Text:</strong> Text can be resized up to 200% without loss of functionality</li>
+			<li><strong>Clear Language:</strong> Content is written in clear, simple language</li>
+			<li><strong>Descriptive Links:</strong> Link text clearly indicates the destination</li>
+		</ul>
+
+		<h3>Images and Media</h3>
+		<ul>
+			<li><strong>Alt Text:</strong> All meaningful images include descriptive alternative text</li>
+			<li><strong>Decorative Images:</strong> Decorative images are marked with empty alt attributes</li>
+			<li><strong>Explicit Dimensions:</strong> All images have width and height attributes to prevent layout shifts</li>
+		</ul>
+
+		<h3>Code Examples</h3>
+		<ul>
+			<li><strong>Syntax Highlighting:</strong> Code blocks use high-contrast color schemes</li>
+			<li><strong>Readable Code:</strong> Code examples are formatted for readability</li>
+			<li><strong>Accessible Patterns:</strong> All code examples demonstrate accessible implementation patterns</li>
+		</ul>
+	</section>
+
+	<section class="keyboard-navigation">
+		<h2>Keyboard Navigation</h2>
+		<p>Our website can be navigated entirely using a keyboard:</p>
+		<ul>
+			<li>Use <kbd>Tab</kbd> to move between interactive elements</li>
+			<li>Use <kbd>Enter</kbd> or <kbd>Space</kbd> to activate buttons and links</li>
+			<li>Use <kbd>Escape</kbd> to close any open dialogs or menus</li>
+			<li>Use <kbd>Arrow keys</kbd> to navigate within components</li>
+		</ul>
+	</section>
+
+	<section class="assistive-technology">
+		<h2>Assistive Technology Compatibility</h2>
+		<p>Our website is compatible with:</p>
+		<ul>
+			<li>Screen readers (NVDA, JAWS, VoiceOver, TalkBack)</li>
+			<li>Screen magnification software</li>
+			<li>Voice recognition software</li>
+			<li>Switch navigation devices</li>
+			<li>High contrast mode settings</li>
+		</ul>
+	</section>
+
+	<section class="known-issues">
+		<h2>Known Limitations</h2>
+		<p>
+			While we strive for comprehensive accessibility, we acknowledge that some areas 
+			may have limitations. We are actively working to address any identified issues 
+			and continuously improve our accessibility standards.
+		</p>
+	</section>
+
+	<section class="feedback">
+		<h2>Feedback and Contact</h2>
+		<p>
+			We welcome your feedback on the accessibility of the WhyA11y website. 
+			If you experience accessibility barriers or have suggestions for improvement, 
+			please contact us:
+		</p>
+		<ul>
+			<li><strong>Email:</strong> <a href="mailto:hello@whya11y.com">hello@whya11y.com</a></li>
+			<li><strong>Subject Line:</strong> "Accessibility Feedback"</li>
+		</ul>
+		<p>
+			Please include the following information in your message:
+		</p>
+		<ul>
+			<li>The specific page or feature you're having trouble with</li>
+			<li>A description of the accessibility barrier you encountered</li>
+			<li>Your preferred method of contact for follow-up</li>
+		</ul>
+		<p>
+			We aim to respond to accessibility feedback within 2 business days.
+		</p>
+	</section>
+
+	<section class="continuous-improvement">
+		<h2>Continuous Improvement</h2>
+		<p>
+			Accessibility is an ongoing commitment. We regularly review and update our 
+			website to ensure it remains accessible and compliant with current standards. 
+			Our development process includes:
+		</p>
+		<ul>
+			<li>Regular accessibility audits and testing</li>
+			<li>User feedback integration</li>
+			<li>Staff training on accessibility best practices</li>
+			<li>Monitoring of accessibility standards and guidelines</li>
+		</ul>
+	</section>
+
+	<section class="last-updated">
+		<h2>Last Updated</h2>
+		<p>This accessibility statement was last updated on January 2025.</p>
+	</section>
 </BlogLayout> 
