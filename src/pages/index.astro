@@ -25,6 +25,7 @@ const randomCodeExamples = getRandomItems(codeExamples, 3);
 		<h1>Making the Web Accessible for Everyone</h1>
 		<p class="hero-subtitle">
 			Learn why accessibility matters and how to implement it in your web projects. 
+			Start with the basics of HTML, it's the foundation every developer needs. 
 			From semantic HTML to ARIA patterns, discover practical solutions for creating 
 			inclusive digital experiences.
 		</p>
@@ -37,7 +38,7 @@ const randomCodeExamples = getRandomItems(codeExamples, 3);
 		<div class="content-grid">
 			<div class="content-section">
 				<h2>Latest Articles</h2>
-				<p>Explore our latest insights on web accessibility best practices and techniques.</p>
+				<p>Explore the latest insights on web accessibility best practices and techniques.</p>
 				<div class="content-list">
 					{randomArticles.map((article) => (
 						<ContentCard
@@ -53,7 +54,7 @@ const randomCodeExamples = getRandomItems(codeExamples, 3);
 			</div>
 			<div class="content-section">
 				<h2>Code Examples</h2>
-				<p>Ready-to-use code examples that demonstrate accessible patterns and techniques.</p>
+				<p>Basic accessible code examples you can use right now to make your sites more accessible.</p>
 				<div class="content-list">
 					{randomCodeExamples.map((example) => (
 						<ContentCard
@@ -70,12 +71,12 @@ const randomCodeExamples = getRandomItems(codeExamples, 3);
 		</div>
 	</section>
 	<section class="about-section">
-		<h2>About WhyA11y</h2>
+		<h2>About Why a11y?</h2>
 		<p>
 			WhyA11y is your resource for understanding and implementing web accessibility. 
-			We believe that digital experiences should be inclusive for everyone, regardless 
-			of ability or assistive technology. Our believe is that basic accessibility needs to be 
-			taught from the start, and that's why we're here.
+			I believe that digital experiences should be inclusive for everyone, regardless 
+			of ability or assistive technology. As a developer HTML should be the first language 
+			you learn, and accessibility should be the first thing you learn about it.
 		</p>
 		<div class="features">
 			<div class="feature">
@@ -98,12 +99,12 @@ const randomCodeExamples = getRandomItems(codeExamples, 3);
 	.hero {
 		text-align: center;
 		padding: 1.5rem 0 0;
-		max-width: 800px;
+		max-width: 850px;
 		margin: 0 auto;
 	}
 	.hero h1 {
 		font-size: var(--text-5xl);
-		margin-bottom: var(--spacing-md);
+		margin: 0 0 var(--spacing-md);
 		color: var(--fg);
 	}
 	.hero-subtitle {
@@ -128,7 +129,7 @@ const randomCodeExamples = getRandomItems(codeExamples, 3);
 	}
 	.btn-primary {
 		background: var(--accent-primary);
-		color: white;
+		color: var(--text-on-accent);
 		border-color: var(--accent-primary);
 	}
 	.btn-primary:hover {
@@ -137,6 +138,7 @@ const randomCodeExamples = getRandomItems(codeExamples, 3);
 	}
 	.featured-content {
 		margin: 2rem 0 3rem;
+		border-top: 1px solid var(--border);
 	}
 	.content-grid {
 		display: grid;
@@ -145,6 +147,7 @@ const randomCodeExamples = getRandomItems(codeExamples, 3);
 		max-width: 1200px;
 	}
 	.content-section h2 {
+		padding: 3rem 0 0;
 		margin: 0 0 .5rem;
 		color: var(--fg);
 	}
@@ -159,13 +162,12 @@ const randomCodeExamples = getRandomItems(codeExamples, 3);
 	}
 	.view-all {
 		display: inline-block;
-		margin-top: 1rem;
+		margin: 1rem 0 0;
 		color: var(--fg);
 		text-decoration: underline;
 		text-decoration-color: var(--accent-primary);
 		text-underline-offset: 0.2em;
 		text-decoration-thickness: 2px;
-		font-weight: 500;
 	}
 	.view-all:hover,
 	.view-all:focus,
@@ -180,7 +182,7 @@ const randomCodeExamples = getRandomItems(codeExamples, 3);
 		text-align: center;
 	}
 	.about-section h2 {
-		margin-bottom: 1rem;
+		margin: 0 0 1rem;
 		color: var(--fg);
 	}
 	.about-section > p {
@@ -231,6 +233,9 @@ const randomCodeExamples = getRandomItems(codeExamples, 3);
 		}
 		.features {
 			gap: 0
+		}
+		.content-section h2 {
+			padding: 2rem 0 0;
 		}
 	}
 </style>
