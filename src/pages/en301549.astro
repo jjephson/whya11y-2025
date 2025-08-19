@@ -9,32 +9,270 @@ import BasicPageLayout from '../layouts/BasicPageLayout.astro';
 	<section id="en301549-content">
 		<h1>EN 301 549: European Accessibility Standard</h1>
 	
-	<p>EN 301 549 is a European standard that specifies the functional accessibility requirements for Information and Communication Technology (ICT) products and services. This standard is crucial for ensuring digital accessibility across the European Union and has become a benchmark for accessibility compliance worldwide.</p>
+	<p>EN 301 549 is a comprehensive European standard that specifies the functional accessibility requirements for Information and Communication Technology (ICT) products and services. This harmonized standard is crucial for ensuring digital accessibility across the European Union and has become a global benchmark for accessibility compliance, influencing policies and practices worldwide.</p>
 	
 	<h2>What is EN 301 549?</h2>
-	<p>EN 301 549 is a harmonized European standard that defines the accessibility requirements for ICT products and services. It was developed by the European Telecommunications Standards Institute (ETSI) and is based on the Web Content Accessibility Guidelines (WCAG) 2.1, along with additional requirements specific to ICT products.</p>
+	<p>EN 301 549 is a harmonized European standard developed by the European Telecommunications Standards Institute (ETSI) in collaboration with CEN (European Committee for Standardization) and CENELEC (European Committee for Electrotechnical Standardization). The standard defines detailed accessibility requirements for ICT products and services, serving as the foundation for the European Accessibility Act (EAA) and other EU accessibility legislation.</p>
 	
-	<h2>Key Requirements</h2>
-	<p>The standard covers various aspects of digital accessibility including:</p>
+	<p>The standard was first published in 2014 and has been regularly updated to reflect evolving technology and accessibility needs. The current version incorporates WCAG 2.1 guidelines while adding specific requirements for hardware, software, and documentation that go beyond web content.</p>
+	
+	<h2>Scope and Coverage</h2>
+	<p>EN 301 549 covers a wide range of ICT products and services, including:</p>
 	<ul>
-		<li>Perceivable content and user interface components</li>
-		<li>Operable user interface components and navigation</li>
-		<li>Understandable information and user interface operation</li>
-		<li>Robust content that can be interpreted by assistive technologies</li>
-		<li>Documentation and support services accessibility</li>
+		<li><strong>Websites and web applications</strong> - Including e-commerce, government services, and educational platforms</li>
+		<li><strong>Mobile applications</strong> - Native and web-based mobile apps</li>
+		<li><strong>Software applications</strong> - Desktop software, enterprise applications, and productivity tools</li>
+		<li><strong>Hardware devices</strong> - Computers, tablets, smartphones, and other ICT equipment</li>
+		<li><strong>Documentation and support</strong> - User manuals, help systems, and customer support services</li>
+		<li><strong>Electronic documents</strong> - PDFs, Word documents, and other digital content</li>
+		<li><strong>Communication services</strong> - Email, messaging, and video conferencing platforms</li>
+	</ul>
+	
+	<h2>Core Accessibility Principles</h2>
+	<p>EN 301 549 is built around four fundamental accessibility principles, adapted from WCAG 2.1:</p>
+	
+	<h3>1. Perceivable</h3>
+	<p>Information and user interface components must be presentable to users in ways they can perceive, regardless of their sensory abilities:</p>
+	<ul>
+		<li>Text alternatives for non-text content (images, videos, audio)</li>
+		<li>Captions and audio descriptions for multimedia content</li>
+		<li>Content that can be presented in different ways without losing structure</li>
+		<li>Sufficient color contrast and visual distinction</li>
+		<li>Text that can be resized up to 200% without loss of functionality</li>
+	</ul>
+	
+	<h3>2. Operable</h3>
+	<p>User interface components and navigation must be operable by all users:</p>
+	<ul>
+		<li>Full keyboard accessibility for all functionality</li>
+		<li>Sufficient time for users to read and use content</li>
+		<li>No content that could cause seizures or physical reactions</li>
+		<li>Clear navigation mechanisms and wayfinding</li>
+		<li>Input modalities beyond keyboard (voice, gesture, etc.)</li>
+	</ul>
+	
+	<h3>3. Understandable</h3>
+	<p>Information and operation of the user interface must be understandable:</p>
+	<ul>
+		<li>Readable and predictable text content</li>
+		<li>Consistent navigation and identification</li>
+		<li>Input assistance and error prevention</li>
+		<li>Clear error messages and recovery options</li>
+		<li>Logical content structure and relationships</li>
+	</ul>
+	
+	<h3>4. Robust</h3>
+	<p>Content must be robust enough to be interpreted reliably by a wide variety of user agents, including assistive technologies:</p>
+	<ul>
+		<li>Valid markup and coding standards</li>
+		<li>Compatibility with current and future assistive technologies</li>
+		<li>Proper use of accessibility APIs and standards</li>
+		<li>Fallback mechanisms for unsupported features</li>
 	</ul>
 	
 	<h2>Compliance Levels</h2>
-	<p>EN 301 549 defines three levels of compliance:</p>
+	<p>EN 301 549 defines three levels of compliance, each representing increasing levels of accessibility:</p>
+	
+	<h3>Level A (Basic)</h3>
+	<p>The minimum level of accessibility that should be achieved. Level A compliance addresses the most critical accessibility barriers:</p>
 	<ul>
-		<li><strong>Level A:</strong> Basic accessibility requirements</li>
-		<li><strong>Level AA:</strong> Enhanced accessibility requirements (most commonly required)</li>
-		<li><strong>Level AAA:</strong> Highest level of accessibility requirements</li>
+		<li>Basic keyboard navigation</li>
+		<li>Simple text alternatives for images</li>
+		<li>Basic form labels and controls</li>
+		<li>No keyboard traps</li>
+		<li>Basic color contrast requirements</li>
 	</ul>
 	
-	<h2>Impact on Web Development</h2>
-	<p>For web developers and designers, understanding EN 301 549 is essential for creating accessible digital experiences. The standard provides clear guidelines for implementing accessibility features such as keyboard navigation, screen reader compatibility, color contrast, and alternative text for images.</p>
+	<h3>Level AA (Enhanced)</h3>
+	<p>The most commonly required level for public sector and many private sector organizations. Level AA provides a good balance of accessibility and implementation effort:</p>
+	<ul>
+		<li>4.5:1 contrast ratio for normal text</li>
+		<li>3:1 contrast ratio for large text</li>
+		<li>Captions for all pre-recorded audio content</li>
+		<li>Audio descriptions for video content</li>
+		<li>Logical heading structure</li>
+		<li>Consistent navigation</li>
+		<li>Error identification and suggestions</li>
+	</ul>
 	
-	<p>This standard is particularly important for organizations doing business in the European Union, as it forms the basis for accessibility requirements in public procurement and helps ensure compliance with the European Accessibility Act.</p>
+	<h3>Level AAA (Advanced)</h3>
+	<p>The highest level of accessibility, providing the most comprehensive user experience. Level AAA is typically required for specialized accessibility services:</p>
+	<ul>
+		<li>7:1 contrast ratio for normal text</li>
+		<li>4.5:1 contrast ratio for large text</li>
+		<li>Sign language interpretation for audio content</li>
+		<li>Extended audio descriptions</li>
+		<li>No timing restrictions</li>
+		<li>Enhanced error prevention</li>
+		<li>Reading level appropriate for secondary education</li>
+	</ul>
+	
+	<h2>European Accessibility Act (EAA) Integration</h2>
+	<p>EN 301 549 is directly referenced in the European Accessibility Act (Directive 2019/882), which requires certain products and services to be accessible by 2025. The EAA applies to:</p>
+	<ul>
+		<li>Public sector websites and mobile applications</li>
+		<li>E-commerce platforms</li>
+		<li>Banking services</li>
+		<li>Transportation services</li>
+		<li>Educational services</li>
+		<li>Healthcare services</li>
+	</ul>
+	
+	<p>Organizations providing these services must ensure compliance with EN 301 549 Level AA requirements, making this standard essential for business operations in the EU market.</p>
+	
+	<h2>Implementation Guidelines</h2>
+	<p>Successfully implementing EN 301 549 requires a systematic approach:</p>
+	
+	<h3>1. Assessment and Planning</h3>
+	<ul>
+		<li>Conduct accessibility audits of existing products</li>
+		<li>Identify compliance gaps and prioritize fixes</li>
+		<li>Develop implementation roadmap and timeline</li>
+		<li>Allocate resources and budget for accessibility work</li>
+	</ul>
+	
+	<h3>2. Development and Testing</h3>
+	<ul>
+		<li>Integrate accessibility into design and development processes</li>
+		<li>Use automated testing tools for initial screening</li>
+		<li>Conduct manual testing with assistive technologies</li>
+		<li>Involve users with disabilities in testing</li>
+		<li>Test across different devices and platforms</li>
+	</ul>
+	
+	<h3>3. Documentation and Training</h3>
+	<ul>
+		<li>Create accessible user documentation</li>
+		<li>Train support staff on accessibility features</li>
+		<li>Develop internal accessibility guidelines</li>
+		<li>Establish ongoing monitoring and maintenance processes</li>
+	</ul>
+	
+	<h2>Testing and Validation</h2>
+	<p>EN 301 549 compliance can be validated through various testing methods:</p>
+	
+	<h3>Automated Testing</h3>
+	<p>Use tools like axe, WAVE, or Lighthouse to identify common accessibility issues:</p>
+	<ul>
+		<li>Missing alt text for images</li>
+		<li>Color contrast violations</li>
+		<li>Missing form labels</li>
+		<li>Keyboard navigation issues</li>
+		<li>Semantic HTML structure problems</li>
+	</ul>
+	
+	<h3>Manual Testing</h3>
+	<p>Essential for comprehensive accessibility validation:</p>
+	<ul>
+		<li>Screen reader testing (NVDA, JAWS, VoiceOver)</li>
+		<li>Keyboard-only navigation testing</li>
+		<li>Color blindness simulation testing</li>
+		<li>Mobile accessibility testing</li>
+		<li>Voice control testing</li>
+	</ul>
+	
+	<h3>User Testing</h3>
+	<p>The most valuable form of accessibility testing involves real users:</p>
+	<ul>
+		<li>Testing with users who have visual impairments</li>
+		<li>Testing with users who have motor impairments</li>
+		<li>Testing with users who have cognitive disabilities</li>
+		<li>Testing with users who have hearing impairments</li>
+		<li>Gathering feedback and iterating on solutions</li>
+	</ul>
+	
+	<h2>Business Benefits</h2>
+	<p>Beyond legal compliance, implementing EN 301 549 provides significant business advantages:</p>
+	
+	<h3>Market Expansion</h3>
+	<ul>
+		<li>Access to the EU market's 450+ million consumers</li>
+		<li>Increased customer base including people with disabilities</li>
+		<li>Competitive advantage in public procurement</li>
+		<li>Enhanced brand reputation and social responsibility</li>
+	</ul>
+	
+	<h3>User Experience Improvements</h3>
+	<ul>
+		<li>Better usability for all users, not just those with disabilities</li>
+		<li>Improved mobile and responsive design</li>
+		<li>Enhanced SEO and search engine visibility</li>
+		<li>Reduced support costs and user complaints</li>
+	</ul>
+	
+	<h3>Technical Benefits</h3>
+	<ul>
+		<li>Cleaner, more maintainable code</li>
+		<li>Better performance and loading times</li>
+		<li>Improved cross-browser compatibility</li>
+		<li>Future-proof design for emerging technologies</li>
+	</ul>
+	
+	<h2>Common Implementation Challenges</h2>
+	<p>Organizations often face several challenges when implementing EN 301 549:</p>
+	
+	<h3>Technical Challenges</h3>
+	<ul>
+		<li>Legacy systems that are difficult to modify</li>
+		<li>Complex interactive components (maps, charts, forms)</li>
+		<li>Third-party integrations that may not be accessible</li>
+		<li>Mobile app accessibility across different platforms</li>
+		<li>Multimedia content accessibility</li>
+	</ul>
+	
+	<h3>Organizational Challenges</h3>
+	<ul>
+		<li>Limited accessibility expertise within teams</li>
+		<li>Budget constraints for accessibility work</li>
+		<li>Resistance to change from stakeholders</li>
+		<li>Balancing accessibility with design aesthetics</li>
+		<li>Maintaining accessibility during rapid development cycles</li>
+	</ul>
+	
+	<h2>Resources and Support</h2>
+	<p>Several resources are available to help organizations implement EN 301 549:</p>
+	
+	<h3>Official Documentation</h3>
+	<ul>
+		<li><a href="https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf" target="_blank" rel="noopener">Official EN 301 549 Standard (PDF)</a></li>
+		<li><a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener">WCAG 2.1 Quick Reference</a></li>
+		<li><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32019L0882" target="_blank" rel="noopener">European Accessibility Act</a></li>
+	</ul>
+	
+	<h3>Testing Tools</h3>
+	<ul>
+		<li><a href="https://www.deque.com/axe/" target="_blank" rel="noopener">axe DevTools</a> - Automated accessibility testing</li>
+		<li><a href="https://wave.webaim.org/" target="_blank" rel="noopener">WAVE</a> - Web accessibility evaluation tool</li>
+		<li><a href="https://developers.google.com/web/tools/lighthouse" target="_blank" rel="noopener">Lighthouse</a> - Google's accessibility auditing tool</li>
+		<li><a href="https://www.nvaccess.org/about-nvda/" target="_blank" rel="noopener">NVDA</a> - Free screen reader for testing</li>
+	</ul>
+	
+	<h3>Training and Certification</h3>
+	<ul>
+		<li>Web Accessibility Initiative (WAI) training materials</li>
+		<li>International Association of Accessibility Professionals (IAAP) certifications</li>
+		<li>Local accessibility consulting services</li>
+		<li>Online courses and workshops</li>
+	</ul>
+	
+	<h2>Future Developments</h2>
+	<p>EN 301 549 continues to evolve to address emerging technologies and accessibility needs:</p>
+	
+	<h3>Upcoming Changes</h3>
+	<ul>
+		<li>Integration with WCAG 3.0 when finalized</li>
+		<li>Enhanced requirements for mobile applications</li>
+		<li>Guidelines for emerging technologies (AI, VR, AR)</li>
+		<li>More specific requirements for different industry sectors</li>
+		<li>Enhanced testing methodologies and validation procedures</li>
+	</ul>
+	
+	<h3>Global Impact</h3>
+	<p>EN 301 549's influence extends beyond Europe, with many countries and organizations adopting similar standards based on its framework. This creates a global movement toward more accessible digital experiences and helps establish accessibility as a fundamental requirement rather than an optional feature.</p>
+	
+	<h2>Conclusion</h2>
+	<p>EN 301 549 represents a significant step forward in digital accessibility, providing clear, comprehensive guidelines for creating inclusive ICT products and services. While implementing these requirements may require initial investment and effort, the long-term benefits for users, organizations, and society as a whole make it a worthwhile endeavor.</p>
+	
+	<p>As we move toward a more inclusive digital future, understanding and implementing EN 301 549 will become increasingly important for any organization operating in or serving the European market. The standard not only ensures compliance with legal requirements but also demonstrates a commitment to creating digital experiences that work for everyone.</p>
 	</section>
 </BasicPageLayout>
