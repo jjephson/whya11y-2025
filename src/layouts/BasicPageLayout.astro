@@ -1,5 +1,5 @@
 ---
-import BlogLayout from './BlogLayout.astro';
+import ContentLayout from './ContentLayout.astro';
 
 export interface Props {
 	title: string;
@@ -10,91 +10,6 @@ export interface Props {
 const { title, description, contentId = 'page-content' } = Astro.props;
 ---
 
-<BlogLayout title={title} description={description}>
-	<section id={contentId}>
-		<slot />
-	</section>
-</BlogLayout>
-
-<style>
-	section {
-		max-width: var(--container-md);
-		margin: 0 auto;
-		padding: 0;
-	}
-	
-	section h1 {
-		font-size: var(--text-5xl);
-		line-height: var(--leading-tight);
-		margin: 0 0 var(--spacing-md);
-		color: var(--fg);
-		letter-spacing: 0.05em;
-	}
-	
-	section h2 {
-		font-size: var(--text-2xl);
-		line-height: var(--leading-tight);
-		margin: var(--spacing-xl) 0 var(--spacing-md);
-		color: var(--fg);
-		letter-spacing: 0.03em;
-	}
-	
-	section h3 {
-		font-size: var(--text-xl);
-		line-height: var(--leading-tight);
-		margin: var(--spacing-2xl) 0 var(--spacing-sm);
-		color: var(--fg);
-		letter-spacing: 0.02em;
-	}
-	
-	section p {
-		margin: 0 0 var(--spacing-md);
-		line-height: var(--leading-relaxed);
-		color: var(--fg);
-	}
-	
-	section ul {
-		margin: var(--spacing-md) 0;
-		padding-left: var(--spacing-2xl);
-	}
-	
-	section li {
-		margin: var(--spacing-sm) 0;
-		line-height: var(--leading-relaxed);
-		color: var(--fg);
-	}
-	
-	section a {
-		color: var(--link);
-		text-decoration: underline;
-		text-decoration-color: var(--accent-primary);
-		text-underline-offset: 0.2em;
-		text-decoration-thickness: 1px;
-	}
-	
-	section a:hover {
-		color: var(--text-on-accent);
-		text-decoration-color: var(--text-on-accent);
-		text-decoration-thickness: 2px;
-	}
-	
-	.last-updated {
-		color: var(--fg-muted);
-		font-style: italic;
-		margin-bottom: var(--spacing-xl);
-	}
-	
-	@media (max-width: 768px) {
-		section h1 {
-			font-size: var(--text-4xl);
-		}
-		
-		section h2 {
-			font-size: var(--text-lg);
-		}
-		
-		section h3 {
-			font-size: var(--text-lg);
-		}
-	}
-</style>
+<ContentLayout title={title} description={description} contentId={contentId}>
+	<slot />
+</ContentLayout>

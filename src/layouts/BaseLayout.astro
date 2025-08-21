@@ -1,0 +1,163 @@
+---
+import Header from '../components/Header.vue';
+import Footer from '../components/Footer.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+export interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { 
+	title = 'WhyA11y', 
+	description = 'Making the web accessible for everyone. Learn about web accessibility, WCAG guidelines, and inclusive design practices.' 
+} = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:site_name" content="WhyA11y" />
+		
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+
+		<!-- Font Optimization -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+		<link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+		
+		<!-- Preload critical font -->
+		<link 
+			rel="preload" 
+			href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" 
+			as="style" 
+			onload="this.onload=null;this.rel='stylesheet'"
+		/>
+		<noscript>
+			<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet" />
+		</noscript>
+		
+		<link rel="stylesheet" href="/styles/global.css" />
+		<script>
+			// Set theme immediately to prevent flash of unstyled content
+			(function() {
+				const saved = localStorage.getItem('theme');
+				if (saved) {
+					document.documentElement.setAttribute('data-theme', saved);
+				} else {
+					// Default to dark mode, but respect user's system preference if they prefer light
+					const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+					document.documentElement.setAttribute('data-theme', prefersLight ? 'light' : 'dark');
+				}
+			})();
+		</script>
+	</head>
+	<body>
+		<a href="#main-content" class="skip-link">Skip to main content</a>
+		<Header client:load />
+		<main id="main-content" tabindex="-1">
+			<div class="container">
+				<Breadcrumbs />
+				<slot />
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	/* Common content styling that can be inherited */
+	:global(.content-area) h1 {
+		font-size: var(--text-4xl);
+		margin: 0 0 var(--spacing-xl);
+		color: var(--fg);
+		line-height: var(--leading-tight);
+	}
+
+	:global(.content-area) h2 {
+		font-size: var(--text-3xl);
+		margin: var(--spacing-2xl) 0 var(--spacing-lg);
+		color: var(--fg);
+		line-height: var(--leading-tight);
+	}
+
+	:global(.content-area) h3 {
+		font-size: var(--text-2xl);
+		margin: var(--spacing-xl) 0 var(--spacing-md);
+		color: var(--fg);
+		line-height: var(--leading-tight);
+	}
+
+	:global(.content-area) p {
+		font-size: var(--text-lg);
+		line-height: var(--leading-relaxed);
+		margin: 0 0 var(--spacing-xl);
+		color: var(--fg);
+	}
+
+	:global(.content-area) ul,
+	:global(.content-area) ol {
+		margin: var(--spacing-xl) 0;
+		padding-left: var(--spacing-2xl);
+	}
+
+	:global(.content-area) li {
+		margin: var(--spacing-sm) 0;
+		font-size: var(--text-lg);
+		line-height: var(--leading-relaxed);
+		color: var(--fg);
+	}
+
+	:global(.content-area) strong {
+		color: var(--accent-primary);
+		font-weight: 600;
+	}
+
+	:global(.content-area) a {
+		color: var(--link);
+		text-decoration: underline;
+		text-decoration-color: var(--link-underline);
+		text-underline-offset: 0.2em;
+		text-decoration-thickness: 2px;
+	}
+
+	:global(.content-area) a:hover,
+	:global(.content-area) a:focus,
+	:global(.content-area) a:active {
+		color: var(--link-hover);
+		text-decoration-color: var(--link-underline-hover);
+		text-decoration-thickness: 3px;
+	}
+
+	/* Responsive typography */
+	@media (max-width: 768px) {
+		:global(.content-area) h1 {
+			font-size: var(--text-3xl);
+		}
+		
+		:global(.content-area) h2 {
+			font-size: var(--text-2xl);
+		}
+		
+		:global(.content-area) h3 {
+			font-size: var(--text-xl);
+		}
+		
+		:global(.content-area) p,
+		:global(.content-area) li {
+			font-size: var(--text-base);
+		}
+	}
+</style>

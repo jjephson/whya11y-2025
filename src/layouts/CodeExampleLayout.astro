@@ -1,0 +1,317 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+export interface Props {
+	title?: string;
+	description?: string;
+	date?: string;
+	headerImage?: string;
+	wcagCriteria?: Array<{
+		code: string;
+		title: string;
+		url: string;
+	}>;
+	bestPractices?: string[];
+	whoBenefits?: string[];
+	relatedResources?: Array<{
+		title: string;
+		url: string;
+	}>;
+	testingTools?: Array<{
+		title: string;
+		url: string;
+	}>;
+}
+
+const { 
+	title = 'Code Example',
+	description = 'Accessible code example',
+	date,
+	headerImage,
+	wcagCriteria,
+	bestPractices,
+	whoBenefits,
+	relatedResources,
+	testingTools
+} = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+	<!-- Page Header Section -->
+	<PageHeader 
+		title={title}
+		description={description}
+		date={date}
+	/>
+
+	<!-- Two Column Layout -->
+	<div class="example-layout">
+		<!-- Main Content Column (2/3 width) -->
+		<main class="example-main">
+			<article class="example-content content-area">
+				{headerImage && (
+					<div class="example-header">
+						<img src={headerImage} alt="" class="example-header-image" width="800" height="400" />
+					</div>
+				)}
+				<div class="example-text" id="example-text">
+					<slot />
+				</div>
+			</article>
+		</main>
+
+		<!-- Sidebar Column (1/3 width) -->
+		<aside class="example-sidebar">
+			<!-- WCAG Criteria Section -->
+			<section class="sidebar-section">
+				<h2>WCAG Criteria</h2>
+				<ul class="wcag-list">
+					{wcagCriteria?.map((criterion) => (
+						<li>
+							<a href={criterion.url} target="_blank" rel="noopener">
+								{criterion.code}: {criterion.title}
+							</a>
+						</li>
+					)) || (
+						<li>No specific WCAG criteria listed</li>
+					)}
+				</ul>
+			</section>
+
+			<!-- Best Practices Section -->
+			{bestPractices && (
+				<section class="sidebar-section">
+					<h2>Best Practices</h2>
+					<ul class="practices-list">
+						{bestPractices.map((practice) => (
+							<li>{practice}</li>
+						))}
+					</ul>
+				</section>
+			)}
+
+			<!-- Who Benefits Section -->
+			{whoBenefits && (
+				<section class="sidebar-section">
+					<h2>Who Benefits</h2>
+					<ul class="benefits-list">
+						{whoBenefits.map((benefit) => (
+							<li>{benefit}</li>
+						))}
+					</ul>
+				</section>
+			)}
+
+			<!-- Related Resources -->
+			{relatedResources && (
+				<section class="sidebar-section">
+					<h2>Related Resources</h2>
+					<ul class="resources-list">
+						{relatedResources.map((resource) => (
+							<li>
+								<a href={resource.url} target="_blank" rel="noopener">
+									{resource.title}
+								</a>
+							</li>
+						))}
+					</ul>
+				</section>
+			)}
+
+			<!-- Testing Tools -->
+			{testingTools && (
+				<section class="sidebar-section">
+					<h2>Testing Tools</h2>
+					<ul class="tools-list">
+						{testingTools.map((tool) => (
+							<li>
+								<a href={tool.url} target="_blank" rel="noopener">
+									{tool.title}
+								</a>
+							</li>
+						))}
+					</ul>
+				</section>
+			)}
+		</aside>
+	</div>
+</BaseLayout>
+
+<style>
+	/* Two Column Layout */
+	.example-layout {
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		gap: var(--spacing-3xl);
+		max-width: var(--container-lg);
+		margin: 0 auto;
+		align-items: start;
+	}
+
+	/* Main Content Column */
+	.example-main {
+		min-width: 0; /* Prevents grid overflow */
+	}
+	.example-content {
+		width: 100%;
+	}
+	
+	/* Header image styling */
+	.example-header {
+		margin: 0 0 var(--spacing-xl);
+		overflow: hidden;
+		border-radius: var(--radius-md);
+	}
+	.example-header-image {
+		width: 100%;
+		height: 300px;
+		object-fit: cover;
+		display: block;
+		margin: 0 0 var(--spacing-xl);
+	}
+
+	/* Main content text styling */
+	.example-text {
+		font-size: var(--text-lg);
+		line-height: var(--leading-relaxed);
+		color: var(--fg);
+	}
+	
+	/* Code block styling - for ```code blocks in markdown */
+	.example-text pre {
+		background: var(--bg-muted);
+		padding: var(--spacing-2xl);
+		border-radius: var(--radius-md);
+		overflow-x: auto;
+		margin: var(--spacing-xl) 0;
+		border: 1px solid var(--border);
+		/* Ensure proper spacing for code blocks */
+		white-space: pre;
+		word-wrap: normal;
+	}
+	/* Code inside pre blocks - removes background and padding from inline code */
+	.example-text pre code {
+		background: none;
+		padding: 0;
+		font-size: 0.9rem;
+		line-height: 1.5;
+		border-radius: 0;
+	}
+	.example-text img {
+		max-width: 100%;
+		height: auto;
+		border-radius: var(--radius-md);
+		margin: var(--spacing-xl) 0;
+	}
+	
+	/* Sidebar Styling */
+	.example-sidebar {
+		background: var(--bg-muted);
+		border-radius: var(--radius-md);
+		padding: var(--spacing-lg);
+		border: 1px solid var(--border);
+		height: fit-content;
+		margin: 0 0 var(--spacing-xl);
+	}
+	.sidebar-section {
+		margin-bottom: var(--spacing-2xl);
+	}
+	.sidebar-section:last-child {
+		margin-bottom: 0;
+	}
+	.sidebar-section h2 {
+		font-size: var(--text-lg);
+		margin: 0 0 var(--spacing-md);
+		color: var(--fg);
+		border-bottom: 2px solid var(--accent-primary);
+		padding-bottom: var(--spacing-sm);
+	}
+	.sidebar-section ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	.sidebar-section li {
+		margin-bottom: var(--spacing-sm);
+		padding: var(--spacing-sm);
+		background: var(--bg);
+		border-radius: var(--radius-sm);
+		border: 1px solid var(--border);
+		transition: all 0.2s ease;
+	}
+	.sidebar-section li:hover {
+		border-color: var(--accent-primary);
+		background: var(--bg);
+	}
+	.sidebar-section a {
+		color: var(--fg);
+		text-decoration: none;
+		display: block;
+		font-size: var(--text-sm);
+		line-height: var(--leading-normal);
+		text-decoration: underline;
+		text-decoration-color: var(--accent-primary);
+		text-underline-offset: 0.2em;
+		text-decoration-thickness: 2px;
+	}
+	.sidebar-section a:hover,
+	.sidebar-section a:focus,
+	.sidebar-section a:active {
+		color: var(--text-on-accent);
+		text-decoration-color: var(--text-on-accent);
+		text-decoration-thickness: 3px;
+	}
+
+	/* Specific list styling */
+	.wcag-list li {
+		font-weight: 500;
+	}
+
+	.practices-list li,
+	.benefits-list li {
+		font-size: var(--text-sm);
+		line-height: var(--leading-normal);
+	}
+
+	.resources-list li,
+	.tools-list li {
+		font-size: var(--text-sm);
+	}
+	
+	/* Responsive Design */
+	@media (max-width: 1024px) {
+		.example-layout {
+			grid-template-columns: 1fr;
+			gap: var(--spacing-2xl);
+		}
+		
+		.example-sidebar {
+			position: static;
+			order: 1; /* Move sidebar after main content on mobile */
+		}
+	}
+
+	@media (max-width: 768px) {
+		
+		.example-header {
+			margin: 0 0 var(--spacing-lg);
+		}
+		
+		.example-header-image {
+			height: 200px;
+		}
+		
+		.example-text {
+			font-size: var(--text-base);
+		}
+		
+		.example-sidebar {
+			padding: var(--spacing-lg);
+		}
+		
+		.sidebar-section h2 {
+			font-size: var(--text-base);
+		}
+	}
+</style>

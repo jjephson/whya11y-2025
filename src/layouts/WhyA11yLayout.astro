@@ -1,0 +1,34 @@
+---
+import SidebarLayout from './SidebarLayout.astro';
+
+export interface Props {
+	title?: string;
+	description?: string;
+	currentPage?: string;
+}
+
+const { 
+	title = 'WhyA11y', 
+	description = 'Making the web accessible for everyone. Learn about web accessibility, WCAG guidelines, and inclusive design practices.',
+	currentPage = 'overview'
+} = Astro.props;
+
+// Navigation items for the why-a11y section
+const navItems = [
+	{ id: 'overview', title: 'Overview', href: '/why-a11y' },
+	{ id: 'developers', title: 'For Developers', href: '/why-a11y/developers' },
+	{ id: 'everyone', title: 'Benefits for Everyone', href: '/why-a11y/everyone' },
+	{ id: 'companies', title: 'Business Benefits', href: '/why-a11y/companies' },
+	{ id: 'impact', title: 'Real Impact', href: '/why-a11y/impact' }
+];
+---
+
+<SidebarLayout 
+	title={title}
+	description={description}
+	sidebarTitle="Why Accessibility?"
+	navItems={navItems}
+	currentPage={currentPage}
+>
+	<slot />
+</SidebarLayout>
