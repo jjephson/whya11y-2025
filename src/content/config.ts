@@ -6,6 +6,8 @@ const articles = defineCollection({
 		description: z.string(),
 		date: z.string(),
 		headerImage: z.string().optional(),
+		// Tags for search and categorization
+		tags: z.array(z.string()).optional(),
 		// WCAG Criteria that this article addresses
 		wcagCriteria: z.array(z.object({
 			code: z.string(),
@@ -35,6 +37,8 @@ const codeExamples = defineCollection({
 		description: z.string(),
 		date: z.string(),
 		headerImage: z.string().optional(),
+		// Tags for search and categorization
+		tags: z.array(z.string()).optional(),
 		// WCAG Criteria that this example addresses
 		wcagCriteria: z.array(z.object({
 			code: z.string(),

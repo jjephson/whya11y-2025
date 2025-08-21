@@ -6,31 +6,48 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 export interface Props {
 	title?: string;
 	description?: string;
+	lang?: string;
+	dir?: string;
 }
 
 const { 
 	title = 'WhyA11y', 
-	description = 'Making the web accessible for everyone. Learn about web accessibility, WCAG guidelines, and inclusive design practices.' 
+	description = 'Making the web accessible for everyone. Learn about web accessibility, WCAG guidelines, and inclusive design practices.',
+	lang = 'en',
+	dir = 'ltr'
 } = Astro.props;
+
+// Ensure page title includes site name if not already present
+const fullTitle = title.includes('WhyA11y') ? title : `${title} | WhyA11y`;
 ---
 <!DOCTYPE html>
-<html lang="en">
+<html lang={lang} dir={dir}>
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<title>{title}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{fullTitle}</title>
 		<meta name="description" content={description} />
+		
+		<!-- Theme and Color Scheme -->
+		<meta name="theme-color" content="#0062FF" />
+		<meta name="color-scheme" content="light dark" />
 		
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
-		<meta property="og:title" content={title} />
+		<meta property="og:title" content={fullTitle} />
 		<meta property="og:description" content={description} />
 		<meta property="og:site_name" content="WhyA11y" />
+		<meta property="og:locale" content={lang} />
 		
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image" />
-		<meta property="twitter:title" content={title} />
+		<meta property="twitter:title" content={fullTitle} />
 		<meta property="twitter:description" content={description} />
+
+		<!-- Accessibility Meta Tags -->
+		<meta name="robots" content="index, follow" />
+		<meta name="author" content="WhyA11y" />
+		<meta name="generator" content="Astro" />
 
 		<!-- Font Optimization -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -65,7 +82,11 @@ const {
 		</script>
 	</head>
 	<body>
+		<!-- Enhanced Skip Links -->
 		<a href="#main-content" class="skip-link">Skip to main content</a>
+		<a href="#navigation" class="skip-link">Skip to navigation</a>
+		<a href="#footer" class="skip-link">Skip to footer</a>
+		
 		<Header client:load />
 		<main id="main-content" tabindex="-1">
 			<div class="container">
@@ -74,6 +95,9 @@ const {
 			</div>
 		</main>
 		<Footer />
+		
+		<!-- Live region for announcements -->
+		<div aria-live="polite" aria-atomic="true" class="sr-only" id="announcements"></div>
 	</body>
 </html>
 
@@ -141,6 +165,17 @@ const {
 		text-decoration-thickness: 3px;
 	}
 
+	/* Enhanced focus styles */
+	:global(.content-area) a:focus,
+	:global(.content-area) button:focus,
+	:global(.content-area) input:focus,
+	:global(.content-area) textarea:focus,
+	:global(.content-area) select:focus {
+		outline: 2px solid var(--accent-primary);
+		outline-offset: 2px;
+		border-radius: 2px;
+	}
+
 	/* Responsive typography */
 	@media (max-width: 768px) {
 		:global(.content-area) h1 {
@@ -158,6 +193,63 @@ const {
 		:global(.content-area) p,
 		:global(.content-area) li {
 			font-size: var(--text-base);
+		}
+	}
+
+	/* Enhanced skip links */
+	.skip-link {
+		position: absolute;
+		top: -100px;
+		left: 50%;
+		transform: translateX(-50%);
+		background: var(--color-white);
+		color: var(--color-black);
+		padding: 12px 20px;
+		text-decoration: none;
+		border-radius: var(--radius-md);
+		font-size: var(--text-sm);
+		z-index: 1000;
+		transition: top 0.3s ease;
+		font-weight: 600;
+	}
+
+	.skip-link:focus {
+		background: var(--color-white);
+		color: var(--color-black);
+		top: 6px;
+		outline: 3px solid var(--accent-primary);
+		box-shadow: var(--shadow-lg);
+	}
+
+	/* Multiple skip links positioning */
+	.skip-link:nth-of-type(2) {
+		left: 20%;
+	}
+
+	.skip-link:nth-of-type(3) {
+		left: 80%;
+	}
+
+	@media (max-width: 768px) {
+		.skip-link:nth-of-type(2),
+		.skip-link:nth-of-type(3) {
+			left: 50%;
+		}
+		
+		.skip-link:nth-of-type(2) {
+			top: -150px;
+		}
+		
+		.skip-link:nth-of-type(3) {
+			top: -200px;
+		}
+		
+		.skip-link:nth-of-type(2):focus {
+			top: 56px;
+		}
+		
+		.skip-link:nth-of-type(3):focus {
+			top: 106px;
 		}
 	}
 </style>

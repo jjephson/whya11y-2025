@@ -1,192 +1,72 @@
 ---
-title: "An Interview with Sarah Chen: Building Accessible Products from Day One"
-description: "Sarah Chen, Senior Accessibility Engineer at TechCorp, shares insights on integrating accessibility into product development workflows and creating inclusive digital experiences."
-date: "2024-12-19"
-headerImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80"
+title: "Accessibility Interview Questions"
+description: "Common accessibility questions and how to answer them in job interviews."
+date: "2024-06-23"
+headerImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80"
+tags: ["interview", "career", "questions", "accessibility", "job", "development"]
 wcagCriteria:
-  - code: "1.3.1"
-    title: "Info and Relationships"
-    url: "https://www.w3.org/WAI/WCAG21/quickref/#info-and-relationships"
-  - code: "2.4.6"
-    title: "Headings and Labels"
-    url: "https://www.w3.org/WAI/WCAG21/quickref/#headings-and-labels"
-  - code: "4.1.2"
-    title: "Name, Role, Value"
-    url: "https://www.w3.org/WAI/WCAG21/quickref/#name-role-value"
+  - code: "1.1.1"
+    title: "Non-text Content"
+    url: "https://www.w3.org/WAI/WCAG21/quickref/#non-text-content"
+  - code: "2.1.1"
+    title: "Keyboard"
+    url: "https://www.w3.org/WAI/WCAG21/quickref/#keyboard"
 keyTakeaways:
-  - "Accessibility should be integrated into the design process from the beginning"
-  - "User testing with people with disabilities is essential for creating truly accessible products"
-  - "Accessibility benefits all users, not just those with disabilities"
-  - "Simple changes can make a big difference in accessibility"
-  - "Education and awareness are key to building accessible products"
+  - "Understand WCAG guidelines and their importance"
+  - "Be able to explain accessibility testing methods"
+  - "Know common accessibility issues and solutions"
 whoBenefits:
-  - "Product managers and designers learning about accessibility integration"
-  - "Developers looking for practical accessibility implementation tips"
-  - "Companies wanting to improve their accessibility practices"
-  - "Users with disabilities who will benefit from more accessible products"
+  - "Job seekers in web development"
+  - "Hiring managers looking for accessibility skills"
+  - "Teams building accessible products"
 relatedResources:
-  - title: "WebAIM Accessibility Guidelines"
-    url: "https://webaim.org/standards/wcag/"
-  - title: "W3C Accessibility Tutorials"
-    url: "https://www.w3.org/WAI/tutorials/"
-  - title: "Inclusive Design Principles"
-    url: "https://www.microsoft.com/design/inclusive/"
+  - title: "WebAIM - Accessibility Interview Questions"
+    url: "https://webaim.org/blog/accessibility-interview-questions/"
+  - title: "A11y Project - Getting Started"
+    url: "https://www.a11yproject.com/checklist/"
 furtherReading:
-  - title: "Designing for Accessibility"
-    url: "https://www.interaction-design.org/literature/topics/accessibility"
   - title: "Accessibility Testing Tools"
     url: "https://www.w3.org/WAI/ER/tools/"
-  - title: "User Research with People with Disabilities"
-    url: "https://www.nngroup.com/articles/user-research-disabilities/"
+  - title: "Inclusive Design Principles"
+    url: "https://www.microsoft.com/design/inclusive/"
 ---
 
-Sarah Chen is a Senior Accessibility Engineer at TechCorp, where she leads efforts to make digital products accessible to everyone. With over 8 years of experience in accessibility and inclusive design, Sarah has helped numerous companies transform their approach to digital accessibility. In this interview, she shares her insights on building accessible products from day one.
+![Interview preparation](https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80)
 
-## The Journey into Accessibility
+Accessibility is becoming increasingly important in web development. This article covers common accessibility questions you might encounter in job interviews and how to answer them effectively.
 
-**Q: Sarah, can you tell us how you first became interested in accessibility?**
+## Why Accessibility Matters in Interviews
 
-A: It's funny how life works sometimes. I was working as a frontend developer at a startup, and one day our CEO came to me with a complaint from a customer who was blind. The customer couldn't use our app with their screen reader, and it was a wake-up call for me. I realized that we were excluding an entire group of users simply because we hadn't considered their needs.
+Companies are recognizing the importance of accessibility and want developers who understand these principles.
 
-That moment changed everything for me. I started learning about accessibility standards, testing with assistive technologies, and advocating for inclusive design within our company. What began as a side project became my passion and eventually my career.
+## Common Interview Questions
 
-**Q: What was the biggest challenge you faced when first implementing accessibility?**
+### 1. "What is web accessibility?"
 
-A: The biggest challenge wasn't technical—it was cultural. Many people saw accessibility as an afterthought, something we'd "add later" if we had time. But accessibility isn't something you can bolt on at the end. It needs to be part of your design and development process from the very beginning.
+**Good Answer:** "Web accessibility means ensuring that websites and web applications can be used by people with disabilities. This includes users with visual, auditory, motor, and cognitive impairments. It's about creating inclusive experiences that work for everyone."
 
-I had to learn how to communicate the business value of accessibility. It's not just about compliance or doing the right thing—it's about reaching more customers, improving user experience for everyone, and avoiding costly retrofits later.
+### 2. "How do you test for accessibility?"
 
-## Building Accessible Products
+**Good Answer:** "I use a combination of automated and manual testing. Automated tools like axe-core and Lighthouse help catch common issues, but manual testing with screen readers, keyboard navigation, and real users is essential. I also follow WCAG guidelines and use tools like WAVE and Color Contrast Analyzer."
 
-**Q: What's your approach to integrating accessibility into the product development process?**
+### 3. "What are some common accessibility issues?"
 
-A: I follow what I call the "Accessibility-First" approach. Here's how it works:
+**Good Answer:** "Common issues include missing alt text for images, insufficient color contrast, lack of keyboard navigation, missing form labels, and poor heading structure. I always ensure proper semantic HTML, sufficient contrast ratios, and test with assistive technologies."
 
-1. **Start with inclusive design principles** - Consider diverse user needs from the beginning
-2. **Include accessibility in design reviews** - Make it part of every design critique
-3. **Write accessible code from day one** - Use semantic HTML, proper ARIA, and keyboard navigation
-4. **Test early and often** - Don't wait until the end to test with assistive technologies
-5. **Involve users with disabilities** - Their feedback is invaluable
+## Technical Questions
 
-The key is making accessibility a requirement, not an option. When it's built into your process, it becomes second nature.
+### 4. "How would you make a dropdown menu accessible?"
 
-**Q: Can you share a specific example of how this approach made a difference?**
+**Good Answer:** "I'd use proper ARIA attributes like `aria-expanded`, `aria-haspopup`, and `role` attributes. The menu should be fully keyboard navigable with arrow keys, Enter to activate, and Escape to close. I'd also ensure focus management and clear focus indicators."
 
-A: Absolutely! We were redesigning our e-commerce checkout flow, and from the very first wireframes, we considered how someone using a screen reader would navigate through it. We structured the form with proper headings, clear labels, and logical tab order.
+### 5. "What's the difference between WCAG A, AA, and AAA?"
 
-When we tested with users who are blind, they could complete the checkout process independently—something that wasn't possible with our old design. But here's the interesting part: we also discovered that our sighted users found the new flow more intuitive and completed purchases faster. Accessibility improvements often benefit everyone.
+**Good Answer:** "WCAG has three conformance levels: A (basic), AA (standard), and AAA (highest). Most organizations aim for AA compliance as it provides good accessibility while being achievable. AAA is more stringent and may not be practical for all content types."
 
-## Common Accessibility Mistakes
+## Best Practices for Interview Preparation
 
-**Q: What are the most common accessibility mistakes you see companies making?**
-
-A: There are several patterns I see repeatedly:
-
-**1. Relying on color alone to convey information**
-This is probably the most common mistake. Using red text to indicate errors, for example, doesn't help users who are colorblind. Always provide additional cues like icons or text.
-
-**2. Poor keyboard navigation**
-Many interactive elements aren't keyboard accessible. Users should be able to navigate your entire site using only the Tab key, and all interactive elements should have visible focus indicators.
-
-**3. Missing alternative text for images**
-Images that convey information need descriptive alt text. Decorative images should have empty alt text. It's simple but often overlooked.
-
-**4. Inadequate heading structure**
-Using headings for styling instead of structure creates a confusing experience for screen reader users. Your heading hierarchy should reflect the content structure.
-
-**5. Not testing with real users**
-Automated tools are helpful, but they can't catch everything. Testing with people who actually use assistive technologies is essential.
-
-## Tools and Resources
-
-**Q: What tools and resources do you recommend for teams getting started with accessibility?**
-
-A: Here's my recommended toolkit:
-
-**For Testing:**
-- **axe DevTools** - Great for automated testing
-- **WAVE Web Accessibility Evaluator** - Visual accessibility checker
-- **NVDA (Windows) or VoiceOver (Mac)** - Screen readers for testing
-- **Keyboard navigation testing** - Try using only Tab, Enter, and Space
-
-**For Learning:**
-- **WebAIM's accessibility guidelines** - Comprehensive and practical
-- **W3C's WCAG guidelines** - The official standards
-- **Microsoft's Inclusive Design Toolkit** - Excellent design resources
-- **Deque University** - Great courses on accessibility
-
-**For Development:**
-- **Lighthouse accessibility audit** - Built into Chrome DevTools
-- **eslint-plugin-jsx-a11y** - For React projects
-- **@axe-core/react** - For automated testing in React
-
-## Measuring Success
-
-**Q: How do you measure the success of accessibility initiatives?**
-
-A: We track several metrics:
-
-**Quantitative:**
-- Number of accessibility issues found and resolved
-- Time to complete tasks for users with disabilities
-- Error rates for users with assistive technologies
-- Accessibility compliance scores
-
-**Qualitative:**
-- User feedback from people with disabilities
-- Ease of use reported by accessibility testers
-- Developer confidence in building accessible features
-- Stakeholder understanding of accessibility importance
-
-But the most important metric is whether users with disabilities can successfully complete their goals on our platform. If they can't, we haven't succeeded.
-
-## The Future of Accessibility
-
-**Q: What trends are you seeing in accessibility, and what should companies be preparing for?**
-
-A: I'm excited about several trends:
-
-**1. AI and Machine Learning**
-AI is helping with automatic captioning, image descriptions, and even detecting accessibility issues. While it's not perfect, it's making accessibility more scalable.
-
-**2. Voice Interfaces**
-As voice assistants become more common, we need to ensure our content works well with voice navigation. This includes proper heading structure and clear, concise content.
-
-**3. Mobile Accessibility**
-Mobile accessibility is becoming increasingly important. Touch targets need to be large enough, and we need to consider how assistive technologies work on mobile devices.
-
-**4. Legal Requirements**
-More countries are implementing accessibility laws, and companies are being held accountable. It's not just about doing the right thing—it's about compliance.
-
-## Advice for Getting Started
-
-**Q: What advice would you give to a company that wants to improve their accessibility but doesn't know where to start?**
-
-A: Start small but start now. Here's a simple three-step approach:
-
-**Step 1: Audit your current state**
-Use automated tools to identify the most critical accessibility issues. Focus on the most important pages or features first.
-
-**Step 2: Fix the basics**
-Address the low-hanging fruit: add alt text to images, ensure proper heading structure, and make sure everything is keyboard accessible.
-
-**Step 3: Build accessibility into your process**
-Make accessibility part of your design and development workflow. Include it in your definition of done.
-
-Remember, accessibility is a journey, not a destination. You don't have to be perfect from day one, but you do need to start moving in the right direction.
-
-## Final Thoughts
-
-**Q: What's the one thing you wish everyone understood about accessibility?**
-
-A: That accessibility is about people, not just compliance. Every accessibility guideline exists because someone, somewhere, needs it to use the web effectively.
-
-When you make your product accessible, you're not just checking boxes—you're opening doors for people who might otherwise be excluded. That's powerful. And the beautiful thing is that when you design for people with disabilities, you often create better experiences for everyone.
-
-Accessibility isn't charity work. It's good design. It's good business. And it's the right thing to do.
-
----
-
-*Sarah Chen is a Senior Accessibility Engineer at TechCorp and a passionate advocate for inclusive design. She regularly speaks at conferences and workshops about accessibility and has helped numerous companies improve their digital accessibility practices. You can follow her on Twitter @sarahchen_a11y.*
-
-*This interview was conducted as part of our ongoing series on accessibility in practice. If you'd like to share your accessibility journey or have questions for Sarah, please reach out to us.*
+- Study WCAG guidelines and understand the principles
+- Practice explaining accessibility concepts in simple terms
+- Be ready to discuss specific examples from your experience
+- Understand common accessibility tools and testing methods
+- Know how to implement basic accessibility features

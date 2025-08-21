@@ -3,6 +3,7 @@ title: "Semantic HTML"
 description: "Learn why semantic HTML is crucial for accessibility."
 date: "2024-06-20"
 headerImage: "https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=1200&q=80"
+tags: ["semantic-html", "html", "accessibility", "structure", "headings", "landmarks"]
 wcagCriteria:
   - code: "1.3.1"
     title: "Info and Relationships"

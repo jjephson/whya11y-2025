@@ -1,8 +1,9 @@
 ---
-title: "Semantic Heading Structure"
-description: "Learn how to create proper heading hierarchies that help users understand page structure and navigate content efficiently."
-date: "2024-12-19"
+title: "Heading Structure"
+description: "How to create proper heading hierarchy for better accessibility and SEO."
+date: "2024-06-20"
 headerImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80"
+tags: ["headings", "structure", "hierarchy", "accessibility", "seo", "semantic"]
 wcagCriteria:
   - code: "1.3.1"
     title: "Info and Relationships"
@@ -10,36 +11,26 @@ wcagCriteria:
   - code: "2.4.6"
     title: "Headings and Labels"
     url: "https://www.w3.org/WAI/WCAG21/quickref/#headings-and-labels"
-  - code: "2.4.10"
-    title: "Section Headings"
-    url: "https://www.w3.org/WAI/WCAG21/quickref/#section-headings"
 bestPractices:
   - "Use only one h1 per page"
-  - "Create a logical heading hierarchy (h1 → h2 → h3 → h4 → h5 → h6)"
+  - "Follow logical heading hierarchy (h1 → h2 → h3)"
   - "Don't skip heading levels"
-  - "Use descriptive, meaningful heading text"
-  - "Test heading structure with screen readers"
-  - "Use headings to organize content, not for styling"
-  - "Ensure headings accurately describe the content that follows"
+  - "Use headings to structure content, not for styling"
 whoBenefits:
-  - "Screen reader users who navigate by headings"
-  - "Users with cognitive disabilities who need clear structure"
-  - "Keyboard users who navigate with heading shortcuts"
-  - "All users who benefit from well-organized content"
+  - "Screen reader users"
+  - "Users with cognitive disabilities"
+  - "Keyboard navigation users"
+  - "All users who benefit from clear content structure"
 relatedResources:
-  - title: "WebAIM Heading Structure"
+  - title: "WebAIM - Headings"
     url: "https://webaim.org/techniques/semanticstructure/"
-  - title: "W3C Headings Tutorial"
+  - title: "Heading Structure"
     url: "https://www.w3.org/WAI/tutorials/page-structure/headings/"
-  - title: "MDN Heading Elements"
-    url: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements"
 testingTools:
-  - title: "axe DevTools"
-    url: "https://www.deque.com/axe/browser-extensions/"
-  - title: "WAVE Web Accessibility Evaluator"
+  - title: "axe-core"
+    url: "https://github.com/dequelabs/axe-core"
+  - title: "WAVE"
     url: "https://wave.webaim.org/"
-  - title: "Lighthouse Accessibility Audit"
-    url: "https://developers.google.com/web/tools/lighthouse"
 ---
 
 Proper heading structure is fundamental to web accessibility. Headings create a document outline that helps users understand the page structure and navigate content efficiently. Good heading hierarchy ensures that all users can understand the relationships between different sections of content.

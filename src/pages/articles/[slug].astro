@@ -307,30 +307,23 @@ const headerImage = article.data.headerImage || `https://source.unsplash.com/ran
 	}
 	.sidebar-section li {
 		margin-bottom: var(--spacing-sm);
-		padding: var(--spacing-sm);
-		background: var(--bg);
-		border-radius: var(--radius-sm);
-		border: 1px solid var(--border);
-		transition: all 0.2s ease;
-	}
-	.sidebar-section li:hover {
-		border-color: var(--accent-primary);
-		background: var(--bg);
 	}
 	.sidebar-section a {
-		color: var(--fg);
-		text-decoration: none;
+		color: var(--fg-muted);
+		text-decoration: underline;
+		text-decoration-color: var(--accent-primary);
+		text-underline-offset: 0.2em;
+		text-decoration-thickness: 1px;
+		font-size: 0.9rem;
+		transition: all 0.2s ease;
 		display: block;
-		font-size: var(--text-sm);
 		line-height: var(--leading-normal);
 	}
 	.sidebar-section a:hover,
 	.sidebar-section a:focus,
 	.sidebar-section a:active {
-		color: var(--accent-primary);
-		text-decoration: underline;
-		text-decoration-color: var(--accent-primary);
-		text-underline-offset: 0.2em;
+		color: var(--text-on-accent);
+		text-decoration-color: var(--text-on-accent);
 		text-decoration-thickness: 2px;
 	}
 

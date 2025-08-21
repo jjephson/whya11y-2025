@@ -1,152 +1,156 @@
 ---
-import BasicPageLayout from '../layouts/BasicPageLayout.astro';
+import ContentLayout from '../layouts/ContentLayout.astro';
 ---
-<BasicPageLayout 
-	title="Accessibility | WhyA11y"
-	description="Our accessibility statement explains how WhyA11y ensures our website is accessible to all users. Learn about our commitment to inclusive design and how to report accessibility issues."
-	contentId="accessibility-content"
+
+<ContentLayout 
+	title="Accessibility Statement"
+	description="Learn about WhyA11y's commitment to web accessibility and how we ensure our site is usable by everyone."
 >
 	<h1>Accessibility Statement</h1>
 	
-	<section class="accessibility-intro">
-		<p>
-			WhyA11y is committed to ensuring digital accessibility for people with disabilities. 
-			We are continually improving the user experience for everyone and applying the 
-			relevant accessibility standards.
-		</p>
-	</section>
+	<p><strong>WhyA11y is committed to ensuring digital accessibility for people with disabilities.</strong> We are continually improving the user experience for everyone and applying the relevant accessibility standards.</p>
 
-	<section class="accessibility-standards">
-		<h2>Conformance Status</h2>
-		<p>
-			The WhyA11y website is designed to conform to the 
-			<a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener">Web Content Accessibility Guidelines (WCAG) 2.1</a> 
-			at the AA level. These guidelines explain how to make web content more accessible 
-			for people with disabilities and more user-friendly for everyone.
-		</p>
-		<p>
-			We also strive to meet the requirements of 
-			<a href="/en301549">EN 301 549</a>, the European accessibility standard for 
-			ICT products and services.
-		</p>
-	</section>
+	<h2>Conformance Status</h2>
+	
+	<p>The Web Content Accessibility Guidelines (WCAG) defines requirements for designers and developers to improve accessibility for people with disabilities. It defines three levels of conformance: Level A, Level AA, and Level AAA.</p>
+	
+	<p>WhyA11y is <strong>partially conformant</strong> with <strong>WCAG 2.1 level AA</strong>. Partially conformant means that some parts of the content do not fully conform to the accessibility standard.</p>
 
-	<section class="accessibility-features">
-		<h2>Accessibility Features</h2>
-		<p>Our website includes the following accessibility features:</p>
+	<h2>Accessibility Features</h2>
+	
+	<p>Our website includes the following accessibility features:</p>
+	
+	<ul>
+		<li><strong>Semantic HTML:</strong> Proper use of heading hierarchy, lists, and semantic elements</li>
+		<li><strong>Keyboard Navigation:</strong> All functionality accessible via keyboard</li>
+		<li><strong>Skip Links:</strong> Quick navigation to main content, navigation, and footer</li>
+		<li><strong>Focus Indicators:</strong> Clear visual focus indicators for all interactive elements</li>
+		<li><strong>Color Contrast:</strong> WCAG AA compliant color contrast ratios</li>
+		<li><strong>Alternative Text:</strong> Descriptive alt text for images</li>
+		<li><strong>ARIA Labels:</strong> Proper ARIA attributes for enhanced screen reader support</li>
+		<li><strong>Responsive Design:</strong> Accessible across all device sizes</li>
+		<li><strong>Dark/Light Mode:</strong> Theme switching with proper contrast</li>
+		<li><strong>Reduced Motion:</strong> Respects user's motion preferences</li>
+	</ul>
+
+	<h2>Known Issues</h2>
+	
+	<p>We are aware of the following accessibility issues and are working to resolve them:</p>
+	
+	<ul>
+		<li>Some code examples may need additional language attributes for better screen reader support</li>
+		<li>Complex interactive elements may benefit from additional ARIA live regions</li>
+		<li>Search functionality (when implemented) will need comprehensive accessibility testing</li>
+	</ul>
+
+	<h2>Compatibility</h2>
+	
+	<p>WhyA11y is designed to be compatible with the following assistive technologies:</p>
+	
+	<ul>
+		<li>Screen readers (NVDA, JAWS, VoiceOver, TalkBack)</li>
+		<li>Screen magnification software</li>
+		<li>Speech recognition software</li>
+		<li>Keyboard-only navigation</li>
+		<li>High contrast mode</li>
+		<li>Reduced motion preferences</li>
+	</ul>
+
+	<h2>Testing</h2>
+	
+	<p>We test our website for accessibility using:</p>
+	
+	<ul>
+		<li>Automated testing tools (axe-core, Lighthouse)</li>
+		<li>Manual keyboard navigation testing</li>
+		<li>Screen reader testing</li>
+		<li>Color contrast analysis</li>
+		<li>Mobile accessibility testing</li>
+	</ul>
+
+	<h2>Feedback and Contact</h2>
+	
+	<p>We welcome your feedback on the accessibility of WhyA11y. Please let us know if you encounter accessibility barriers:</p>
+	
+	<ul>
+		<li>Email: <a href="mailto:hello@whya11y.com">hello@whya11y.com</a></li>
+		<li>Subject line: "Accessibility Feedback"</li>
+	</ul>
+	
+	<p>We try to respond to accessibility feedback within 2 business days.</p>
+
+	<h2>Technical Specifications</h2>
+	
+	<p>Accessibility of WhyA11y relies on the following technologies to work with the particular combination of web browser and any assistive technologies or plugins installed on your computer:</p>
+	
+	<ul>
+		<li>HTML</li>
+		<li>CSS</li>
+		<li>JavaScript</li>
+		<li>WAI-ARIA</li>
+	</ul>
+	
+	<p>These technologies are relied upon for conformance with the accessibility standards used.</p>
+
+	<h2>Assessment Methods</h2>
+	
+	<p>WhyA11y assessed the accessibility of our website by the following approaches:</p>
+	
+	<ul>
+		<li>Self-evaluation using automated testing tools</li>
+		<li>Manual testing with keyboard navigation</li>
+		<li>Screen reader testing</li>
+		<li>Mobile device testing</li>
+	</ul>
+
+	<h2>Formal Complaints</h2>
+	
+	<p>If you are not satisfied with our response to your accessibility feedback, you may file a formal complaint by contacting us at <a href="mailto:hello@whya11y.com">hello@whya11y.com</a>.</p>
+
+	<h2>Continuous Improvement</h2>
+	
+	<p>We are committed to continuously improving the accessibility of our website. This includes:</p>
+	
+	<ul>
+		<li>Regular accessibility audits</li>
+		<li>User feedback integration</li>
+		<li>Staying updated with accessibility standards</li>
+		<li>Training on accessibility best practices</li>
+	</ul>
+
+	<h2>Date</h2>
+	
+	<p>This statement was created on <time datetime="2025-01-27">January 27, 2025</time> and will be reviewed and updated regularly.</p>
+
+	<div class="accessibility-resources">
+		<h2>Additional Resources</h2>
 		
-		<h3>Navigation and Structure</h3>
+		<p>Learn more about web accessibility:</p>
+		
 		<ul>
-			<li><strong>Skip Links:</strong> A "Skip to main content" link is available at the top of every page for keyboard users</li>
-			<li><strong>Semantic HTML:</strong> Proper heading structure (H1, H2, H3, etc.) and landmark regions</li>
-			<li><strong>Breadcrumbs:</strong> Clear navigation path displayed on all pages except the homepage</li>
-			<li><strong>Consistent Navigation:</strong> Main navigation menu is consistent across all pages</li>
+			<li><a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener">WCAG 2.1 Quick Reference</a></li>
+			<li><a href="https://www.w3.org/WAI/ARIA/apg/" target="_blank" rel="noopener">ARIA Authoring Practices Guide</a></li>
+			<li><a href="https://web.dev/accessibility/" target="_blank" rel="noopener">Web.dev Accessibility</a></li>
+			<li><a href="https://www.a11yproject.com/" target="_blank" rel="noopener">A11y Project</a></li>
 		</ul>
+	</div>
+</ContentLayout>
 
-		<h3>Visual Design and Colors</h3>
-		<ul>
-			<li><strong>High Contrast:</strong> All text meets WCAG AA contrast requirements (4.5:1 for normal text, 3:1 for large text)</li>
-			<li><strong>Dark/Light Theme:</strong> Toggle between dark and light themes to suit your preference</li>
-			<li><strong>Focus Indicators:</strong> Clear, visible focus indicators for keyboard navigation</li>
-			<li><strong>Responsive Design:</strong> Website adapts to different screen sizes and orientations</li>
-		</ul>
-
-		<h3>Content and Typography</h3>
-		<ul>
-			<li><strong>Readable Fonts:</strong> Atkinson Hyperlegible font family for improved readability</li>
-			<li><strong>Scalable Text:</strong> Text can be resized up to 200% without loss of functionality</li>
-			<li><strong>Clear Language:</strong> Content is written in clear, simple language</li>
-			<li><strong>Descriptive Links:</strong> Link text clearly indicates the destination</li>
-		</ul>
-
-		<h3>Images and Media</h3>
-		<ul>
-			<li><strong>Alt Text:</strong> All meaningful images include descriptive alternative text</li>
-			<li><strong>Decorative Images:</strong> Decorative images are marked with empty alt attributes</li>
-			<li><strong>Explicit Dimensions:</strong> All images have width and height attributes to prevent layout shifts</li>
-		</ul>
-
-		<h3>Code Examples</h3>
-		<ul>
-			<li><strong>Syntax Highlighting:</strong> Code blocks use high-contrast color schemes</li>
-			<li><strong>Readable Code:</strong> Code examples are formatted for readability</li>
-			<li><strong>Accessible Patterns:</strong> All code examples demonstrate accessible implementation patterns</li>
-		</ul>
-	</section>
-
-	<section class="keyboard-navigation">
-		<h2>Keyboard Navigation</h2>
-		<p>Our website can be navigated entirely using a keyboard:</p>
-		<ul>
-			<li>Use <kbd>Tab</kbd> to move between interactive elements</li>
-			<li>Use <kbd>Enter</kbd> or <kbd>Space</kbd> to activate buttons and links</li>
-			<li>Use <kbd>Escape</kbd> to close any open dialogs or menus</li>
-			<li>Use <kbd>Arrow keys</kbd> to navigate within components</li>
-		</ul>
-	</section>
-
-	<section class="assistive-technology">
-		<h2>Assistive Technology Compatibility</h2>
-		<p>Our website is compatible with:</p>
-		<ul>
-			<li>Screen readers (NVDA, JAWS, VoiceOver, TalkBack)</li>
-			<li>Screen magnification software</li>
-			<li>Voice recognition software</li>
-			<li>Switch navigation devices</li>
-			<li>High contrast mode settings</li>
-		</ul>
-	</section>
-
-	<section class="known-issues">
-		<h2>Known Limitations</h2>
-		<p>
-			While we strive for comprehensive accessibility, we acknowledge that some areas 
-			may have limitations. We are actively working to address any identified issues 
-			and continuously improve our accessibility standards.
-		</p>
-	</section>
-
-	<section class="feedback">
-		<h2>Feedback and Contact</h2>
-		<p>
-			We welcome your feedback on the accessibility of the WhyA11y website. 
-			If you experience accessibility barriers or have suggestions for improvement, 
-			please contact us:
-		</p>
-		<ul>
-			<li><strong>Email:</strong> <a href="mailto:hello@whya11y.com">hello@whya11y.com</a></li>
-			<li><strong>Subject Line:</strong> "Accessibility Feedback"</li>
-		</ul>
-		<p>
-			Please include the following information in your message:
-		</p>
-		<ul>
-			<li>The specific page or feature you're having trouble with</li>
-			<li>A description of the accessibility barrier you encountered</li>
-			<li>Your preferred method of contact for follow-up</li>
-		</ul>
-		<p>
-			We aim to respond to accessibility feedback within 2 business days.
-		</p>
-	</section>
-
-	<section class="continuous-improvement">
-		<h2>Continuous Improvement</h2>
-		<p>
-			Accessibility is an ongoing commitment. We regularly review and update our 
-			website to ensure it remains accessible and compliant with current standards. 
-			Our development process includes:
-		</p>
-		<ul>
-			<li>Regular accessibility audits and testing</li>
-			<li>User feedback integration</li>
-			<li>Staff training on accessibility best practices</li>
-			<li>Monitoring of accessibility standards and guidelines</li>
-		</ul>
-	</section>
-
-	<section class="last-updated">
-		<h2>Last Updated</h2>
-		<p>This accessibility statement was last updated on January 2025.</p>
-	</section>
-</BasicPageLayout> 
+<style>
+	.accessibility-resources {
+		margin-top: var(--spacing-3xl);
+		padding: var(--spacing-xl);
+		background: var(--bg-muted);
+		border-radius: var(--radius-md);
+		border: 1px solid var(--border);
+	}
+	
+	.accessibility-resources h2 {
+		margin-top: 0;
+	}
+	
+	time {
+		font-weight: 600;
+		color: var(--accent-primary);
+	}
+</style> 

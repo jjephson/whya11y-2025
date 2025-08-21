@@ -3,8 +3,8 @@ import BaseLayout from './BaseLayout.astro';
 import PageHeader from '../components/PageHeader.astro';
 
 export interface Props {
-	title?: string;
-	description?: string;
+	title: string;
+	description: string;
 	date?: string;
 	headerImage?: string;
 	wcagCriteria?: Array<{
@@ -25,15 +25,15 @@ export interface Props {
 }
 
 const { 
-	title = 'Code Example',
-	description = 'Accessible code example',
-	date,
-	headerImage,
-	wcagCriteria,
-	bestPractices,
-	whoBenefits,
-	relatedResources,
-	testingTools
+	title, 
+	description, 
+	date, 
+	headerImage, 
+	wcagCriteria, 
+	bestPractices, 
+	whoBenefits, 
+	relatedResources, 
+	testingTools 
 } = Astro.props;
 ---
 
@@ -69,7 +69,7 @@ const {
 				<ul class="wcag-list">
 					{wcagCriteria?.map((criterion) => (
 						<li>
-							<a href={criterion.url} target="_blank" rel="noopener">
+							<a href={criterion.url} target="_blank" rel="noopener" aria-label={`${criterion.code}: ${criterion.title} (opens in new window)`}>
 								{criterion.code}: {criterion.title}
 							</a>
 						</li>
@@ -110,7 +110,7 @@ const {
 					<ul class="resources-list">
 						{relatedResources.map((resource) => (
 							<li>
-								<a href={resource.url} target="_blank" rel="noopener">
+								<a href={resource.url} target="_blank" rel="noopener" aria-label={`${resource.title} (opens in new window)`}>
 									{resource.title}
 								</a>
 							</li>
@@ -126,7 +126,7 @@ const {
 					<ul class="tools-list">
 						{testingTools.map((tool) => (
 							<li>
-								<a href={tool.url} target="_blank" rel="noopener">
+								<a href={tool.url} target="_blank" rel="noopener" aria-label={`${tool.title} (opens in new window)`}>
 									{tool.title}
 								</a>
 							</li>
@@ -149,62 +149,87 @@ const {
 		align-items: start;
 	}
 
-	/* Main Content Column */
+	/* Main Content Area */
 	.example-main {
 		min-width: 0; /* Prevents grid overflow */
 	}
+
 	.example-content {
-		width: 100%;
-	}
-	
-	/* Header image styling */
-	.example-header {
-		margin: 0 0 var(--spacing-xl);
+		background: var(--bg);
+		border-radius: var(--radius-lg);
 		overflow: hidden;
-		border-radius: var(--radius-md);
 	}
-	.example-header-image {
-		width: 100%;
-		height: 300px;
-		object-fit: cover;
-		display: block;
+
+	.example-header {
 		margin: 0 0 var(--spacing-xl);
 	}
 
-	/* Main content text styling */
-	.example-text {
-		font-size: var(--text-lg);
-		line-height: var(--leading-relaxed);
-		color: var(--fg);
+	.example-header-image {
+		width: 100%;
+		height: auto;
+		display: block;
 	}
-	
-	/* Code block styling - for ```code blocks in markdown */
+
+	.example-text {
+		padding: 0;
+	}
+
+	/* Enhanced code block styling */
 	.example-text pre {
 		background: var(--bg-muted);
-		padding: var(--spacing-2xl);
+		padding: var(--spacing-lg);
 		border-radius: var(--radius-md);
 		overflow-x: auto;
 		margin: var(--spacing-xl) 0;
 		border: 1px solid var(--border);
-		/* Ensure proper spacing for code blocks */
 		white-space: pre;
 		word-wrap: normal;
+		font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+		font-size: 0.9rem;
+		line-height: 1.5;
+		position: relative;
 	}
-	/* Code inside pre blocks - removes background and padding from inline code */
+
+	/* Language indicator for code blocks */
+	.example-text pre[data-language]::before {
+		content: attr(data-language);
+		position: absolute;
+		top: var(--spacing-sm);
+		right: var(--spacing-sm);
+		background: var(--accent-primary);
+		color: var(--text-on-accent);
+		padding: var(--spacing-xs) var(--spacing-sm);
+		border-radius: var(--radius-sm);
+		font-size: 0.75rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	/* Inline code styling */
+	.example-text code {
+		background: var(--bg-muted);
+		padding: var(--spacing-xs) var(--spacing-sm);
+		border-radius: var(--radius-sm);
+		font-size: 0.9em;
+		font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+	}
+
+	/* Remove background and padding from code inside pre blocks */
 	.example-text pre code {
 		background: none;
 		padding: 0;
-		font-size: 0.9rem;
-		line-height: 1.5;
 		border-radius: 0;
 	}
+
+	/* Image styling within content */
 	.example-text img {
 		max-width: 100%;
 		height: auto;
 		border-radius: var(--radius-md);
 		margin: var(--spacing-xl) 0;
 	}
-	
+
 	/* Sidebar Styling */
 	.example-sidebar {
 		background: var(--bg-muted);
@@ -212,14 +237,18 @@ const {
 		padding: var(--spacing-lg);
 		border: 1px solid var(--border);
 		height: fit-content;
-		margin: 0 0 var(--spacing-xl);
+		position: sticky;
+		top: var(--spacing-xl);
 	}
+
 	.sidebar-section {
-		margin-bottom: var(--spacing-2xl);
+		margin-bottom: var(--spacing-xl);
 	}
+
 	.sidebar-section:last-child {
 		margin-bottom: 0;
 	}
+
 	.sidebar-section h2 {
 		font-size: var(--text-lg);
 		margin: 0 0 var(--spacing-md);
@@ -227,40 +256,35 @@ const {
 		border-bottom: 2px solid var(--accent-primary);
 		padding-bottom: var(--spacing-sm);
 	}
+
 	.sidebar-section ul {
 		list-style: none;
 		padding: 0;
 		margin: 0;
 	}
+
 	.sidebar-section li {
 		margin-bottom: var(--spacing-sm);
-		padding: var(--spacing-sm);
-		background: var(--bg);
-		border-radius: var(--radius-sm);
-		border: 1px solid var(--border);
-		transition: all 0.2s ease;
-	}
-	.sidebar-section li:hover {
-		border-color: var(--accent-primary);
-		background: var(--bg);
-	}
-	.sidebar-section a {
-		color: var(--fg);
-		text-decoration: none;
-		display: block;
 		font-size: var(--text-sm);
-		line-height: var(--leading-normal);
+		line-height: var(--leading-relaxed);
+	}
+
+	.sidebar-section a {
+		color: var(--fg-muted);
 		text-decoration: underline;
 		text-decoration-color: var(--accent-primary);
 		text-underline-offset: 0.2em;
-		text-decoration-thickness: 2px;
+		text-decoration-thickness: 1px;
+		font-size: 0.9rem;
+		transition: all 0.2s ease;
 	}
+
 	.sidebar-section a:hover,
 	.sidebar-section a:focus,
 	.sidebar-section a:active {
 		color: var(--text-on-accent);
 		text-decoration-color: var(--text-on-accent);
-		text-decoration-thickness: 3px;
+		text-decoration-thickness: 2px;
 	}
 
 	/* Specific list styling */
@@ -270,48 +294,76 @@ const {
 
 	.practices-list li,
 	.benefits-list li {
-		font-size: var(--text-sm);
-		line-height: var(--leading-normal);
+		padding-left: var(--spacing-sm);
+		position: relative;
+	}
+
+	.practices-list li::before,
+	.benefits-list li::before {
+		content: "•";
+		color: var(--accent-primary);
+		font-weight: bold;
+		position: absolute;
+		left: 0;
 	}
 
 	.resources-list li,
 	.tools-list li {
-		font-size: var(--text-sm);
+		font-weight: 500;
 	}
-	
+
 	/* Responsive Design */
 	@media (max-width: 1024px) {
 		.example-layout {
 			grid-template-columns: 1fr;
 			gap: var(--spacing-2xl);
 		}
-		
+
 		.example-sidebar {
 			position: static;
 			order: 1; /* Move sidebar after main content on mobile */
 		}
+
+		.sidebar-section {
+			margin-bottom: var(--spacing-lg);
+		}
 	}
 
 	@media (max-width: 768px) {
-		
-		.example-header {
-			margin: 0 0 var(--spacing-lg);
-		}
-		
-		.example-header-image {
-			height: 200px;
-		}
-		
-		.example-text {
-			font-size: var(--text-base);
-		}
-		
 		.example-sidebar {
-			padding: var(--spacing-lg);
+			padding: var(--spacing-md);
 		}
-		
+
 		.sidebar-section h2 {
 			font-size: var(--text-base);
+		}
+
+		.example-text pre {
+			padding: var(--spacing-md);
+			font-size: 0.8rem;
+		}
+
+		.example-text pre[data-language]::before {
+			font-size: 0.7rem;
+			padding: 2px var(--spacing-xs);
+		}
+	}
+
+	/* High contrast mode support */
+	@media (prefers-contrast: high) {
+		.example-sidebar {
+			border: 2px solid var(--border);
+		}
+
+		.example-text pre {
+			border: 2px solid var(--border);
+		}
+	}
+
+	/* Reduced motion support */
+	@media (prefers-reduced-motion: reduce) {
+		.sidebar-section a {
+			transition: none;
 		}
 	}
 </style>

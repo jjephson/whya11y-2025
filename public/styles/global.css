@@ -167,6 +167,7 @@ html {
 	--leading-normal: 1.5;
 	--leading-relaxed: 1.6;
 }
+
 html, body {
 	background: var(--bg);
 	color: var(--fg);
@@ -178,14 +179,17 @@ html, body {
 	min-height: 100vh;
 	height: 100%;
 }
+
 body {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
 }
+
 main {
 	flex: 1 0 auto;
 }
+
 .container {
 	max-width: var(--container-lg);
 	margin-left: auto;
@@ -194,47 +198,115 @@ main {
 	box-sizing: border-box;
 	padding: var(--spacing-md) var(--spacing-lg) var(--spacing-sm);
 }
+
+/* Enhanced focus styles for better accessibility */
 *, *:focus {
-	outline-color: var(--fg);
+	outline-color: var(--accent-primary);
 }
+
+/* Improved focus styles for interactive elements only */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus,
+[tabindex]:focus {
+	outline: 2px solid var(--accent-primary);
+	outline-offset: 2px;
+	border-radius: 2px;
+}
+
+/* Remove default focus outline and use custom one for interactive elements */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus,
+[tabindex]:focus {
+	outline: none;
+}
+
+/* Ensure focus is always visible for interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+	outline: 2px solid var(--accent-primary);
+	outline-offset: 2px;
+	border-radius: 2px;
+}
+
+/* Remove focus styles from structural elements */
+main:focus,
+header:focus,
+footer:focus,
+nav:focus,
+section:focus,
+article:focus,
+aside:focus,
+div:focus,
+span:focus,
+p:focus,
+h1:focus,
+h2:focus,
+h3:focus,
+h4:focus,
+h5:focus,
+h6:focus,
+ul:focus,
+ol:focus,
+li:focus {
+	outline: none !important;
+}
+
 p {
 	margin: 0 0 .75rem;
 }
+
 h1, h2, h3, h4, h5, h6 {
 	font-family: Georgia, Times, "Times New Roman", serif;
 	font-weight: normal;
 }
+
 h1 {
 	font-size: var(--text-5xl);
 	line-height: var(--leading-tight);
 	margin-top: 0;
 	letter-spacing: 0.05em;
 }
+
 h2 {
 	font-size: var(--text-2xl);
 	line-height: var(--leading-normal);
 	letter-spacing: 0.03em;
 }
+
 h3 {
 	font-size: var(--text-xl);
 	line-height: var(--leading-normal);
 	letter-spacing: 0.02em;
 }
+
 h4 {
 	font-size: var(--text-lg);
 	line-height: var(--leading-normal);
 	letter-spacing: 0.01em;
 }
+
 h5 {
 	font-size: var(--text-base);
 	line-height: var(--leading-normal);
 	letter-spacing: 0.005em;
 }
+
 h6 {
 	font-size: var(--text-sm);
 	line-height: var(--leading-normal);
 	letter-spacing: 0.01em;
 }
+
 ul {
 	padding-left: var(--spacing-md);
 	margin: 0 0 var(--spacing-lg);
@@ -269,7 +341,6 @@ a:visited {
 	color: var(--link);
 }
 
-
 /* Style for inline images in articles */
 .article-header-image {
 	display: block;
@@ -278,17 +349,20 @@ a:visited {
 	object-fit: cover;
 	margin: 0 0 1.5rem 0;
 }
+
 article img,
 .article-content img {
 	display: block;
 	max-width: 100%;
 	height: auto;
 	margin: 1.5rem auto;
-} 
+}
+
 @media (max-width: 600px) {
 	
 }
 
+/* Screen reader only content */
 .sr-only {
 	position: absolute;
 	width: 1px;
@@ -300,7 +374,7 @@ article img,
 	border: 0;
 }
 
-/* Skip link styling */
+/* Enhanced skip link styling */
 .skip-link {
 	position: absolute;
 	top: -100px;
@@ -314,6 +388,7 @@ article img,
 	font-size: var(--text-sm);
 	z-index: 1000;
 	transition: top 0.3s ease;
+	font-weight: 600;
 }
 
 .skip-link:focus {
@@ -321,6 +396,7 @@ article img,
 	color: var(--color-black);
 	top: 6px;
 	outline: 3px solid var(--accent-primary);
+	box-shadow: var(--shadow-lg);
 }
 
 /* Global code block styling - ensures proper padding for all pre elements */
@@ -360,5 +436,55 @@ pre code {
 .astro-code span[style*="color:#8b949e"],
 .astro-code span[style*="color:#7d8590"] {
 	color: #e1e4e8 !important;
+}
+
+/* Enhanced text scaling support for WCAG 1.4.4 */
+@media (max-width: 768px) {
+	html {
+		font-size: 16px; /* Ensure minimum 16px for mobile */
+	}
+}
+
+/* Support for user's font size preferences */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+	:root {
+		--accent-primary: #0000ff;
+		--link: #0000ff;
+		--border: #000000;
+	}
+	
+	[data-theme="light"] {
+		--accent-primary: #0000ff;
+		--link: #0000ff;
+		--border: #000000;
+	}
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+	.skip-link {
+		transition: none;
+	}
+	
+	.theme-toggle .toggle-icon {
+		transition: none;
+	}
+	
+	.sun-icon,
+	.moon-icon {
+		transition: none;
+	}
 }
 
