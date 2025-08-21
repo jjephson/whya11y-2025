@@ -214,13 +214,14 @@
 		color: white;
 		transform: translateY(-1px);
 		box-shadow: var(--shadow-xl);
+		outline: none;
 	}
 	.theme-toggle:active {
+		background: var(--accent-primary);
+		border-color: var(--accent-primary);
+		color: white;
 		transform: translateY(0);
 		box-shadow: var(--shadow-sm);
-	}
-	.theme-toggle:focus {
-		outline: none;
 	}
 	.toggle-icon {
 		display: flex;
@@ -239,7 +240,9 @@
 		background: var(--bg-muted);
 		border-color: var(--border);
 	}
-	[data-theme="dark"] .theme-toggle:hover {
+	[data-theme="dark"] .theme-toggle:hover,
+	[data-theme="dark"] .theme-toggle:focus,
+	[data-theme="dark"] .theme-toggle:active {
 		background: var(--accent-primary);
 		border-color: var(--accent-primary);
 	}

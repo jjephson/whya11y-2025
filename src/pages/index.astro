@@ -158,13 +158,14 @@ const randomCodeExamples = getRandomItems(codeExamples, 3);
 
 	.search-section {
 		text-align: center;
-		padding: var(--spacing-3xl) 0;
+		padding: var(--spacing-xl) 0;
 		background: var(--bg-muted);
 		margin: var(--spacing-3xl) 0;
 		border-radius: var(--radius-lg);
 	}
 
 	.search-section h2 {
+		margin-top: 0;
 		margin-bottom: var(--spacing-md);
 		color: var(--fg);
 	}
@@ -205,18 +206,20 @@ const randomCodeExamples = getRandomItems(codeExamples, 3);
 	}
 
 	.view-all {
-		color: var(--accent-primary);
+		color: var(--fg-muted);
 		text-decoration: underline;
 		text-decoration-color: var(--accent-primary);
 		text-underline-offset: 0.2em;
-		font-weight: 600;
+		text-decoration-thickness: 1px;
+		font-size: 0.9rem;
 		transition: all 0.2s ease;
 	}
 
 	.view-all:hover,
-	.view-all:focus {
-		color: var(--link-hover);
-		text-decoration-color: var(--link-hover);
+	.view-all:focus,
+	.view-all:active {
+		color: var(--text-on-accent);
+		text-decoration-color: var(--text-on-accent);
 		text-decoration-thickness: 2px;
 	}
 
