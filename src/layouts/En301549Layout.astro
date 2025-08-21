@@ -1,0 +1,27 @@
+---
+import SidebarLayout from './SidebarLayout.astro';
+
+export interface Props {
+	title: string;
+	description: string;
+	contentId?: string;
+}
+
+const { title, description } = Astro.props;
+
+const navItems = [
+	{ id: 'overview', title: 'Overview', href: '/en301549' }
+];
+
+const currentPage = 'overview';
+---
+
+<SidebarLayout 
+	title={title}
+	description={description}
+	navItems={navItems}
+	currentPage={currentPage}
+	sidebarTitle="EN 301 549"
+>
+	<slot />
+</SidebarLayout>
