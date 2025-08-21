@@ -22,7 +22,7 @@ const { title, description, date, className = '' } = Astro.props;
 <style>
 	.page-header {
 		text-align: center;
-		padding: var(--spacing-xl) 0 var(--spacing-2xl);
+		padding: var(--spacing-xl) 0;
 		max-width: var(--container-md);
 		margin: 0 auto var(--spacing-3xl);
 		border-bottom: 1px solid var(--border);
@@ -38,9 +38,6 @@ const { title, description, date, className = '' } = Astro.props;
 		line-height: var(--leading-relaxed);
 		color: var(--fg-muted);
 		margin: 0 0 var(--spacing-lg);
-	}
-	.page-meta {
-		margin-bottom: var(--spacing-lg);
 	}
 	.page-meta time {
 		font-size: var(--text-sm);
