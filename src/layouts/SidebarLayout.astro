@@ -23,9 +23,7 @@ const {
 ---
 
 <BaseLayout title={title} description={description}>
-	<!-- Two Column Layout -->
 	<div class="sidebar-layout">
-		<!-- Left Navigation Sidebar -->
 		<nav class="sidebar-nav" aria-label="Page navigation">
 			<div class="sidebar-header">
 				<h2>{sidebarTitle}</h2>
@@ -44,8 +42,6 @@ const {
 				))}
 			</ul>
 		</nav>
-
-		<!-- Main Content Area -->
 		<div class="main-content content-area">
 			<slot />
 		</div>
@@ -53,7 +49,6 @@ const {
 </BaseLayout>
 
 <style>
-	/* Two Column Layout */
 	.sidebar-layout {
 		display: grid;
 		grid-template-columns: 300px 1fr;
@@ -62,8 +57,6 @@ const {
 		margin: 0 auto;
 		align-items: start;
 	}
-
-	/* Left Sidebar Navigation */
 	.sidebar-nav {
 		background: var(--bg-muted);
 		border-radius: var(--radius-md);
@@ -72,7 +65,6 @@ const {
 		height: fit-content;
 		top: var(--spacing-xl);
 	}
-
 	.sidebar-header h2 {
 		font-size: var(--text-xl);
 		margin: 0 0 var(--spacing-lg);
@@ -80,17 +72,14 @@ const {
 		border-bottom: 2px solid var(--accent-primary);
 		padding-bottom: var(--spacing-sm);
 	}
-
 	.nav-list {
 		list-style: none;
 		padding: 0;
 		margin: 0;
 	}
-
 	.nav-list li {
 		margin-bottom: var(--spacing-sm);
 	}
-
 	.nav-list a {
 		display: block;
 		color: var(--fg-muted);
@@ -102,14 +91,12 @@ const {
 		font-weight: 500;
 		padding: var(--spacing-sm) 0;
 	}
-
 	.nav-list a:hover,
 	.nav-list a:focus {
-		color: white;
-		text-decoration-color: white;
+		color: var(--text-on-accent);
+		text-decoration-color: var(--text-on-accent);
 		text-decoration-thickness: 2px;
 	}
-
 	.nav-list a.active {
 		background: var(--accent-primary);
 		color: white;
@@ -118,20 +105,15 @@ const {
 		padding: var(--spacing-sm) var(--spacing-md);
 		border-radius: var(--radius-sm);
 	}
-
 	.nav-list a.active:hover,
 	.nav-list a.active:focus {
 		background: var(--accent-primary);
 		color: white;
 		text-decoration: none;
 	}
-
-	/* Main Content Area */
 	.main-content {
-		min-width: 0; /* Prevents grid overflow */
+		min-width: 0;
 	}
-
-	/* Responsive Design */
 	@media (max-width: 1024px) {
 		.sidebar-layout {
 			grid-template-columns: 1fr;
@@ -139,7 +121,7 @@ const {
 		}
 		.sidebar-nav {
 			position: static;
-			order: 1; /* Move sidebar after main content on mobile */
+			order: 1;
 		}
 		.nav-list {
 			display: flex;
@@ -154,7 +136,6 @@ const {
 			white-space: nowrap;
 		}
 	}
-
 	@media (max-width: 768px) {
 		.sidebar-nav {
 			padding: var(--spacing-md);
