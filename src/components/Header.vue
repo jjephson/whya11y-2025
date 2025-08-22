@@ -107,7 +107,7 @@
 		font-family: 'Libre Franklin', Helvetica, Arial, sans-serif;
 	}
 	.top-container {
-		padding: .5rem .75rem;
+		padding: 1rem .75rem;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -212,9 +212,7 @@
 		background: var(--accent-primary);
 		border-color: var(--accent-primary);
 		color: white;
-		transform: translateY(-1px);
 		box-shadow: var(--shadow-xl);
-		outline: none;
 	}
 	.theme-toggle:active {
 		background: var(--accent-primary);
@@ -247,18 +245,6 @@
 		border-color: var(--accent-primary);
 	}
 	@media (max-width: 768px) {
-		.top-container {
-			padding: .5rem .75rem;
-			max-width: 100%;
-		}
-
-		.logo-img {
-			height: 2.2rem;
-		}
-		.theme-toggle {
-			width: 40px;
-			height: 40px;
-		}
 		.sun-icon,
 		.moon-icon {
 			width: 18px;
@@ -272,24 +258,11 @@
 			width: 100%;
 		}
 		.menu li a {
-			padding: .75rem .25rem .25rem;
+			padding: .75rem .25rem;
 			font-size: .8rem;
 		}
 	}
 	@media (max-width: 480px) {
-		.top-container {
-			padding: .5rem .75rem;
-			max-width: 100%;
-		}
-
-		.logo-img {
-			height: 2.2rem;
-		}
-		.theme-toggle {
-			width: 36px;
-			height: 36px;
-			margin: 0 0 0 .5rem;
-		}
 		.sun-icon,
 		.moon-icon {
 			width: 16px;
@@ -299,7 +272,7 @@
 			gap: 0.25rem;
 		}
 		.menu li a {
-			padding: 0.4rem 0.2rem 0.2rem 0.2rem;
+			padding: .75rem .25rem;
 			font-size: 0.75rem;
 		}
 	}

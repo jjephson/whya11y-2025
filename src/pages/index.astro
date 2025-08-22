@@ -149,11 +149,9 @@ const randomCodeExamples = getRandomItems(codeExamples, 3);
 	}
 
 	.btn-primary:hover,
+	.btn-primary:active,
 	.btn-primary:focus {
 		background: var(--accent-primary);
-		color: white;
-		transform: translateY(-2px);
-		box-shadow: var(--shadow-lg);
 	}
 
 	.search-section {
@@ -272,6 +270,9 @@ const randomCodeExamples = getRandomItems(codeExamples, 3);
 	}
 
 	@media (max-width: 768px) {
+		.hero {
+			padding: var(--spacing-md) var(--spacing-lg) var(--spacing-2xl);
+		}
 		.hero h1 {
 			font-size: var(--text-4xl);
 		}
@@ -296,14 +297,17 @@ const randomCodeExamples = getRandomItems(codeExamples, 3);
 		}
 
 		.search-section {
-			margin: var(--spacing-2xl) 0;
+			margin: 0;
 			padding: var(--spacing-2xl) var(--spacing-lg);
+		}
+		.featured-content {
+			padding: var(--spacing-xl) 0 0;
 		}
 	}
 
 	@media (max-width: 480px) {
 		.hero {
-			padding: var(--spacing-2xl) var(--spacing-lg);
+			padding: var(--spacing-md) var(--spacing-lg) var(--spacing-2xl);
 		}
 
 		.hero h1 {
@@ -313,6 +317,9 @@ const randomCodeExamples = getRandomItems(codeExamples, 3);
 		.btn {
 			padding: var(--spacing-sm) var(--spacing-lg);
 			font-size: var(--text-sm);
+		}
+		.search-section {
+			margin: 0;
 		}
 	}
 </style>
